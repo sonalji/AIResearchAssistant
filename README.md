@@ -33,4 +33,5 @@ Features:
  7) Literature Review Generator
  8) Local vector database for fast retrieval
  9) Built using Retrieval-Augmented Generation
+ 10) Working AI feature
 
