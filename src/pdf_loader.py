@@ -1,4 +1,5 @@
 import fitz
+import os
 
 def extract_pdf(pdf_path):
     document = fitz.open(pdf_path)

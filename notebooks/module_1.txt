@@ -1,0 +1,4 @@
+Extract_pdf: This function extracts pages from given pdf using PyMuPDF.PyMuPDF is 
+Fast,Accurate,Preserves page structure well,Widely used for research PDFs.
+This function returns a list of dictionaries
+text_cleaner.py:Objective is to clean you text it includes removal of extra whitespaces,multiple blank lines, empty lines and if there is repeated common line in all pages like IEEE DOI etc. 
