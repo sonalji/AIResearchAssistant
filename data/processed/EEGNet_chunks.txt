@@ -1,0 +1,2456 @@
+====================================================================================================
+Chunk ID: 1 | Page: 1
+====================================================================================================
+
+2379-8920 (c) 2017 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.
+This article has been accepted for publication in a future issue of this journal, but has not been fully edited. Content may change prior to final publication. Citation information: DOI 10.1109/TCDS.2017.2787040, IEEE
+Transactions on Cognitive and Developmental Systems
+IEEE TRANSACTIONS O
+
+====================================================================================================
+Chunk ID: 2 | Page: 1
+====================================================================================================
+
+SACTIONS ON COGNITIVE AND DEVELOPMENTAL SYSTEMS, VOL. XX, NO. XX, MONTH 201X
+1
+Online Covariate Shift Detection based Adaptive
+Brain-Computer Interface to Trigger Hand
+Exoskeleton Feedback for Neuro-Rehabilitation
+Anirban Chowdhury, Student Member, IEEE, Haider Raza, Member, IEEE, Yogesh Kumar Meena, Student
+Member, IEEE, Ashish Dutta, Member, IEEE, and Girijesh Prasad, Senior Member, IEEE
+Abstract—A
+major
+issue
+in
+electroencephalogram
+(EEG)
+based brain-computer interfaces (BCIs) is the intrinsi
+
+====================================================================================================
+Chunk ID: 3 | Page: 1
+====================================================================================================
+
+e intrinsic non-
+stationarities in the brain waves, which may degrade the per-
+formance of the classiﬁer, while transitioning from calibration
+to feedback generation phase. The non-stationary nature of
+the EEG data may cause its input probability distribution to
+vary over time, which often appear as a covariate shift. To
+adapt to the covariate shift, we had proposed an adaptive
+learning method in our previous work and tested it on ofﬂine
+standard datasets. This paper presents an online BCI syste
+
+====================================================================================================
+Chunk ID: 4 | Page: 1
+====================================================================================================
+
+ BCI system
+using previously developed covariate shift detection (CSD)-based
+adaptive classiﬁer to discriminate between mental tasks and
+generate neurofeedback in the form of visual and exoskeleton
+motion. The CSD test helps prevent unnecessary retraining of
+the classiﬁer. The feasibility of the developed online-BCI system
+was ﬁrst tested on 10 healthy individuals, and then on 10
+stroke patients having hand disability. A comparison of the
+proposed online CSD-based adaptive classiﬁer with convent
+
+====================================================================================================
+Chunk ID: 5 | Page: 1
+====================================================================================================
+
+th conventional
+non-adaptive classiﬁer has shown a signiﬁcantly (p ≤0.01)
+higher classiﬁcation accuracy in both the cases of healthy and
+patient groups. The results demonstrate that the online CSD-
+based adaptive BCI system is superior to the non-adaptive BCI
+system and it is feasible to be used for actuating hand exoskeleton
+for the stroke-rehabilitation applications.
+Index Terms—Adaptive learning, Brain-computer interface,
+Covariate shift detection, Hand-exoskeleton, Neurorehabilitation.
+I. IN
+
+====================================================================================================
+Chunk ID: 6 | Page: 1
+====================================================================================================
+
+ion.
+I. INTRODUCTION
+S
+INCE its inception in 1973 by J.J. Vidal, brain-computer
+interface (BCI) technology has seen a rapid growth in the
+last three decades, thanks to the advancement in neurophys-
+iology, electronics, signal processing, and computer science
+[1]. The BCI technology has found its utility as a potential
+means of communication and control for disabled people to
+interact with the outside world [2]. Several features extracted
+from the cortical signals such as the slow cortical potent
+
+====================================================================================================
+Chunk ID: 7 | Page: 1
+====================================================================================================
+
+cal potentials,
+sensory motor rhythms (SMR), and P300, have been exploited
+to make several applications using the BCI systems [3].
+As BCI requires focused attention which is also a key
+factor in regenerating motor skills, many neurorehabilitation
+therapies have been designed using this technology [4], [5].
+AC and AD are with the Centre of Mechatronics, Indian Institute of
+Technology (IIT) Kanpur, India
+HR is with School of Computer Science and Electronic Engineering,
+University of Essex, UK
+YKM 
+
+====================================================================================================
+Chunk ID: 8 | Page: 1
+====================================================================================================
+
+x, UK
+YKM and GP are with Intelligent Systems Research Centre, Ulster Uni-
+versity, UK
+Corresponding authors: AC (anir@iitk.ac.in)
+Manuscript received June XX, 2017; revised Month XX, 201X.
+These therapies have a potential for faster regeneration and
+reorganization of the neuronal networks, often known as neu-
+roplasticity [6]. The strong correlation between EEG signals
+and mental tasks has led to many user centric applications
+such as virtual spellers for the communication [7], func-
+tional ele
+
+====================================================================================================
+Chunk ID: 9 | Page: 1
+====================================================================================================
+
+tional electrical stimulation (FES) based neuro-prosthesis for
+tetraplegics [4], hand exoskeleton control [8], [9], [10], [11]
+and telepresence for personal assistance [12]. In spite of the
+seemingly bright prospect of the BCI technology, there are
+some practical challenges regarding the robustness, accuracy,
+and information transfer rate (ITR) of such systems [13],
+[14], [15]. The non-stationary nature of neurophysiological
+signals and dynamics of brain activity make the EEG-based
+BCI, a dynami
+
+====================================================================================================
+Chunk ID: 10 | Page: 1
+====================================================================================================
+
+, a dynamically varying system, and thus improving its
+learning performance is a challenging task [16]. It is well-
+known that due to the presence of non-stationarity, the input
+data distribution of EEG varies from trial-to-trial and also from
+session-to-session transfer. The non-stationarities of the EEG
+signals may be caused by various reasons such as changes in
+the user attention level, electrode placement, and user fatigue
+[17]. As a result, these variations often appear as covariate
+shifts,
+
+====================================================================================================
+Chunk ID: 11 | Page: 1
+====================================================================================================
+
+te
+shifts, wherein the input data distributions differ signiﬁcantly
+between training/calibration and evaluation/online feedback
+phases, while the conditional distribution remains the same
+[18]. Within an EEG-based BCI system that operates online
+in real-time non-stationary/changing environments, learning
+approaches are needed that can track the changes over time,
+and adapt in a timely fashion. The BCI systems, wherein the
+users are trained to produce a ﬁxed EEG pattern, are often
+time-consuming 
+
+====================================================================================================
+Chunk ID: 12 | Page: 1
+====================================================================================================
+
+consuming and tiring for the participants [13], while the
+advent of Berlin BCI system greatly shortened the subject
+speciﬁc training protocols by the use of machine learning
+techniques [19], [20], [21]. Thus, it speeds up the conven-
+tional training protocols for improved performance [13], and
+could be more natural and relevant for people with disability
+[4]. Adaptive Brain Interface (ABI) was one of the earliest
+examples of such BCI systems [17], later many other systems
+using error potential b
+
+====================================================================================================
+Chunk ID: 13 | Page: 1
+====================================================================================================
+
+otential based adaptation [22], adaptive autore-
+gressive models [23], transductive learning [24], covariate
+shift adaptation [18], [25], Kullback-Leiber-Common-Spatial-
+Patterns (KLCSP) [26], interval-type-2-fuzzy classiﬁers [27]
+have been implemented.
+However, there is always a risk for inappropriate adap-
+tation, wherein the user may be confused by the unpre-
+dictable changes which may lead to degraded performance
+
+====================================================================================================
+Chunk ID: 14 | Page: 2
+====================================================================================================
+
+2379-8920 (c) 2017 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.
+This article has been accepted for publication in a future issue of this journal, but has not been fully edited. Content may change prior to final publication. Citation information: DOI 10.1109/TCDS.2017.2787040, IEEE
+Transactions on Cognitive and Developmental Systems
+IEEE TRANSACTIONS O
+
+====================================================================================================
+Chunk ID: 15 | Page: 2
+====================================================================================================
+
+SACTIONS ON COGNITIVE AND DEVELOPMENTAL SYSTEMS, VOL. XX, NO. XX, MONTH 201X
+2
+[22]. Although the common spatial patterns (CSP) based
+feature extraction method has been widely explored to com-
+pute spatial ﬁlters which give maximum feature separability,
+they are not invariant against dynamic intra- and inter-session
+changes in the signal, as CSP only considers the difference in
+means between two classes while ignoring the scatter within
+a particular class [20], [28]. Next, Li et al., [18] propos
+
+====================================================================================================
+Chunk ID: 16 | Page: 2
+====================================================================================================
+
+18] proposed
+a covariate shift adaptation (CSA) method for improving
+the performance of BCI systems. Additionally, a covariate
+shift minimization (CSM) method was proposed for the non-
+stationary adaptation to reduce the feature set overlap and
+unbalance for different classes in the feature set domain [29].
+Also, most of the covariate shift adaptation (CSA) methods
+are commonly implemented in a batch processing manner,
+which limits its applicability in real-time application [29],
+[18], [30]. It 
+
+====================================================================================================
+Chunk ID: 17 | Page: 2
+====================================================================================================
+
+ [30]. It is important to note that the non-stationary
+adaptation methods are majorly categorized into passive and
+active approaches [31]. However, the traditional BCI systems
+are based on passive approach for non-stationary learning in
+EEG. In contrast, an active approach based non-stationary
+learning method in BCI system may be a possible option that
+uses a CSD test to detect the presence of covariate shifts in the
+streaming EEG features, and based upon the detected shift, an
+adaptive action i
+
+====================================================================================================
+Chunk ID: 18 | Page: 2
+====================================================================================================
+
+e action is initiated. In our previous work [16], we have
+implemented the active approach in single-trial EEG classiﬁ-
+cation in ofﬂine mode and the performance of the system was
+superior to existing passive approach based BCI systems [32],
+[17], [29], [18], [33], [34]. However, improving the accuracy
+of the online BCI system for the neurorehabilitation purpose
+is still an open challenge.
+Here we present an online adaptive BCI system based on
+a two-stage CSD test. In the ﬁrst stage of online CSD
+
+====================================================================================================
+Chunk ID: 19 | Page: 2
+====================================================================================================
+
+online CSD test,
+it generates a shift detection warning using the exponentially
+weighted moving average (EWMA) model and in the second
+stage, this warning is validated by Hotelling’s T-square statis-
+tical test. The second stage of the CSD test aims to reduce the
+false detection rates [35], [36]. A combination of CSD test
+and supervised adaptation helps to build an online adaptive
+BCI system that aims to trigger a hand exoskeleton device
+to provide a neurofeedback for healthy volunteers, and str
+
+====================================================================================================
+Chunk ID: 20 | Page: 2
+====================================================================================================
+
+s, and stroke
+patients suffering from ﬁnger impairment. We have chosen
+this speciﬁc area of disability as EEG pattern recognition for
+ﬁnger movements is relatively challenging due to low signal-
+to-noise ratio (SNR) and ﬁnger representative areas in the
+somatosensory cortex are spatially over-lapping [37]. Also,
+there is a need for undertaking such work because BCI systems
+requiring quick calibration and user adaptation in real-time are
+in high demand, while there is a real shortage of such stud
+
+====================================================================================================
+Chunk ID: 21 | Page: 2
+====================================================================================================
+
+ such studies
+on stroke patients [38]. The key contributions of the research
+in the paper are summarized as follows:
+1) It implements an online adaptive BCI system and tests
+it for feasibility on healthy and post-stroke individuals.
+2) For user-speciﬁc adaptation, the system uses the two
+stage CSD-based adaptation technique, which reduces
+the rate of false shift and is applicable to online stream-
+ing data..
+3) It uses two feedback modes: visual feedback is given
+on computer screen and proprioce
+
+====================================================================================================
+Chunk ID: 22 | Page: 2
+====================================================================================================
+
+ proprioceptive feedback is pro-
+vided through a hand exoskeleton, which also motivates
+the user, for adapting to the system. Thus it facilitates
+mutual learning.
+4) The performance of the proposed system is demonstrated
+to be superior to the conventional system non-adaptive
+classiﬁer.
+The remainder of this paper proceeds as follows: Section II
+presents materials and methods that include system overview,
+experimental protocol, data acquisition, and signal processing
+for the proposed adaptive BCI
+
+====================================================================================================
+Chunk ID: 23 | Page: 2
+====================================================================================================
+
+aptive BCI system. Next, section III
+presents the performance analysis and results. Finally, Section
+IV includes the discussion and section V summarizes the
+ﬁndings of this study.
+II. MATERIALS AND METHODS
+A. System Overview
+The adaptive BCI system developed for the experimentation,
+uses g.USBamp (g.tec, Graz, Austria) biosignal ampliﬁer, EEG
+cap (g.tec), Ag/AgCl based EEG electrodes for recording scalp
+EEG data. The experimental paradigm and software for the
+signal processing and feedback gener
+
+====================================================================================================
+Chunk ID: 24 | Page: 2
+====================================================================================================
+
+back generation were built in-house
+using MATLAB-Simulink environment. The neurofeedback
+was provided in the form of a visual hand grasp on the
+computer screen and actual motion of the same grasping action
+was provided using a hand-exoskeleton for moving coupled
+index-middle ﬁngers and thumb.
+The exoskeleton was developed using a nylon based light
+weight material by a rapid prototyping method and it is
+portable and comfortable to wear [39]. It does the ﬂexion and
+extension motion of the ﬁngers f
+
+====================================================================================================
+Chunk ID: 25 | Page: 2
+====================================================================================================
+
+e ﬁngers for the patients suffering from
+ﬁnger impairment after stroke. The index and middle ﬁngers
+are coupled and a four-bar mechanism drives them jointly.
+Although they are coupled, the ﬁnger attachments are made
+in such a manner, that it doesn’t put unnecessary pressure on
+the ﬁngers. For driving the thumb, there is another four-bar
+mechanism. The four-bar linkages are driven by servo motors
+in position control mode for following a predeﬁned human
+ﬁnger trajectory of ﬂexion and extension mot
+
+====================================================================================================
+Chunk ID: 26 | Page: 2
+====================================================================================================
+
+ension motion.
+B. Experimental Protocol
+An overview of the experimental protocol is shown in Fig.
+1. It follows a conventional SMR BCI architecture consisting
+of two stages. The ﬁrst stage is the data acquisition without
+giving any feedback, from which an initial classiﬁer is trained
+using the extracted features and the initial parameters for CSD
+based classiﬁer adaptation is obtained. This is followed by the
+online BCI stage that issues neurofeedback on the basis of the
+classiﬁer outputs. Data 
+
+====================================================================================================
+Chunk ID: 27 | Page: 2
+====================================================================================================
+
+uts. Data acquisition during ﬁrst stage consists of
+two runs of 40 trials and each run takes about 7 minutes and 30
+seconds. Next, the classiﬁer was trained in the off-line mode
+and it takes nearly 30 s, which is followed by one feedback
+run of 40 trials in online BCI mode. In each run 20 trials are
+left and remaining 20 trials are right hand MI. Therefore it is
+a balanced classiﬁcation problem where the chance accuracy
+of the classiﬁer is 50%. This transition from calibration to
+feedback stage 
+
+====================================================================================================
+Chunk ID: 28 | Page: 2
+====================================================================================================
+
+ack stage nearly takes only 16 mins, which is desirable
+in a rehabilitation scenario, as patients may get tired and loose
+
+====================================================================================================
+Chunk ID: 29 | Page: 3
+====================================================================================================
+
+2379-8920 (c) 2017 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.
+This article has been accepted for publication in a future issue of this journal, but has not been fully edited. Content may change prior to final publication. Citation information: DOI 10.1109/TCDS.2017.2787040, IEEE
+Transactions on Cognitive and Developmental Systems
+IEEE TRANSACTIONS O
+
+====================================================================================================
+Chunk ID: 30 | Page: 3
+====================================================================================================
+
+SACTIONS ON COGNITIVE AND DEVELOPMENTAL SYSTEMS, VOL. XX, NO. XX, MONTH 201X
+3
+Fig. 1. An overview of the experimental protocol showing the EEG electrode placements (top-left); calibration, and online feedback generation stages (right)
+and also the participant interacting with the BCI system (bottom-left).
+Fig. 2.
+Timing diagram of a trial during online BCI run. Here feedback
+trigger time instant (FTTI) = 5. The FTTI is not ﬁxed but it varies depending
+upon the selection of suitable time segment
+
+====================================================================================================
+Chunk ID: 31 | Page: 3
+====================================================================================================
+
+me segment from the calibration phase. A
+time-segment of 1.5 s before the FTTI is used for feature extraction, CSD
+test and feedback trigger generation.
+attention if the session is excessively longer. Each trial period
+in the calibration phase was of 8 s (similar to that shown in
+the timing paradigm of online BCI in Fig. 2), within which
+ﬁrst three seconds was the preparatory phase where a message
+stating “Get Ready” appeared in the middle of a computer
+screen. After a 2 s period, a beep sound o
+
+====================================================================================================
+Chunk ID: 32 | Page: 3
+====================================================================================================
+
+ep sound occurred and then at
+the end of the 3rd second, a cue in the form of a hand-image
+appeared on the screen, either on the left or in the right side.
+According to the appearance of the cue, the participants were
+instructed to perform an MI task of a left or right-hand grasp.
+In the calibration stage, the cue lasted up to the end of 8th
+second, after which the screen goes blank for a random period
+of 2 s to 3 s before the start of another trial. The acquired EEG
+signals along with the class
+
+====================================================================================================
+Chunk ID: 33 | Page: 3
+====================================================================================================
+
+ the class-labels are then fed into a feature
+extraction module, which extracts the CSP features to train
+a support vector machine (SVM) classiﬁer with linear kernel
+and also calculates the CSD parameters, later to be used in
+the online-feedback BCI phase for adapting the classiﬁer. The
+process of feature extraction and classiﬁer training was done
+by taking a sliding window of 1.5 s and shifted in steps of 0.5
+s to ﬁnd out the interval of maximum decoding accuracy by
+means of a randomized 10 fol
+
+====================================================================================================
+Chunk ID: 34 | Page: 3
+====================================================================================================
+
+zed 10 fold cross-validation. This interval
+was then locked to be used in the online evaluation stage to
+generate neurofeedback according to the classiﬁer’s output.
+This selection of time-segment is speciﬁc to a participant. An
+example of the timing diagram of a trial during online BCI
+phase is shown in Fig. 2, where the feedback was triggered
+at 5 s, which means that the EEG data over the period 3.5
+to 5 s was used for feature extraction in this case. The time
+when the feedback was triggered is
+
+====================================================================================================
+Chunk ID: 35 | Page: 3
+====================================================================================================
+
+iggered is termed here as feedback
+trigger time instant (FTTI). Once the feedback is triggered, it
+takes 3 s to complete, and hence the trial ended at 8 s. FTTI
+varies from participant to participant, and it could take any
+of the following [4.5, 5.0, 5.5, . . . , 8] s time points. It is to be
+noted that as the feedback duration is ﬁxed for 3 s, the trial
+length extends beyond 8 s if FTTI > 5, and the trial length
+is shorter than 8 s if FTTI < 5 s. The online BCI stage starts
+with the initial cla
+
+====================================================================================================
+Chunk ID: 36 | Page: 3
+====================================================================================================
+
+nitial classiﬁer model calculated from the calibration
+stage but as the trials progress, and the covariate shifts were
+detected, the classiﬁer was also retrained on new features to
+adapt the changes in the new input data distribution.
+C. Data Acquisition
+Several fMRI studies have shown that the MI of the se-
+quential hand movements involves ipsilateral cortical regions
+mainly in the overlapping supplementary motor area (SMA)
+and primary motor cortex (M1) [40]. Also a coupled fMRI
+and EEG study p
+
+====================================================================================================
+Chunk ID: 37 | Page: 3
+====================================================================================================
+
+EG study pointed out that the current sources of the
+ﬁnger movements are in frontal medial and parietal regions
+[41]. Therefore in our study the scalp EEG was recorded with
+12 electrodes covering these areas at F3, FC3, C3, CP3, P3,
+FCz, CPz, F4, FC4, C4, CP4, and P4 locations according to
+10-20 international system. Surface EMG electrodes were also
+placed on ﬂexor-digitorum-superﬁcialis (FDS) muscles in the
+right and left forearm to monitor any overt hand movement
+during MI trials. The signals 
+
+====================================================================================================
+Chunk ID: 38 | Page: 3
+====================================================================================================
+
+e signals were sampled at 512 Hz and
+initially ﬁltered with 0.1 Hz to 100 Hz pass-band ﬁlter and a
+notch ﬁlter at 50 Hz during data acquisition.
+D. Study Participants
+10 healthy volunteers and 10 hemiplegic patients partici-
+pated in the experiment. All of them had no prior experience in
+undergoing BCI trials. The healthy participants were in the age
+group of 20-50 (mean = 41±9.21) years and the demographics
+of the participating patients are given in Table. I. The patients
+were recruited ensurin
+
+====================================================================================================
+Chunk ID: 39 | Page: 3
+====================================================================================================
+
+ed ensuring they had no history of epilepsy. The
+cognitive impairment was also checked and patients scoring
+at least 7/10 in Hodgekinson’s mini-mental test score were
+considered for the experiment [42]. The participants signed
+a written consent form before starting the experiments and
+the experimental protocol was approved by the institute ethics
+committee of IIT Kanpur, India.
+
+====================================================================================================
+Chunk ID: 40 | Page: 4
+====================================================================================================
+
+2379-8920 (c) 2017 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.
+This article has been accepted for publication in a future issue of this journal, but has not been fully edited. Content may change prior to final publication. Citation information: DOI 10.1109/TCDS.2017.2787040, IEEE
+Transactions on Cognitive and Developmental Systems
+IEEE TRANSACTIONS O
+
+====================================================================================================
+Chunk ID: 41 | Page: 4
+====================================================================================================
+
+SACTIONS ON COGNITIVE AND DEVELOPMENTAL SYSTEMS, VOL. XX, NO. XX, MONTH 201X
+4
+TABLE I
+DEMOGRAPHICS OF THE PATIENTS
+Participants
+Age
+(Years) Gender
+IS
+(L/R)
+DS
+(L/R)
+TSS
+(Months)
+S01
+48
+Male
+Left
+Right
+8
+S02
+71
+Male
+Left
+Right
+20
+S03
+63
+Male
+Right
+Right
+8
+S04
+35
+Female
+Right
+Right
+3
+S05
+24
+Male
+Left
+Right
+8
+S06
+45
+Female
+Left
+Right
+6
+S07
+48
+Male
+Left
+Right
+2
+S08
+62
+Female
+Left
+Right
+6
+S09
+28
+Male
+Left
+Right
+1
+S10
+51
+Female
+Right
+Right
+48
+IS: Impaired Side, DS: Dominant Side, TSS: Time Since Stro
+
+====================================================================================================
+Chunk ID: 42 | Page: 4
+====================================================================================================
+
+Since Stroke
+L: Left Hand, R: Right Hand
+E. Methods
+The EEG-based online BCI implemented using CSD-based
+adaptive classiﬁer is abbreviated here as EEG-CSAC. For
+comparative evaluation, its decoding accuracy is compared
+with the case where the same classiﬁer is not adapted (i.e. cal-
+ibration stage classiﬁer parameters remain unchanged), named
+as EEG-based non-adaptive classiﬁer (EEG-NAC). The EEG-
+NAC only lacks the CSD-based adaptation part, while the rest
+are same for both the methods. It is t
+
+====================================================================================================
+Chunk ID: 43 | Page: 4
+====================================================================================================
+
+s. It is to be noted that the online
+BCI was implemented only using the EEG-CSAC method and
+EEG-NAC was applied later in off-line mode on the same
+data, once the online BCI run is completed. This was done
+to check the decoding accuracy with and without adaptation.
+The methods are described as follows: First the temporal and
+spatial ﬁltering, which are common to both the EEG-NAC and
+EEG-CSAC are described. Then the algorithm of EEG-NAC is
+outlined followed by the details of the additional steps r
+
+====================================================================================================
+Chunk ID: 44 | Page: 4
+====================================================================================================
+
+al steps relating
+to EEG-CSAC, which are covariate-shift detection, validation,
+and adaptation.
+1) Temporal and Spatial Filtering:
+The recorded sig-
+nals have been band-pass ﬁltered for two frequency bands
+(i.e. µ= [8-12] Hz, β= [16-24] Hz). These two frequency
+ranges have been chosen empirically as they provide stable
+frequency response for Event-Related-Desynchronization or
+Event-Related-Synchronization (ERD/ERS) [43]. Due to vol-
+umetric conduction raw EEG scalp potentials do not have
+good sp
+
+====================================================================================================
+Chunk ID: 45 | Page: 4
+====================================================================================================
+
+ve
+good spatial resolution. If our signal of interest is dominated
+by the other sources having stronger signal in the same
+frequency range, EEG signal classiﬁcation is affected [20].
+An effective spatial ﬁltering algorithm is common-spatial-
+pattern (CSP) algorithm [44]. It is an efﬁcient tool to analyze
+multichannel EEG data for binary classiﬁcation. It is basically
+a supervised decomposition of signals parameterized by a
+matrix W ∈R
+
+C×C
+ 
+(C: number of channels). The matrix is
+used to projec
+
+====================================================================================================
+Chunk ID: 46 | Page: 4
+====================================================================================================
+
+ to project the original sensor space E into the surrogate
+sensor space, using eq.(1)
+Z = WE
+(1)
+where, E ∈R
+
+C×T
+ 
+is the EEG measurement of a single-
+trial and T is the number of samples per channel. W is the CSP
+projection matrix. The rows of W are the spatial ﬁlters and the
+columns are the common spatial patterns. A small number of
+spatially ﬁltered signals are used as features for classiﬁcation
+purpose. These are generally ﬁrst and last rows of Z, i.e. Zt,
+where t ∈
+
+1...2m
+ 
+. The featur
+
+====================================================================================================
+Chunk ID: 47 | Page: 4
+====================================================================================================
+
+The feature vector is derived from Zt
+by eq.(2) as,
+xt = log
+ 
+var(Zt)
+2m
+P
+i=1
+var(Zt)
+!
+(2)
+After doing the temporal and spatial ﬁltering, and ﬁnally
+taking the log variance using (2), we obtain the feature vector
+of 12 elements from which the ﬁrst and last features are kept,
+ignoring the elements in between. These two elements we
+designate as ﬁrst and second best features in Fig. 3. Thus from
+two different frequency bands (i.e. µ and β) we obtain four
+elements which forms the feature vector o
+
+====================================================================================================
+Chunk ID: 48 | Page: 4
+====================================================================================================
+
+e vector of 1 × 4 dimension
+for a single trial.
+2) EEG-based Non-Adaptive Classiﬁer (EEG-NAC):
+In
+this, a support-vector-machine (SVM) based pattern classiﬁer
+with linear kernel is built upon the common assumption that
+the distribution of extracted features remains stationary over
+time. In the EEG-NAC method initially an inductive classiﬁer
+is trained on the calibration dataset that consists of labeled
+trials. Then, in the online BCI stage, unlabeled features from
+streaming data are processed se
+
+====================================================================================================
+Chunk ID: 49 | Page: 4
+====================================================================================================
+
+ocessed sequentially for the classiﬁcation.
+In this method, only EEG-based CSP features are considered
+for the classiﬁcation.
+3) EEG-based Covariate Shift Adaptive Classiﬁer (EEG-
+CSAC): The EEG-based covariate shift adaptive classiﬁer
+(EEG-CSAC) belongs to the category of active learning ap-
+proach [16], wherein the classiﬁer parameters are updated at
+each CSD during the online feedback phase. This adaptive
+classiﬁer is implemented using SVM with linear kernel. The
+shift-detection is performed 
+
+====================================================================================================
+Chunk ID: 50 | Page: 4
+====================================================================================================
+
+performed using the covariate shift detection
+(CSD) test based on EWMA model [35], [36], [45]. The
+algorithm is provided with a calibration dataset, and a classiﬁer
+f is trained. In the online BCI phase, the CSD-EWMA test is
+used to detect the covariate shift and the classiﬁer f is retrained
+to update its classiﬁcation decision boundary, and then the
+updated classiﬁer f is used to classify the upcoming input
+data from online BCI paradigm. The interactions between the
+covariate shift-detection, v
+
+====================================================================================================
+Chunk ID: 51 | Page: 4
+====================================================================================================
+
+tection, validation, and adaptation stages are
+explained in Fig. 4 and in the following subsections.
+a) Covariate Shift Warning (CSW): The ﬁrst stage in
+a CSD-EWMA test provides covariate shift warning in the
+process. It makes an initial estimate of the covariate shift
+(i.e. whether the actual shift has occurred) and is performed
+by an EWMA model. If the CSD test outcome is positive,
+then the second stage test gets activated, and a validation is
+performed in order to reduce the number of false-a
+
+====================================================================================================
+Chunk ID: 52 | Page: 4
+====================================================================================================
+
+of false-alarms [35].
+The EWMA model is explained by the following equation,
+z(i) = λx(i) + (1 −λ)z(i−1)
+(3)
+where, the importance of the current and historical obser-
+vations is decided by the parameter λ(0 < λ ≤1). z(i) is
+the exponentially weighted moving average (EWMA) of the
+
+====================================================================================================
+Chunk ID: 53 | Page: 5
+====================================================================================================
+
+2379-8920 (c) 2017 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.
+This article has been accepted for publication in a future issue of this journal, but has not been fully edited. Content may change prior to final publication. Citation information: DOI 10.1109/TCDS.2017.2787040, IEEE
+Transactions on Cognitive and Developmental Systems
+IEEE TRANSACTIONS O
+
+====================================================================================================
+Chunk ID: 54 | Page: 5
+====================================================================================================
+
+SACTIONS ON COGNITIVE AND DEVELOPMENTAL SYSTEMS, VOL. XX, NO. XX, MONTH 201X
+5
+Fig. 3. Shift in the decision boundary from calibration to online feedback phase due to covariate shift, in (a) µ[8 −12 Hz] band and (b) β[16 −24 Hz]
+band for healthy participant S01. TDB is showing the initial decision boundary after the calibration phase and FDB is showing the change in the decision
+boundary due to covariate shift adaptation in the online feedback phase. The blue cross (’+’ symbols are showing the l
+
+====================================================================================================
+Chunk ID: 55 | Page: 5
+====================================================================================================
+
+wing the left MI features and blue circle (’o’)
+symbols are showing the right MI features in the online feedback phase.
+current trial and x(i) is the observation in the current trial.
+By observation we mean here the ﬁrst principal component of
+the CSP feature of the current trial. As the EEG features are
+generally multivariate, it could be misleading to monitor such
+input processes independently. For example, if the probability
+of one feature variable to exceed the control limit is 0.0027
+then 0
+
+====================================================================================================
+Chunk ID: 56 | Page: 5
+====================================================================================================
+
+027
+then 0.27% of false detection rate is expected. Thus the use
+of d independent control charts for d independent feature
+variables can result into highly distorted outcomes. For this
+reason principal component analysis (PCA) was used to reduce
+the dimension of the feature vector and a single component
+was used as the observation x(i) [16]. The CSP feature vector
+(Featcsp of dimension 1 × 4) obtained from a particular
+trial in the online feedback phase is transformed using PCA
+coefﬁcient matrix
+
+====================================================================================================
+Chunk ID: 57 | Page: 5
+====================================================================================================
+
+ent matrix COEFFpca (dimension 4 × 4), calculated
+from the calibration phase to get the principal components
+(xpcs).
+xpcs = COEFFpca.Feat′
+csp
+(4)
+From xpcs, the ﬁrst principal component is taken as the ob-
+servation xi for that trial. Now, the one-step-ahead prediction
+of x(i) is EWMA z(i−1), from which we can calculate the
+prediction error as,
+err(i) = x(i) −z(i−1)
+(5)
+Then according to [46] the upper and lower control limits
+for x(i) can be calculated as,
+UCL(i) = z(i−1) + Lσerr(i−1)
+(6)
+LCL(
+
+====================================================================================================
+Chunk ID: 58 | Page: 5
+====================================================================================================
+
+)
+(6)
+LCL(i) = z(i−1) −Lσerr(i−1)
+(7)
+where, UCL(i) and LCL(i) are the upper and lower control
+limits respectively for trial i. L is the control limit multiplier.
+The value of L is chosen to be equal to 2, which is suitable
+for detecting minor shifts in trial-to-trial transfer [16]. The
+standard deviation σerr of the one-step ahead error err is
+calculated directly using smoothed variance [35] from the
+following relation,
+σ2
+err(i) = αerr2
+(i) + (1 −α)σ2
+err(i−1)
+(8)
+where, α is the 5% level of s
+
+====================================================================================================
+Chunk ID: 59 | Page: 5
+====================================================================================================
+
+level of signiﬁcance for the conﬁdence
+interval of (1 −α).
+Finally, x(i) is checked whether it lies within the control
+limit i.e. UCL(i) ≥x(i) ≥LCL(i). If x(i) falls outside
+the control limit then only the covariate shift detection(CSD)
+warning is raised. Once CSD warning is raised, the process
+goes for the CSD validation in stage-II, to conﬁrm the covari-
+ate shift.
+The CSD parameters has been generated in the calibration
+phase, on the basis of which the two stage CSD test detects
+the trial-to-
+
+====================================================================================================
+Chunk ID: 60 | Page: 5
+====================================================================================================
+
+ trial-to-trial shifts in the online feedback phase. There are
+mainly four parameters to be obtained after the end of the
+calibration phase. These are λ, z(0), σ2
+err(0) and COEFFpca.
+We obtain λ by minimizing the sum of the squared one-
+step-ahead prediction error, on the data recored during the
+calibration phase. z(0) is the mean of the observations x
+in the calibration dataset, σ2
+err(0) is obtained by dividing
+the sum of squared one-step-ahead prediction errors by the
+length of the calibrati
+
+====================================================================================================
+Chunk ID: 61 | Page: 5
+====================================================================================================
+
+ calibration dataset, and COEFFpca is the PCA
+coefﬁcient matrix. These four parameters λ, z(0), σ2
+err(0) and
+COEFFpca calculated from the calibration phase acts as the
+initial parameters at the online feedback phase. Later, z and
+σ2
+err changes trial by trial during the online feedback phase,
+while λ remains ﬁxed from the calibration phase. L is a
+parameter in the EEG-CSAC and it is used as the control
+limit multiplier, which deﬁnes the upper and lower limits of
+the shift-detection boundary. He
+
+====================================================================================================
+Chunk ID: 62 | Page: 5
+====================================================================================================
+
+undary. Hence, a small value of L (e.g.
+L = 2) makes the shift-detection test sensitive to minor shifts,
+which may occur during the trial-to-trial transfer; whereas, a
+larger value of L (e.g. L = 3) is accounted for long-term
+non-stationaries such as run-to-run or session-to-session [16].
+As, in our study the objective is to detect the shift in trial-to-
+trial transfer, the value of L = 2. The same value was chosen
+
+====================================================================================================
+Chunk ID: 63 | Page: 6
+====================================================================================================
+
+2379-8920 (c) 2017 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.
+This article has been accepted for publication in a future issue of this journal, but has not been fully edited. Content may change prior to final publication. Citation information: DOI 10.1109/TCDS.2017.2787040, IEEE
+Transactions on Cognitive and Developmental Systems
+IEEE TRANSACTIONS O
+
+====================================================================================================
+Chunk ID: 64 | Page: 6
+====================================================================================================
+
+SACTIONS ON COGNITIVE AND DEVELOPMENTAL SYSTEMS, VOL. XX, NO. XX, MONTH 201X
+6
+Fig. 4.
+Interaction between difference modules of the shift detection and
+classiﬁer adaptation for single trial detection of MI tasks.
+Fig. 5.
+An example of CSD test is shown from many trials recorded over
+several participants. Observations (x) from each trial are plotted along with
+their upper and lower control limits, calculated from the EWMA model. Shift
+points, detected from the two-stage CSD test are marked with 
+
+====================================================================================================
+Chunk ID: 65 | Page: 6
+====================================================================================================
+
+rked with arrows.
+experimentally, in our previous study [16], where the same
+CSD test was applied on ofﬂine analysis of BCI competition
+datasets.
+To show the changes in the observation of a particular trial,
+with and without the shift detection the ﬁrst principal compo-
+nent of the CSP feature (xi) has been plotted against the upper
+(UCL) and lower (LCL) control limit in Fig 5. This ﬁgure
+clearly shows the trials where the x went beyond the control
+limit for which shift-detection warning has bee
+
+====================================================================================================
+Chunk ID: 66 | Page: 6
+====================================================================================================
+
+ng has been generated.
+We picked a chunk of 300 trials over several runs from the
+recored datasets to plot the graph in Fig. 5.
+b) Covariate Shift Validation (CSV): The stage-II of the
+two stage CSD test is the CSV and it is executed only if the
+stage-I (i.e. CSW) raises a shift-detection warning. This stage
+is introduced to reduce the number of false warnings which
+leads to unnecessary retraining of the classiﬁer. It relies on
+the two sets of observations (n1 and n2); one which has been
+generat
+
+====================================================================================================
+Chunk ID: 67 | Page: 6
+====================================================================================================
+
+en
+generated during training phase (n1) and another one, which is
+generated by the CSW instant (n2). The set n1 is assumed to
+be stationary as it is a set of multivariate feature obtained after
+spatial ﬁltering from the calibration phase and compared with
+the set n2 from the current trial at the CSW time point with
+same number of multivariate features obtained after spatial
+ﬁltering in online feedback phase. Multivariate Hotelling’s T-
+Squared test [47] is applied to validate the stationarity. T
+
+====================================================================================================
+Chunk ID: 68 | Page: 6
+====================================================================================================
+
+onarity. The
+advantage of using this hypothesis test is that it is a non-
+parametric test and it can provide a decision whether the two
+subsequences n1 and n2 are stationary with similar means.
+The Hotelling’s T-Square test is based on the equation,
+HT 2 = (µ1 −µ2)
+ Σ1
+|n1| + Σ2
+|n2|
+−1
+(µ1 −µ2)′
+(9)
+where, Σ1 and Σ2 are the covariances and µ1 and µ2 are the
+means of the two subsequences n1 and n2 respectively. The
+lengths of the sub-sequences n1 and n2 are denoted as |n1|
+and |n2| respectiv
+
+====================================================================================================
+Chunk ID: 69 | Page: 6
+====================================================================================================
+
+ respectively. The covariate shift warning is validated
+only if the p value of the test is less than 0.05 and thus the
+detection of shift is conﬁrmed.
+c) Covariate Shift Adaptation (CSA): Once the CSD is
+validated, the adaptation phase starts (see Fig. 4). It is assumed
+that in each trial, the true label is available (as is the case
+in a rehabilitation application, where the MI instruction is
+provided with a cue in each trial). The data corresponding
+to correct labels are appended to the existin
+
+====================================================================================================
+Chunk ID: 70 | Page: 6
+====================================================================================================
+
+he existing training data
+used for classiﬁer training and the updated data are then used
+to retrain the classiﬁer. The retrained classiﬁer is then used
+to classify the upcoming data. On each CSD, the calibration
+data thus gets updated and a classiﬁer is built and adapted
+incrementally.
+4) Classiﬁcation and Evaluation Metrics: The performance
+of the system is measured on the basis of the classiﬁcation
+accuracy. The classiﬁcation accuracy of the SVM pattern
+classiﬁer f is given in percentage (%). 
+
+====================================================================================================
+Chunk ID: 71 | Page: 6
+====================================================================================================
+
+tage (%). The performance of
+the CSD test is measured in percentage (%) for the CSW and
+CSV, which are as given in (10) and (11) respectively.
+CSW(%) =
+ 
+Number of shift detected
+Total number of trials
+!
+× 100
+(10)
+CSV (%) =
+ 
+Number of shift validated
+Total number of trials
+!
+× 100
+(11)
+The statistical signiﬁcance of the results is assessed using
+the Wilcoxon signed rank test for the pairwise comparison
+between EEG-NAC and EEG-CSAC at conﬁdence level 0.01.
+III. RESULTS
+The superiority of the pr
+
+====================================================================================================
+Chunk ID: 72 | Page: 6
+====================================================================================================
+
+ of the proposed EEG-CSAC method is
+shown by comparing its decoding accuracy with the conven-
+tional EEG-NAC method, both in case of healthy and patient
+groups. Also the performance of the two-stage CSD algorithm
+in reducing the false detection by CSV is shown by comparing
+the percentage of CSW and CSV for each participant. We also
+investigated the co-relation between CSV and the improvement
+in accuracy due to EEG-CSAC, to get an idea of how sensitive
+EEG-CSAC is with respect to the occurrence o
+
+====================================================================================================
+Chunk ID: 73 | Page: 6
+====================================================================================================
+
+currence of the actual
+covariate-shifts in the streaming data.
+The classiﬁcation accuracies of EEG-NAC and EEG-CSAC
+for the healthy participant group are shown in Table II and
+that for patient group are shown in Table III. In case of the
+EEG-NAC method, the average classiﬁcation accuracy for the
+
+====================================================================================================
+Chunk ID: 74 | Page: 7
+====================================================================================================
+
+2379-8920 (c) 2017 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.
+This article has been accepted for publication in a future issue of this journal, but has not been fully edited. Content may change prior to final publication. Citation information: DOI 10.1109/TCDS.2017.2787040, IEEE
+Transactions on Cognitive and Developmental Systems
+IEEE TRANSACTIONS O
+
+====================================================================================================
+Chunk ID: 75 | Page: 7
+====================================================================================================
+
+SACTIONS ON COGNITIVE AND DEVELOPMENTAL SYSTEMS, VOL. XX, NO. XX, MONTH 201X
+7
+healthy group was found to be 75.25 ± 5.46%, while for the
+same group EEG-CSAC method yielded an signiﬁcantly (p <
+0.01) increased average accuracy of 81.5 ± 4.89%. In case of
+the patient group, we obtained an average accuracy of 70.25±
+3.43% for EEG-NAC while for the patient group also EEG-
+CSAC performed signiﬁcantly (p < 0.01) superior with an
+average accuracy of 75.75 ± 3.92%. The comparison of the
+classiﬁcation a
+
+====================================================================================================
+Chunk ID: 76 | Page: 7
+====================================================================================================
+
+iﬁcation accuracy distribution for the methods used in
+the experimental process is shown in Fig. 6 for healthy and
+patient groups. Tables II & III also show the time-points of
+feedback trigger in the 5th column with the heading FTTI, i.e.
+Feedback trigger time instance. The average FTTI for healthy
+is 6.35 ± 1.06 s and average FTTI of patient is 7.30 ± 0.67
+s. A two tailed paired t-test reveals that the healthy group’s
+FTTI is signiﬁcantly lesser than the patient group’s FTTI.
+The Kappa values a
+
+====================================================================================================
+Chunk ID: 77 | Page: 7
+====================================================================================================
+
+a values are also calculated apart from the accu-
+racy to highlight the efﬁciency of the classiﬁers as sensitivity
+and speciﬁcity measures are implicit in its calculation process
+and it is also feasible to show the performance for all the
+participants within a limited space. The comparison of kappa
+values between the two classiﬁers also show the signiﬁcantly
+(p-value< 0.01) higher performance of EEG-CSAC than EEG-
+NAC, which further reinforces our claim. The kappa values are
+shown in Table IV.
+T
+
+====================================================================================================
+Chunk ID: 78 | Page: 7
+====================================================================================================
+
+able IV.
+TABLE II
+CLASSIFICATION ACCURACIES IN HEALTHY GROUP (H)
+Healthy Group (H)
+Calibration
+Online Feedback
+Participants
+10-CV
+(%)
+EEG-NAC
+(%)
+EEG-CSAC
+(%)
+FTTI
+S01
+68.75
+70.00
+72.50
+7
+S02
+75.00
+85.00
+87.50
+4.50
+S03
+87.50
+80.00
+82.50
+7.00
+S04
+82.50
+75.00
+80.00
+8.00
+S05
+87.50
+77.50
+80.00
+6.50
+S06
+87.50
+80.00
+87.50
+6.50
+S07
+75.00
+75.00
+82.50
+6.50
+S08
+67.50
+70.00
+82.50
+5.00
+S09
+87.50
+67.50
+85.00
+5.50
+S10
+66.25
+72.50
+75.00
+7.00
+Mean
+78.50
+75.25
+81.50
+6.35
+Std
+9.01
+5.46
+4.89
+1.06
+p value (between 
+
+====================================================================================================
+Chunk ID: 79 | Page: 7
+====================================================================================================
+
+ (between EEG-NAC vs. EEG-CSAC) <0.01
+FTTI: Feedback Trigger Time Instant; 10-CV = 10-Fold Cross
+Validation
+Estimation of the information transfer rate (ITR) is also
+necessary to measure the performance of the system imple-
+mented online. Table V shows the ITR for each classiﬁer for
+all the participants (healthy and patients). The ITR has been
+calculated in bits/trial according to the formula given in [48].
+B = log2 N + P log2 P + (1 −P) log2
+1 −P
+N −1
+(12)
+where, B is the information transfer r
+
+====================================================================================================
+Chunk ID: 80 | Page: 7
+====================================================================================================
+
+transfer rate, N = number of
+classes, P = accuracy (expressed between 0 to 1). Results
+show that the average increase in the accuracy of 5.88% leads
+to an average increase in ITR of 9.84%, which is 1.6735 times
+of the increase in accuracy. This ﬁnding is in harmony with
+TABLE III
+CLASSIFICATION ACCURACIES IN PATIENT GROUP (P)
+Patient Group (P)
+Calibration
+Online Feedback
+Participants
+10-CV
+(%)
+EEG-NAC
+(%)
+EEG-CSAC
+(%)
+FTTI
+S01
+87.50
+70.00
+72.50
+8.00
+S02
+91.25
+67.50
+72.50
+6.50
+S03
+90.00
+75.00
+82.
+
+====================================================================================================
+Chunk ID: 81 | Page: 7
+====================================================================================================
+
+
+75.00
+82.50
+7.50
+S04
+77.50
+65.00
+72.50
+7.50
+S05
+91.25
+75.00
+77.50
+6.00
+S06
+91.25
+67.50
+72.50
+7.00
+S07
+68.75
+67.50
+75.00
+8.00
+S08
+78.75
+72.50
+75.00
+7.50
+S09
+53.75
+72.50
+82.50
+8.00
+S10
+66.25
+70.00
+75.00
+7.00
+Mean
+79.63
+70.25
+75.75
+7.30
+Std
+13.11
+3.43
+3.92
+0.67
+p value (between EEG-NAC vs. EEG-CSAC) <0.01
+FTTI: Feedback Trigger Time Instant; 10-CV = 10-Fold Cross
+Validation
+TABLE IV
+KAPPA VALUES IN HEALTHY (H) AND PATIENT (P) GROUPS
+Healthy Group (H)
+Patient Group (H)
+Participants EEG-NAC EEG-CSAC
+
+====================================================================================================
+Chunk ID: 82 | Page: 7
+====================================================================================================
+
+C EEG-CSAC EEG-NAC EEG-CSAC
+S01
+0.40
+0.45
+0.40
+0.45
+S02
+0.70
+0.75
+0.35
+0.45
+S03
+0.60
+0.65
+0.50
+0.65
+S04
+0.50
+0.60
+0.30
+0.45
+S05
+0.55
+0.60
+0.50
+0.55
+S06
+0.60
+0.75
+0.35
+0.45
+S07
+0.50
+0.65
+0.35
+0.50
+S08
+0.40
+0.65
+0.45
+0.50
+S09
+0.35
+0.70
+0.45
+0.65
+S10
+0.45
+0.50
+0.40
+0.50
+Mean
+0.51
+0.63
+0.41
+0.52
+Std
+0.10
+0.09
+0.06
+0.07
+the argument provided in [48], that a slight improvement in
+accuracy can inﬂuence the information transfer rate to a great
+extent.
+The choices of the smoothing constant λ for the CSD 
+
+====================================================================================================
+Chunk ID: 83 | Page: 7
+====================================================================================================
+
+r the CSD tests
+are given in Table VI (2nd column) & Table VII (2nd column)
+for healthy and patient groups respectively. The results of
+CSW & CSV are shown in the 3rd and 4th columns of the
+Table VI & Table VII, respectively for healthy and patient
+groups. The average rate of CSW in healthy group was
+found as 15.75 ± 5.65%, while in the patient group it was
+16.75 ± 2.89%. However, after the CSV at stage II, the rate
+of CSD reduced signiﬁcantly (p < 0.01), as the average CSV
+rates for healthy gro
+
+====================================================================================================
+Chunk ID: 84 | Page: 7
+====================================================================================================
+
+ealthy group and patient group were 9.25 ± 3.54
+and 9 ± 2.10 respectively. We also investigated the corre-
+lation between the variation of accuracy difference between
+EEG-CSAC and EEG-NAC and the variation in CSV rates,
+which reveals that there is a positive correlation (r = 0.853,
+p < 0.01) between these two quantities, as seen in Fig. 7.
+The CSV rate and accuracy difference between EEG-NAC and
+EEG-CSAC are shown in Table VIII for all participants across
+the two participant groups.
+
+====================================================================================================
+Chunk ID: 85 | Page: 8
+====================================================================================================
+
+2379-8920 (c) 2017 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.
+This article has been accepted for publication in a future issue of this journal, but has not been fully edited. Content may change prior to final publication. Citation information: DOI 10.1109/TCDS.2017.2787040, IEEE
+Transactions on Cognitive and Developmental Systems
+IEEE TRANSACTIONS O
+
+====================================================================================================
+Chunk ID: 86 | Page: 8
+====================================================================================================
+
+SACTIONS ON COGNITIVE AND DEVELOPMENTAL SYSTEMS, VOL. XX, NO. XX, MONTH 201X
+8
+TABLE V
+THE ITRS FOR TWO DIFFERENT CLASSIFIERS ACROSS ALL THE
+PARTICIPANTS
+ITR(bits/trial)
+Group
+Participants EEG-NAC EEG-CSAC Difference
+Healthy
+S01
+0.1187
+0.1515
+0.0327
+S02
+0.3902
+0.4564
+0.0663
+S03
+0.2781
+0.3310
+0.0529
+S04
+0.1887
+0.2781
+0.0894
+S05
+0.2308
+0.2781
+0.0473
+S06
+0.2781
+0.4564
+0.1784
+S07
+0.1887
+0.3310
+0.1423
+S08
+0.1187
+0.3310
+0.2123
+S09
+0.0903
+0.3902
+0.2999
+S10
+0.1515
+0.1887
+0.0373
+Patients
+S01
+0.1187
+0.151
+
+====================================================================================================
+Chunk ID: 87 | Page: 8
+====================================================================================================
+
+1187
+0.1515
+0.0327
+S02
+0.0903
+0.1515
+0.0612
+S03
+0.1887
+0.3310
+0.1423
+S04
+0.0659
+0.1515
+0.0855
+S05
+0.1887
+0.2308
+0.0421
+S06
+0.0903
+0.1515
+0.0612
+S07
+0.0903
+0.1887
+0.0985
+S08
+0.1515
+0.1887
+0.0373
+S9
+0.1515
+0.3310
+0.1795
+S10
+0.1187
+0.1887
+0.0700
+Mean
+0.1644
+0.2629
+0.0984
+TABLE VI
+λ VALUES AND CSD TEST METRICS IN HEALTHY (H) GROUP
+Healthy Group
+Participants lambda λ CSW in (%) CSV in (%)
+S01
+0.10
+10.00
+7.50
+S02
+0.80
+7.50
+5.00
+S03
+0.20
+10.00
+7.50
+S04
+0.10
+20.00
+7.50
+S05
+0.10
+12.50
+7.50
+S06
+0.10
+20.00
+
+====================================================================================================
+Chunk ID: 88 | Page: 8
+====================================================================================================
+
+0.10
+20.00
+12.50
+S07
+0.70
+15.00
+12.50
+S08
+0.30
+17.50
+12.50
+S09
+0.90
+25.00
+15.00
+S10
+0.20
+20.00
+5.00
+Mean
+0.35
+15.75
+9.25
+Std
+0.32
+5.65
+3.54
+p-value (CSW vs. CSV) < 0.01
+IV. DISCUSSION
+The results produced by the experiments prove two major
+claims made in the paper. The ﬁrst is that EEG-CSAC based
+online adaptation leads to superior performance of the BCI
+system in terms of classiﬁcation accuracy (p < 0.01), as
+compared to the conventional EEG-NAC method. The fact
+that it occurred both in the cas
+
+====================================================================================================
+Chunk ID: 89 | Page: 8
+====================================================================================================
+
+in the case of healthy as well as patient
+groups, establishes the robustness of the method. The second
+is that the two-stage covariate shift detection test signiﬁcantly
+(p < 0.01) reduced the number of re-training of the classiﬁer
+in a single run of the online BCI. As each time a valid shift is
+detected, the classiﬁer needs to be re-trained; the CSV values
+in Table VI & Table VII show the requirement of classiﬁer
+re-training for each participant. Similarly, CSW values in
+Table VI & Table VII sho
+
+====================================================================================================
+Chunk ID: 90 | Page: 8
+====================================================================================================
+
+le VII show the re-training requirement of the
+classiﬁer without using the second stage of the two-stage CSD
+TABLE VII
+λ VALUES AND CSD TEST METRICS IN PATIENT (P) GROUP
+Patinet Group
+Participants lambda λ CSW in (%) CSV in (%)
+S01
+0.1
+20.00
+7.50
+S02
+0.3
+15.00
+7.50
+S03
+0.2
+15.00
+10.00
+S04
+1.0
+20.00
+12.50
+S05
+0.7
+12.50
+7.50
+S06
+0.1
+12.50
+7.50
+S07
+0.1
+17.50
+12.50
+S08
+0.3
+17.50
+7.50
+S09
+0.2
+17.50
+100
+S10
+0.2
+20.00
+7.50
+Mean
+0.32
+16.75
+9.00
+Std
+0.2974
+2.89
+2.1
+p-value (CSW vs. CSV) < 0.01
+TABLE VIII
+
+====================================================================================================
+Chunk ID: 91 | Page: 8
+====================================================================================================
+
+TABLE VIII
+RELATION BETWEEN EEG-NAC TO EEG-CSAC ACCURACY
+IMPROVEMENT AND CSV FOR HEALTHY (H) AND PATIENTS (P) GROUPS
+EEG-NAC to
+Group
+Subject CSV in (%) EEG-CSAC change(%)
+Healthy
+S01
+7.50
+2.50
+S02
+5.00
+2.50
+S03
+7.50
+2.50
+S04
+7.50
+5.00
+S05
+7.50
+2.50
+S06
+12.50
+7.50
+S07
+12.50
+7.50
+S08
+12.50
+12.50
+S09
+15.00
+17.50
+S10
+5.00
+2.50
+Patients
+S01
+7.5
+2.50
+S02
+7.50
+5.00
+S03
+10.00
+7.50
+S04
+12.50
+7.50
+S05
+7.50
+2.50
+S06
+7.50
+5.00
+S07
+12.50
+7.50
+S08
+7.50
+2.50
+S9
+10.00
+10.00
+S10
+7.50
+5.00
+test. It’s worth menti
+
+====================================================================================================
+Chunk ID: 92 | Page: 8
+====================================================================================================
+
+orth mentioning that the comparison between CSW
+and CSV values reveal that the introduction of the second
+stage signiﬁcantly reduced the need for classiﬁer re-training.
+This two-stage CSD test serves two important purposes; 1) it
+reduces the delay in system by avoiding unnecessary retraining
+and 2) it minimizes the risk for inappropriate adaptation of
+the classiﬁer during the online feedback phase, which is one
+of the major concerns of adaptive BCI technique[13]. The
+difference between healthy a
+
+====================================================================================================
+Chunk ID: 93 | Page: 8
+====================================================================================================
+
+ healthy and patient groups in terms of
+FTTI suggests that healthy participants’ MI-activation, related
+to cue presentation, was quicker than the patients’. This is
+also expected, as in patients brain lesions may disturb the
+brain networks responsible for the MI. Additionally, it may
+be possible that the patients tend to get more fatigued than
+the healthy participants during the experiments which may
+lead to such delayed response. Moreover, we investigated how
+susceptive is the performance of th
+
+====================================================================================================
+Chunk ID: 94 | Page: 9
+====================================================================================================
+
+2379-8920 (c) 2017 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.
+This article has been accepted for publication in a future issue of this journal, but has not been fully edited. Content may change prior to final publication. Citation information: DOI 10.1109/TCDS.2017.2787040, IEEE
+Transactions on Cognitive and Developmental Systems
+IEEE TRANSACTIONS O
+
+====================================================================================================
+Chunk ID: 95 | Page: 9
+====================================================================================================
+
+SACTIONS ON COGNITIVE AND DEVELOPMENTAL SYSTEMS, VOL. XX, NO. XX, MONTH 201X
+9
+Fig. 6. Comparison of classiﬁer performance in Healthy(EEG-CSAC(H) and
+EEG-NAC(H)) and Patient(EEG-CSAC(P) and EEG-NAC(P)) groups
+Fig. 7. Correlation between EEG-NAC to EEG-CSAC accuracy improvement
+and CSV. Red dots indicating the data for each participant and the black line
+drawn is the linear-least-square estimate of the data distribution.
+CSAC method to the detection of covariate shifts. To this
+end we have comput
+
+====================================================================================================
+Chunk ID: 96 | Page: 9
+====================================================================================================
+
+ave computed the correlation between the number
+of covariate shifts that occurred in a particular run of the
+online BCI, and the improvement in accuracy due to classiﬁer
+adaptation, which showed a signiﬁcantly high correlation
+(r = 0.853, p < 0.01). This establishes the fact that the
+covariate shifts were correctly estimated and the classiﬁers
+were appropriately updated leading to the improvements in
+the accuracy and thus the covariate shift adaptation was in
+general meaningful and robust.
+The C
+
+====================================================================================================
+Chunk ID: 97 | Page: 9
+====================================================================================================
+
+ust.
+The CSD-based adaptive online BCI system, proposed here
+requires a total of 16 min of calibration time which is
+comparable to the other adaptive BCIs found in literature [49].
+Mutual learning is also promoted in the current implementa-
+tion of adaptive BCI system by introducing visual as well
+as proprioceptive neurofeedback [9]. The visual feedback is
+anthromorphic and plays a key role in neurorehabilitation as
+it is related to the activation of action-observation networks
+[50]. The motor i
+
+====================================================================================================
+Chunk ID: 98 | Page: 9
+====================================================================================================
+
+he motor imagery activated proprioceptive feedback (by
+moving the patient’s paretic ﬁngers with the help of the hand-
+exoskeleton), also engages the neurons in the neighboring
+areas of the lesion, through intact afferent pathways [51].
+Thus simultaneous application of both of these modes of
+giving neurofeedback is very important for stroke patients
+in recovering lost motor skills. The computation cost asso-
+ciated with the two-stage CSD test and classiﬁer adaptation
+is in milliseconds, using a s
+
+====================================================================================================
+Chunk ID: 99 | Page: 9
+====================================================================================================
+
+ using a standard mobile workstations and
+a MATLAB/Simulink platform, therefore it can be easily
+extended for generating continuous feedback, (although in
+the current study it is one time in a trial). The fact that
+the EEG-CSAC based online BCI enabled all the healthy
+and stroke participants to trigger the hand-exoskeleton by
+their motor imagery task with satisfactory levels of accuracy,
+which are superior (p < 0.01) to that obtained with EEG-
+NAC, clearly demonstrates the effectiveness of the t
+
+====================================================================================================
+Chunk ID: 100 | Page: 9
+====================================================================================================
+
+s of the technique
+in adapting to the non-stationarity of the brain-waves and
+providing neurofeedback with enhanced accuracy. Here the
+non-stationarity includes changes from calibration to online
+feedback generation stage as well as inter-trial changes within
+a single run of the online BCI. Several studies have tried
+to improve the power of CSP-based BCIs by introducing
+KL divergence based loss functions to minimize within class
+mismatching [26] or optimizing CSP algorithm [20]. Time
+series pred
+
+====================================================================================================
+Chunk ID: 101 | Page: 9
+====================================================================================================
+
+eries prediction and adaptive auto-regression based feature
+extraction were also investigated to minimise the adverse effect
+of non-stationarity in BCI [52]. While these studies focus in
+ﬁnding features that are invariant to non-stationary effects; our
+attempt is to take conventional feature extraction methods and
+try to update the classiﬁer with the occurrence of covariate
+shifts. The advantage is that our method is independent of what
+feature extraction technique is used. Similar approaches ar
+
+====================================================================================================
+Chunk ID: 102 | Page: 9
+====================================================================================================
+
+roaches are
+already popular to make adaptive BCI systems [29], [17], [32],
+[22], [18]. Although our approach have some resemblance to a
+recent off-line study where EWMA based adaptive processing
+is used before stack regularized LDA based classiﬁcation [53],
+the two-stage CSD test and classiﬁer updating strategy are
+novel in the current work. Also here it is implemented in online
+BCI and its feasibility is tested on stroke patients. However,
+Alonso et al. validated their algorithm on multiclass d
+
+====================================================================================================
+Chunk ID: 103 | Page: 9
+====================================================================================================
+
+lticlass decoding,
+whereas our current work is implemented on binary classiﬁ-
+cation [53]. Hence, there is further scope for extending it to
+multiclass decoding. Indeed both of the methods dealt with the
+temporal variability considering different time segments, but
+unlike Alonso et al. the subject speciﬁc frequency variability
+is not considered in the current work, rather the frequency
+bands [8 −12] Hz and [16 −24] Hz are kept ﬁxed for all the
+participants. The main reason was to keep the method
+
+====================================================================================================
+Chunk ID: 104 | Page: 9
+====================================================================================================
+
+the method simple
+and to focus on the validity of the CSD-based adaptation in
+online BCI. A direct comparison of classiﬁcation accuracies
+with other adaptive BCI systems is not possible as it is difﬁcult
+to produce exact experimental conditions for each one of them.
+Therefore we took a state-of-the-art conventional CSP-based
+non-adaptive classiﬁcation method, EEG-NAC for comparing
+the performance of the current EEG-CSAC algorithm.
+In online studies the scope of pre-processing is generally
+limite
+
+====================================================================================================
+Chunk ID: 105 | Page: 9
+====================================================================================================
+
+lly
+limited as it increases the time complexity of the system and
+reduces the speed of response. Therefore the classiﬁcation
+accuracy sometimes gets heavily affected due to contamination
+of artifacts and external noises. It can be seen in the Tables
+II-III, that the classiﬁcation accuracy dropped below 70% for a
+few participants in EEG-NAC. The CSP-based spatial ﬁltering
+technique was used here as it improves the signal to noise
+ratio in the data and increases inter-class feature separability.
+A
+
+====================================================================================================
+Chunk ID: 106 | Page: 10
+====================================================================================================
+
+2379-8920 (c) 2017 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.
+This article has been accepted for publication in a future issue of this journal, but has not been fully edited. Content may change prior to final publication. Citation information: DOI 10.1109/TCDS.2017.2787040, IEEE
+Transactions on Cognitive and Developmental Systems
+IEEE TRANSACTIONS O
+
+====================================================================================================
+Chunk ID: 107 | Page: 10
+====================================================================================================
+
+SACTIONS ON COGNITIVE AND DEVELOPMENTAL SYSTEMS, VOL. XX, NO. XX, MONTH 201X
+10
+ative effects on the EEG data quality as it lumps the variance,
+but Xiao and Ding 2013 [54] used PCA-based spectral features
+in successfully decoding individual ﬁnger movements from
+EEG. The CSD-based adaptation approach proposed here is
+supervised in nature as we implemented synchronous online
+BCI, where the label of a particular trial is known before hand
+and we assumed full compliance with cues. As this assumption
+
+====================================================================================================
+Chunk ID: 108 | Page: 10
+====================================================================================================
+
+assumption
+may be questionable, partially supervised adaptation using a
+well-known technique of Error-Potentials can be explored in
+conjunction with CSD for better performance [22].
+Future work may include extending the proposed EEG-
+CSAC based adaptive online BCI for continuous control
+with increased information transfer rate to generate smoother
+feedback. Also the current scope of synchronous BCI may
+be extended to asynchronous cases for more practical use in
+activities of daily living using a
+
+====================================================================================================
+Chunk ID: 109 | Page: 10
+====================================================================================================
+
+ng using assistive technologies.
+V. CONCLUSION
+The paper implements an online BCI system with a two-
+stage CSD test based classiﬁer adaptation. The online BCI
+system, capable of generating MI triggered visual and hand
+exoskeleton based neurofeedback, was tested for its practical
+feasibility and effectiveness on both healthy individuals and
+stroke patients. In comparison to the conventional CSP-based
+non-adaptive method, EEG-CSAC performed signiﬁcantly bet-
+ter in terms of classiﬁcation accuracy.
+
+====================================================================================================
+Chunk ID: 110 | Page: 10
+====================================================================================================
+
+ accuracy. The classiﬁcation ac-
+curacy improvements strongly correlated with the number of
+validated CSD occurrences, further proving the consistency of
+EEG-CSAC algorithm. The two-stage CSD test comprising
+of EWMA test and Hotellings T-square statistical test was
+demonstrated to be effective in reducing the false detection rate
+and thereby preventing unnecessary adaptation of the classiﬁer.
+Overall, the EEG-CSAC has been proven to be a practical and
+signiﬁcantly superior method for designing a
+
+====================================================================================================
+Chunk ID: 111 | Page: 10
+====================================================================================================
+
+esigning adaptive BCI based
+hand-exoskeleton integrated neurorehabilitation therapies for
+stroke patients.
+ACKNOWLEDGMENT
+This work is supported by Department of Science and Tech-
+nology (DST), India and UK India Education and Research
+Initiative (UKIERI) Thematic Partnership project ”A BCI
+operated hand exoskeleton based neurorehabilitation system”
+(UKIERI-DST-20130354). We also thank Regency Hospital,
+Kanpur, India to enable the experiments on stroke patients.
+REFERENCES
+[1] J. J. Vidal, “Towa
+
+====================================================================================================
+Chunk ID: 112 | Page: 10
+====================================================================================================
+
+dal, “Toward Direct Brain-Computer Communication,” Annu. Rev.
+Biophys., vol. 2, no. 1, pp. 157–180, Jun. 1973.
+[2] G. Dornhege, Toward brain-computer interfacing.
+MIT press, 2007.
+[3] N. Birbaumer, A. K¨ubler, N. Ghanayim, T. Hinterberger, J. Perelmouter,
+J. Kaiser, I. Iversen, B. Kotchoubey, N. Neumann, and H. Flor, “The
+thought translation device (TTD) for completely paralyzed patients,”
+IEEE Trans. Neural Syst. Rehabil. Eng., vol. 8, no. 2, pp. 190–193,
+2000.
+[4] G. Prasad, P. Herman, D. Coyl
+
+====================================================================================================
+Chunk ID: 113 | Page: 10
+====================================================================================================
+
+n, D. Coyle, S. McDonough, and J. Crosbie,
+“Applying a brain-computer interface to support motor imagery practice
+in people with stroke for upper limb recovery: a feasibility study.” J.
+Neuroeng. Rehabil., vol. 7, no. 1, p. 60, 2010.
+[5] V. Crocher, A. Sahbani, J. Robertson, A. Roby-Brami, and G. Morel,
+“Constraining upper limb synergies of hemiparetic patients using a
+robotic exoskeleton in the perspective of neuro-rehabilitation,” IEEE
+Trans. Neural Syst. Rehabil. Eng., vol. 20, no. 3, pp. 247
+
+====================================================================================================
+Chunk ID: 114 | Page: 10
+====================================================================================================
+
+3, pp. 247–257, 2012.
+[6] M. A. Dimyan and L. G. Cohen, “Neuroplasticity in the context of motor
+rehabilitation after stroke,” Nature reviews. Neurology, vol. 7, no. 2, pp.
+76–85, 2011.
+[7] H. Cecotti, “Spelling with non-invasive Brain-Computer Interfaces–
+current and future trends.” Journal of physiology, Paris, vol. 105, no.
+1-3, pp. 106–14, 2011.
+[8] J. Ueda, D. Ming, V. Krishnamoorthy, M. Shinohara, and T. Ogasawara,
+“Individual muscle control using an exoskeleton robot for muscle func-
+tion
+
+====================================================================================================
+Chunk ID: 115 | Page: 10
+====================================================================================================
+
+func-
+tion testing,” IEEE Transactions on Neural Systems and Rehabilitation
+Engineering, vol. 18, no. 4, pp. 339–350, 2010.
+[9] A. Ramos-Murguialday, M. Sch¨urholz, V. Caggiano, M. Wildgruber,
+A. Caria, E. M. Hammer, S. Halder, and N. Birbaumer, “Proprioceptive
+Feedback and Brain Computer Interface (BCI) Based Neuroprostheses,”
+PLoS ONE, vol. 7, no. 10, 2012.
+[10] A. Chowdhury, H. Raza, A. Dutta, S. S. Nishad, A. Saxena, and
+G. Prasad, “A Study on Cortico-muscular Coupling in Finger Motions
+for 
+
+====================================================================================================
+Chunk ID: 116 | Page: 10
+====================================================================================================
+
+tions
+for Exoskeleton Assisted Neuro-Rehabilitation,” in Proc. 37th Annual
+International Conference of the IEEE Engineering in Medicine and
+Biology Society (EMBC), 2015, 2015, pp. 4610–4614.
+[11] A. Chowdhury, H. Raza, A. Dutta, and G. Prasad, “Eeg-emg based
+hybrid brain computer interface for triggering hand exoskeleton for
+neuro-rehabilitation,” in Proc. of the Advances in Robotics, Jun. 2017,
+pp. 45:1–45:6.
+[12] J. Zhao, W. Li, X. Mao, H. Hu, L. Niu, and G. Chen, “Behavior-based
+ssvep hierarc
+
+====================================================================================================
+Chunk ID: 117 | Page: 10
+====================================================================================================
+
+ep hierarchical architecture for telepresence control of humanoid
+robot to achieve full-body movement,” IEEE Transactions on Cognitive
+and Developmental Systems, vol. 9, no. 2, pp. 197–209, Jun. 2017.
+[13] J. R. Wolpaw, N. Birbaumer, D. J. McFarland, G. Pfurtscheller, and T. M.
+Vaughan, “Brain-Computer Interfaces for Communication and Control.”
+Clinical Neurophysiology : Ofﬁcial Journal of the International Feder-
+ation of Clinical Neurophysiology, vol. 113, no. 6, pp. 767–91, Jun.
+2002.
+[14] Y.
+
+====================================================================================================
+Chunk ID: 118 | Page: 10
+====================================================================================================
+
+2.
+[14] Y. Jiang, N. T. Hau, and W. Y. Chung, “Semi-asynchronous bci using
+wearable two-channel eeg,” IEEE Transactions on Cognitive and Devel-
+opmental Systems, vol. PP, no. 99, pp. 1–1, 2017.
+[15] D. Rathee, H. Raza, G. Prasad, and H. Cecotti, “Current source density
+estimation enhances the performance of motor-imagery-related brain–
+computer interface,” IEEE Trans. on Neural Syst. and Rehab. Eng.,
+vol. 25, no. 12, pp. 2461–2471, Dec. 2017.
+[16] H. Raza, H. Cecotti, Y. Li, and G. Prasad, “Adap
+
+====================================================================================================
+Chunk ID: 119 | Page: 10
+====================================================================================================
+
+sad, “Adaptive learning with
+covariate shift-detection for motor imagery-based braincomputer inter-
+face,” Soft Computing, vol. 20, no. 8, pp. 3085–3096, Aug. 2016.
+[17] P. Shenoy, M. Krauledat, B. Blankertz, R. P. N. Rao, and K.-R. M¨uller,
+“Towards adaptive classiﬁcation for BCI,” J. Neural Eng., vol. 3, no. 1,
+pp. R13–R23, Mar. 2006.
+[18] Y. Li, H. Kambara, Y. Koike, and M. Sugiyama, “Application of
+covariate shift adaptation techniques in brain-computer interfaces,” IEEE
+Transactions on Biom
+
+====================================================================================================
+Chunk ID: 120 | Page: 10
+====================================================================================================
+
+ns on Biomedical Engineering, vol. 57, no. 6, pp. 1318–1324,
+Jun. 2010.
+[19] B. Blankertz, G. Dornhege, M. Krauledat, K. R. M¨uller, and G. Curio,
+“The non-invasive Berlin Brain-Computer Interface: Fast acquisition of
+effective performance in untrained subjects,” NeuroImage, vol. 37, no. 2,
+pp. 539–550, 2007.
+[20] B. Blankertz, R. Tomioka, S. Lemm, M. Kawanabe, and K. R. M¨uller,
+“Optimizing spatial ﬁlters for robust EEG single-trial analysis,” IEEE
+Signal Processing Magazine, vol. 25, no. 1, pp
+
+====================================================================================================
+Chunk ID: 121 | Page: 10
+====================================================================================================
+
+ no. 1, pp. 41–56, 2008.
+[21] P. Y. Zhou and K. C. C. Chan, “Fuzzy feature extraction for multi-
+channel eeg classiﬁcation,” IEEE Transactions on Cognitive and Devel-
+opmental Systems, vol. PP, no. 99, pp. 1–1, 2016.
+[22] A. Buttﬁeld, P. W. Ferrez, and J. D. R. Mill´an, “Towards a robust BCI:
+Error potentials and online learning,” IEEE Trans. Neural Syst. Rehabil.
+Eng., vol. 14, no. 2, pp. 164–168, Jun. 2006.
+[23] C. Vidaurre, A. Schl¨ogl, R. Cabeza, R. Scherer, and G. Pfurtscheller,
+“Study of o
+
+====================================================================================================
+Chunk ID: 122 | Page: 10
+====================================================================================================
+
+Study of on-line adaptive discriminant analysis for EEG-based brain
+computer interfaces,” IEEE Trans. on Biomed. Eng., vol. 54, no. 3, pp.
+550–556, 2007.
+[24] X. Liao, D. Yao, and C. Li, “Transductive SVM for reducing the training
+effort in BCI.” Journal of neural engineering, vol. 4, no. 3, pp. 246–54,
+Sep. 2007.
+[25] H. Raza, H. Cecotti, Y. Li, and G. Prasad, “Learning with Covariate
+Shift-Detection and Adaptation in Non-Stationary Environments : Ap-
+plication to Brain-Computer Interface,” in 
+
+====================================================================================================
+Chunk ID: 123 | Page: 11
+====================================================================================================
+
+2379-8920 (c) 2017 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.
+This article has been accepted for publication in a future issue of this journal, but has not been fully edited. Content may change prior to final publication. Citation information: DOI 10.1109/TCDS.2017.2787040, IEEE
+Transactions on Cognitive and Developmental Systems
+IEEE TRANSACTIONS O
+
+====================================================================================================
+Chunk ID: 124 | Page: 11
+====================================================================================================
+
+SACTIONS ON COGNITIVE AND DEVELOPMENTAL SYSTEMS, VOL. XX, NO. XX, MONTH 201X
+11
+[26] M. Arvaneh, C. Guan, K. K. Ang, and C. Quek, “Optimizing spatial ﬁl-
+ters by minimizing within-class dissimilarities in electroencephalogram-
+based brain-computer interface,” IEEE Trans. Neural Netw. Learn. Syst.,
+vol. 24, no. 4, pp. 610–619, 2013.
+[27] P. A. Herman, G. Prasad, and T. M. McGinnity, “Designing an interval
+type-2 fuzzy logic system for handling uncertainty effects in brain–
+computer interface clas
+
+====================================================================================================
+Chunk ID: 125 | Page: 11
+====================================================================================================
+
+rface classiﬁcation of motor imagery induced eeg patterns,”
+IEEE Trans. on Fuzzy Syst., vol. 25, no. 1, pp. 29–42, Feb. 2017.
+[28] H. Raza, H. Cecotti, and G. Prasad, “Optimising Frequency Band
+Selection with Forward-Addition and Backward-Elimination Algorithms
+in EEG-based Brain-Computer Interfaces,” in Proc. 2015 International
+Joint Conference on Neural Networks (IJCNN), 2015, pp. 1–7.
+[29] A. Satti, C. Guan, D. Coyle, and G. Prasad, “A covariate shift min-
+imization method to alleviate non-st
+
+====================================================================================================
+Chunk ID: 126 | Page: 11
+====================================================================================================
+
+ate non-stationarity effects for an adaptive
+brain-computer interface,” in Proc. International Conference on Pattern
+Recognition, Aug. 2010, pp. 105–108.
+[30] H. Raza, G. Prasad, Y. Li, and H. Cecotti, “Covariate shift-adaptation
+using a transductive learning model for handling non-stationarity in
+EEG based brain-computer interfaces,” in Proc. 2014 IEEE International
+Conference on Bioinformatics and Biomedicine (BIBM), Nov. 2014, pp.
+230–236.
+[31] G. Ditzler, M. Roveri, C. Alippi, and R. Polikar
+
+====================================================================================================
+Chunk ID: 127 | Page: 11
+====================================================================================================
+
+R. Polikar, “Learning in Nonsta-
+tionary Environments : a Survey,” IEEE Comput. Intell. Mag., vol. 10,
+no. 4, pp. 12–25, 2015.
+[32] C. Vidaurre, A. Schl¨oogl, R. Cabeza, R. Scherer, and G. Pfurtscheller,
+“A fully on-line adaptive BCI,” IEEE Trans. on Biomed. Eng., vol. 53,
+no. 6, pp. 1214–1219, 2006.
+[33] S. Sun, C. Zhang, and D. Zhang, “An experimental evaluation of
+ensemble methods for EEG signal classiﬁcation,” Pattern Recognit. Lett.,
+vol. 28, no. 15, pp. 2157–2163, 2007.
+[34] S. R. Liyanage
+
+====================================================================================================
+Chunk ID: 128 | Page: 11
+====================================================================================================
+
+. Liyanage, C. Guan, H. Zhang, K. K. Ang, J. Xu, and T. H. Lee,
+“Dynamically weighted ensemble classiﬁcation for non-stationary EEG
+processing.” Journal of neural engineering, vol. 10, no. 3, p. 036007,
+Apr. 2013.
+[35] H. Raza, G. Prasad, and Y. Li, “EWMA model based shift-detection
+methods for detecting covariate shifts in non-stationary environments,”
+Pattern Recognition, vol. 48, no. 3, pp. 659–669, Aug. 2015.
+[36] ——, “EWMA based two-stage dataset shift-detection in non-stationary
+environmen
+
+====================================================================================================
+Chunk ID: 129 | Page: 11
+====================================================================================================
+
+environments,” in Proc. IFIP Advances in Information and Communi-
+cation Technology, Oct. 2013, pp. 625–635.
+[37] F. Quandt, C. Reichert, H. Hinrichs, H. J. Heinze, R. T. Knight, and J. W.
+Rieger, “Single trial discrimination of individual ﬁnger movements on
+one hand: A combined MEG and EEG study,” NeuroImage, vol. 59,
+no. 4, pp. 3316–3324, 2012.
+[38] J. H¨ohne, E. Holz, P. Staiger-S¨alzer, K. R. M¨uller, A. K¨ubler, and
+M. Tangermann, “Motor imagery for severely motor-impaired patients:
+Evidenc
+
+====================================================================================================
+Chunk ID: 130 | Page: 11
+====================================================================================================
+
+s:
+Evidence for brain-computer interfacing as superior control solution,”
+PLoS ONE, vol. 9, no. 8, 2014.
+[39] Y. K. Meena, A. Chowdhury, H. Cecotti, S. S. Nishad, A. Dutta, and
+G. Prasad, “EMOHEX : An Eye Tracker based Mobility and Hand
+Exoskeleton Device for Assisting Disabled People,” in Proc. 2016 IEEE
+International Conference on Systems, Man, and Cybernetics (SMC),
+2016, pp. 2122–2127.
+[40] R. Beisteiner, C. Windischberger, R. Lanzenberger, V. Edward, R. Cun-
+nington, M. Erdler, A. Gartus, B
+
+====================================================================================================
+Chunk ID: 131 | Page: 11
+====================================================================================================
+
+ Gartus, B. Streibl, E. Moser, and L. Deecke,
+“Finger somatotopy in human motor cortex,” NeuroImage, vol. 13, no.
+6 Pt 1, pp. 1016–26, 2001.
+[41] T. Ball, A. Schreiber, B. Feige, M. Wagner, C. H. L¨ucking, and
+R. Kristeva-Feige, “The role of higher-order motor areas in voluntary
+movement as revealed by high-resolution EEG and fMRI.” NeuroImage,
+vol. 10, no. 6, pp. 682–94, 1999.
+[42] H. M. Hodkinson, “Evaluation of a mental test score for assessment
+of mental impairment in the elderly,” Age & Age
+
+====================================================================================================
+Chunk ID: 132 | Page: 11
+====================================================================================================
+
+ Age & Ageing, vol. 1, no. 4, pp.
+233–238, 1972.
+[43] G. Pfurtscheller and F. H. Lopes Da Silva, “Event-related EEG/MEG
+synchronization and desynchronization: Basic principles,” Clinical Neu-
+rophysiology, vol. 110, no. 11, pp. 1842–1857, 1999.
+[44] H. Ramoser, J. M¨uller-Gerking, and G. Pfurtscheller, “Optimal spatial
+ﬁltering of single trial EEG during imagined hand movement,” IEEE
+Transactions on Rehabilitation Engineering, vol. 8, no. 4, pp. 441–446,
+Dec. 2000.
+[45] H. Raza, G. Prasad, and Y
+
+====================================================================================================
+Chunk ID: 133 | Page: 11
+====================================================================================================
+
+sad, and Y. Li, “Dataset shift detection in non-stationary
+environments using EWMA charts,” in Proc. 2013 IEEE International
+Conference on Systems, Man, and Cybernetics (SMC), 2013, pp. 3151–
+3156.
+[46] D. Montgomery and C. Mastrangelo, “Some Statistical Process Control
+Methods for Autocorrelated Data,” Journal of Quality Technology,
+vol. 23, no. 3, pp. 179–204, 1991.
+[47] H. Hotelling, “Multivariate Quality Control-Illsutrated by the Air Testing
+of Sample Bombsights,” in Techniques of Statistic
+
+====================================================================================================
+Chunk ID: 134 | Page: 11
+====================================================================================================
+
+ Statistical Analysis.
+New
+York: McGraw-Hill, 1947, ch. II, pp. 111–184.
+[48] B. Obermaier, C. Neuper, C. Guger, and G. Pfurtscheller, “Information
+transfer rate in a ﬁve-classes brain-computer interface,” IEEE Trans. on
+Neural Syst. and Rehab. Eng., vol. 9, no. 3, pp. 283–288, Sept 2001.
+[49] K. K. Ang, C. Guan, C. Wang, K. S. Phua, A. Hock, G. Tan, and Z. Y.
+Chin, “Calibrating EEG-based motor imagery brain-computer interface
+from passive movement,” in Proc. 2011 Annual International Conference
+
+====================================================================================================
+Chunk ID: 135 | Page: 11
+====================================================================================================
+
+Conference
+of the IEEE in Engineering in Medicine and Biology Society, EMBC,
+2011, pp. 4199–4202.
+[50] S. T. Foldes, D. J. Weber, and J. L. Collinger, “MEG-based neurofeed-
+back for hand rehabilitation.” J. Neuroeng. Rehabil., vol. 12, no. 1, p. 85,
+2015.
+[51] T. Pistohl, D. Joshi, G. Ganesh, A. Jackson, and K. Nazarpour, “Artiﬁcial
+Proprioceptive Feedback for Myoelectric Control.” IEEE Trans. Neural
+Syst. Rehabil. Eng., vol. 23, no. 3, pp. 498–507, 2014.
+[52] D. Coyle, G. Prasad, and T. M. McGi
+
+====================================================================================================
+Chunk ID: 136 | Page: 11
+====================================================================================================
+
+T. M. McGinnity, “A time-series prediction
+approach for feature extraction in a brain-computer interface.” IEEE
+Trans. Neural Syst. Rehabil. Eng., vol. 13, no. 4, pp. 461–467, 2005.
+[53] L. F. Nicolas-alonso, S. Member, R. Corralejo, S. Member, J. Gomez-
+pilar, D. ´Alvarez, R. Hornero, and S. Member, “Adaptive Stacked
+Generalization for Multiclass Motor Imagery-Based Brain Computer
+Interfaces,” IEEE Trans. Neural Syst. Rehabil. Eng., vol. 23, no. 4, pp.
+702–712, 2015.
+[54] R. Xiao and L. Ding, “
+
+====================================================================================================
+Chunk ID: 137 | Page: 11
+====================================================================================================
+
+L. Ding, “Evaluation of EEG features in decoding individual
+ﬁnger movements from one hand,” Comput. Math. Methods Med., vol.
+2013, Apr. 2013.
+
