@@ -1,7 +1,13 @@
-from src.pdf_loader import extract_pdf
+""" from src.pdf_loader import extract_pdf
 from src.txt_cleaner import clean_document
 from src.chunker import chunk_document
 import json
+from src.vector_store import (
+    create_vector_store,
+    save_vector_store,
+    load_vector_store,
+    search_vector_store
+)
 
 pdf = "data/papers/2017_IEEETransonCogDeve.pdf"
 
@@ -59,7 +65,176 @@ texts = [chunk["text"] for chunk in chunks]
 embeddings = model.encode(
     texts,
     convert_to_numpy=True
+) """
+
+
+
+from src.pdf_loader import extract_pdf
+from src.txt_cleaner import clean_document
+from src.chunker import chunk_document
+from src.embedding import load_embedding_model, generate_embeddings
+from src.vector_store import (
+    create_vector_store,
+    save_vector_store,
+    load_vector_store,
+    search_vector_store
 )
 
+# -------------------------------------------------
+# Step 1 : Extract PDF
+# -------------------------------------------------
 
+pdf_path = "data/papers/2017_IEEETransonCogDeve.pdf"
 
+pages = extract_pdf(pdf_path)
+
+# -------------------------------------------------
+# Step 2 : Clean text
+# -------------------------------------------------
+
+clean_pages = clean_document(pages)
+
+# -------------------------------------------------
+# Step 3 : Chunking
+# -------------------------------------------------
+
+chunks = chunk_document(
+    clean_pages,
+    chunk_size=500,
+    chunk_overlap=100
+)
+
+print(f"Total Chunks: {len(chunks)}")
+
+# -------------------------------------------------
+# Step 4 : Load embedding model
+# -------------------------------------------------
+
+model = load_embedding_model()
+
+# -------------------------------------------------
+# Step 5 : Generate embeddings
+# -------------------------------------------------
+
+embedded_chunks = generate_embeddings(chunks, model)
+
+# -------------------------------------------------
+# Step 6 : Separate embeddings and metadata
+# -------------------------------------------------
+
+embeddings = []
+metadata = []
+for chunk in embedded_chunks:
+
+    embeddings.append(chunk["embedding"])
+
+    metadata.append({
+        "chunk_id": chunk["chunk_id"],
+        "page": chunk["page"],
+        "text": chunk["text"]
+    })
+
+# -------------------------------------------------
+# Step 7 : Create Vector Store
+# -------------------------------------------------
+
+index, metadata_mapping = create_vector_store(
+    embeddings,
+    metadata
+)
+
+print("Vector Store Created")
+print("Total vectors:", index.ntotal)
+
+# -------------------------------------------------
+# Step 8 : Save
+# -------------------------------------------------
+
+save_vector_store(
+    index,
+    metadata_mapping,
+    "data/processed/eeg_vector_store"
+)
+
+# -------------------------------------------------
+# Step 9 : Load Again
+# -------------------------------------------------
+
+index, metadata_mapping = load_vector_store(
+    "data/processed/eeg_vector_store"
+)
+
+print("Vector Store Loaded")
+print("Vectors:", index.ntotal)
+
+# -------------------------------------------------
+# Step 10 : User Query
+# -------------------------------------------------
+
+query = "What type of data acquisition system is used to collect EEG Data?"
+
+query_embedding = model.encode(
+    query,
+    convert_to_numpy=True
+).tolist()
+
+# -------------------------------------------------
+# Step 11 : Search
+# -------------------------------------------------
+
+results = search_vector_store(
+    query_embedding,
+    index,
+    metadata_mapping,
+    top_k=3
+)
+
+print("\nTop Results\n")
+
+for result in results:
+
+    print("-" * 60)
+
+    print("Rank :", result["rank"])
+
+    print("Distance :", result["distance_score"])
+
+    print("Page :", result["metadata"]["page"])
+
+    print(result["metadata"]["text"][:300])
+
+# -------------------------------------------------
+# Step 10 : User Query
+# -------------------------------------------------
+
+query = "What preprocessing was used for EEG signals?"
+
+query_embedding = model.encode(
+    query,
+    convert_to_numpy=True
+).tolist()
+
+# -------------------------------------------------
+# Step 11 : Search
+# -------------------------------------------------
+
+results = search_vector_store(
+    query_embedding,
+    index,
+    metadata_mapping,
+    top_k=3
+)
+
+print("\nTop Results\n")
+
+for result in results:
+
+    print("-" * 60)
+
+    print("Rank :", result["rank"])
+
+    print("Distance :", result["distance_score"])
+
+    print("Page :", result["metadata"]["page"])
+
+    print(result["metadata"]["text"][:300])

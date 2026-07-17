@@ -1,4 +1,18 @@
 Extract_pdf: This function extracts pages from given pdf using PyMuPDF.PyMuPDF is 
 Fast,Accurate,Preserves page structure well,Widely used for research PDFs.
-This function returns a list of dictionaries
+This function returns a list of dictionaries.
+Problems till now: Multiple balnk lines, Sentence goes to next line abruptly due to two column format,
+Hyphenated words split across lines,Headers repeated on every page,Footers with page numbers
+Broken sentences,References section
 text_cleaner.py:Objective is to clean you text it includes removal of extra whitespaces,multiple blank lines, empty lines and if there is repeated common line in all pages like IEEE DOI etc. 
+It is also found in two column format new line starts at any point how to rearrange it. 
+Table, figure, equations are omitted.
+
+Embedding.py --- Convert chunk text into embedding vectors while preserving metadata.
+Sentence Transformers
+Model: all-MiniLM-L6-v2,Free,Fast,Runs locally,Widely used for learning semantic search
+Produces 384-dimensional embeddings
+
+Vector Strore: a place to store embeddings so we can quickly search them later.
+FAISS,ChromaDB,Pinecone,Milvus. Runs locally
+FAISS:-Very fast,Easy to understand,Industry standard,No server required
