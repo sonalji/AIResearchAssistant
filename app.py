@@ -79,6 +79,8 @@ from src.vector_store import (
     load_vector_store,
     search_vector_store
 )
+from typing import List, Dict, Any, Tuple
+from src.retrieval import retrieve_chunks
 
 # -------------------------------------------------
 # Step 1 : Extract PDF
@@ -173,21 +175,7 @@ print("Vectors:", index.ntotal)
 
 query = "What type of data acquisition system is used to collect EEG Data?"
 
-query_embedding = model.encode(
-    query,
-    convert_to_numpy=True
-).tolist()
-
-# -------------------------------------------------
-# Step 11 : Search
-# -------------------------------------------------
-
-results = search_vector_store(
-    query_embedding,
-    index,
-    metadata_mapping,
-    top_k=3
-)
+results = retrieve_chunks(query,model, index,metadata_mapping,top_k=3)
 
 print("\nTop Results\n")
 
