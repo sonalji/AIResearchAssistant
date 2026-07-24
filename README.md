@@ -35,5 +35,5 @@ Features:
  9) Built using Retrieval-Augmented Generation
  10) Working AI feature
 
- text_cleaner.py:Objective is to clean you text it includes removal of extra whitespaces,multiple blank lines, empty lines and if there is repeated common line in all pages like IEEE DOI etc. 
+ 
 

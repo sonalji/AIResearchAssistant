@@ -20,7 +20,8 @@ def generate_embeddings(chunks, model):
 
         embedding = model.encode(
             chunk["text"],
-            convert_to_numpy=True
+            convert_to_numpy=True,
+            normalize_embeddings=True
         )
 
         embedded_chunks.append({
@@ -31,3 +32,18 @@ def generate_embeddings(chunks, model):
         })
 
     return embedded_chunks
+
+def prepare_vector_store_data(embedded_chunks):
+    embeddings = []
+    metadata = []
+
+    for chunk in embedded_chunks:
+        embeddings.append(chunk["embedding"])
+
+        metadata.append({
+            "chunk_id": chunk["chunk_id"],
+            "page": chunk["page"],
+            "text": chunk["text"]
+        })
+
+    return embeddings, metadata

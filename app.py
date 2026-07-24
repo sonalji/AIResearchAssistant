@@ -1,6 +1,8 @@
 """ from src.pdf_loader import extract_pdf
 from src.txt_cleaner import clean_document
 from src.chunker import chunk_document
+from src.embedding import load_embedding_model, generate_embeddings
+from src.llm import generate_research_response
 import json
 from src.vector_store import (
     create_vector_store,
@@ -81,12 +83,12 @@ from src.vector_store import (
 )
 from typing import List, Dict, Any, Tuple
 from src.retrieval import retrieve_chunks
-
+from src.llm import generate_research_response
 # -------------------------------------------------
 # Step 1 : Extract PDF
 # -------------------------------------------------
 
-pdf_path = "data/papers/2017_IEEETransonCogDeve.pdf"
+pdf_path = "data/papers/2019_IEEETransonHaptics.pdf"
 
 pages = extract_pdf(pdf_path)
 
@@ -169,60 +171,36 @@ index, metadata_mapping = load_vector_store(
 print("Vector Store Loaded")
 print("Vectors:", index.ntotal)
 
-# -------------------------------------------------
-# Step 10 : User Query
-# -------------------------------------------------
-
-query = "What type of data acquisition system is used to collect EEG Data?"
-
-results = retrieve_chunks(query,model, index,metadata_mapping,top_k=3)
-
-print("\nTop Results\n")
-
-for result in results:
-
-    print("-" * 60)
-
-    print("Rank :", result["rank"])
-
-    print("Distance :", result["distance_score"])
-
-    print("Page :", result["metadata"]["page"])
-
-    print(result["metadata"]["text"][:300])
 
 # -------------------------------------------------
 # Step 10 : User Query
 # -------------------------------------------------
 
-query = "What preprocessing was used for EEG signals?"
+query = "What happen in active non assist mode?"
 
-query_embedding = model.encode(
-    query,
-    convert_to_numpy=True
-).tolist()
+results = retrieve_chunks(query,model, index,metadata_mapping,top_k=5)
+print("Sending payload to Groq...")
+answer = generate_research_response(query, results)
+print("\n--- Assistant Response ---")
+print(answer)
 
-# -------------------------------------------------
-# Step 11 : Search
-# -------------------------------------------------
+# print("\nTop Results\n")
 
-results = search_vector_store(
-    query_embedding,
-    index,
-    metadata_mapping,
-    top_k=3
-)
+# with open("data/processed/Response.txt", "a", encoding="utf-8") as f:
+#     for result in results:
+#         f.write("=" * 100 + "\n")
+#         f.write(f"Rank : {result['rank']} | Distance : {result['distance_score']:.4f}\n")
+#         f.write(f"Chunk ID: {result['metadata']['chunk_id']} | Page: {result['metadata']['page']}\n")
+#         f.write(result["metadata"]["text"][:300])
+#         f.write("\n\n")
 
-print("\nTop Results\n")
+# for result in results:
 
-for result in results:
+#     print("-" * 60)
 
-    print("-" * 60)
+#     print("Rank :", result["rank"],"Distance :", result["distance_score"])
+#     print("Chunk ID :", result["metadata"]["chunk_id"],"Page :", result["metadata"]["page"])
+#     print(result["metadata"]["text"][:300])
 
-    print("Rank :", result["rank"])
 
-    print("Distance :", result["distance_score"])
 
-    print("Page :", result["metadata"]["page"])
-
-    print(result["metadata"]["text"][:300])

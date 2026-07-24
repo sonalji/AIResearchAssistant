@@ -7,15 +7,15 @@ import json
 def create_vector_store(
     embeddings: List[List[float]], 
     metadata_list: List[Dict[str, Any]]
-) -> Tuple[faiss.IndexFlatL2, Dict[int, Dict[str, Any]]]:
+) -> Tuple[faiss.IndexFlatIP, Dict[int, Dict[str, Any]]]:
     
     # Create a FAISS index
     #1. Convert embeddings into a 2D float32 NumPy array (Required by FAISS)
     embeddings_array = np.array(embeddings).astype('float32')
     #2. Get the vector dimension size
     d = len(embeddings[0])  # Dimension of the vectors
-    # 3. Initialize a flat L2 (Euclidean distance) FAISS index
-    index = faiss.IndexFlatL2(d)
+    # 3. Initialize a flat IP (Inner Product) FAISS index
+    index = faiss.IndexFlatIP(d)
 
     # 4. Add the embeddings to the index
     index.add(embeddings_array)
@@ -72,7 +72,7 @@ def search_vector_store(
     query_embedding: List[float], 
     index: faiss.Index, 
     metadata: Dict[int, Dict[str, Any]], 
-    top_k: int = 3
+    top_k: int = 10
 ) -> List[Dict[str, Any]]:
     # Searches a FAISS index for the most similar chunks and maps results to metadata.
      # 1. Format the single query vector into a 2D float32 NumPy array

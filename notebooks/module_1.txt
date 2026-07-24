@@ -16,3 +16,16 @@ Produces 384-dimensional embeddings
 Vector Strore: a place to store embeddings so we can quickly search them later.
 FAISS,ChromaDB,Pinecone,Milvus. Runs locally
 FAISS:-Very fast,Easy to understand,Industry standard,No server required
+create_vector_store()--Embeddings to FAISS Index
+save_vector_store()
+load_vector_store()
+search_vector_store()
+
+RAG integration: 
+Initialize the LLM client.
+Tried with Gemini2.0-flast but it did not worked
+So currently using Groq
+To construct a prompt from retrieved chunks, you need to format the array of text chunks into a single string block and inject it into the LLM system prompt along with the user query. This technique is known as Retrieval-Augmented Generation (RAG).
+Generate an answer from the retrieved context.
+Add source citations (page numbers).
+Connect the whole pipeline to your Streamlit UI.

@@ -2,836 +2,881 @@
     "0": {
         "chunk_id": 1,
         "page": 1,
-        "text": "2379-8920 (c) 2017 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.\nThis article has been accepted for publication in a future issue of this journal, but has not been fully edited. Content may change prior to final publication. Citation information: DOI 10.1109/TCDS.2017.2787040, IEEE\nTransactions on Cognitive and Developmental Systems\nIEEE TRANSACTIONS O"
+        "text": "Hand-Exoskeleton Assisted Progressive\nNeurorehabilitation Using Impedance Adaptation\nBased Challenge Level Adjustment Method\nAnirban Chowdhury\n, Student Member, IEEE, Shyam Sunder Nishad, Yogesh Kumar Meena\n, Member, IEEE,\nAshish Dutta\n, Member, IEEE, and Girijesh Prasad\n, Senior Member, IEEE\nAbstract—This\npaper\npresents\nan\nunderactuated\ndesign\nof\na\nrobotic\nhand\nexoskeleton,\nand\na\nchallenge\nbased\nneurorehabilitation strategy. The exoskeleton is designed to\nreproduce natural human ﬁngertip paths during"
     },
     "1": {
         "chunk_id": 2,
         "page": 1,
-        "text": "1109/TCDS.2017.2787040, IEEE\nTransactions on Cognitive and Developmental Systems\nIEEE TRANSACTIONS ON COGNITIVE AND DEVELOPMENTAL SYSTEMS, VOL. XX, NO. XX, MONTH 201X\n1\nOnline Covariate Shift Detection based Adaptive\nBrain-Computer Interface to Trigger Hand\nExoskeleton Feedback for Neuro-Rehabilitation\nAnirban Chowdhury, Student Member, IEEE, Haider Raza, Member, IEEE, Yogesh Kumar Meena, Student\nMember, IEEE, Ashish Dutta, Member, IEEE, and Girijesh Prasad, Senior Member, IEEE\nAbstract—A\nmajor\n"
+        "text": " strategy. The exoskeleton is designed to\nreproduce natural human ﬁngertip paths during extension and\ngrasping, keeping minimal kinematic complexity. It facilitates an\nimpedance adaptation based trigged assistance control strategy by\nswitching between active non-assist and passive assistance modes.\nIn the active non-assist mode, the exoskeleton motion follows\nthe applied ﬁngertip forces based on an impedance model. If the\napplied ﬁngertip forces are inadequate, the passive assistance\nmode is triggered."
     },
     "2": {
         "chunk_id": 3,
         "page": 1,
-        "text": "Member, IEEE, Ashish Dutta, Member, IEEE, and Girijesh Prasad, Senior Member, IEEE\nAbstract—A\nmajor\nissue\nin\nelectroencephalogram\n(EEG)\nbased brain-computer interfaces (BCIs) is the intrinsic non-\nstationarities in the brain waves, which may degrade the per-\nformance of the classiﬁer, while transitioning from calibration\nto feedback generation phase. The non-stationary nature of\nthe EEG data may cause its input probability distribution to\nvary over time, which often appear as a covariate shift. "
+        "text": " forces based on an impedance model. If the\napplied ﬁngertip forces are inadequate, the passive assistance\nmode is triggered. The impedance parameters are updated at\nregular intervals based on the user performance, to implement a\nchallenge based rehabilitation strategy. A six-week long hand\ntherapy, conducted on four chronic stroke patients, resulted in\nsigniﬁcant (p-value < 0:05) increase in force generation capacity\nand decrease (p-value < 0:05) in the required assistance. Also,\nthere was a signiﬁcant"
     },
     "3": {
         "chunk_id": 4,
         "page": 1,
-        "text": "ause its input probability distribution to\nvary over time, which often appear as a covariate shift. To\nadapt to the covariate shift, we had proposed an adaptive\nlearning method in our previous work and tested it on ofﬂine\nstandard datasets. This paper presents an online BCI system\nusing previously developed covariate shift detection (CSD)-based\nadaptive classiﬁer to discriminate between mental tasks and\ngenerate neurofeedback in the form of visual and exoskeleton\nmotion. The CSD test helps preve"
+        "text": " generation capacity\nand decrease (p-value < 0:05) in the required assistance. Also,\nthere was a signiﬁcant (p-value < 0:05) increase in the system\nimpedance parameters which adequately challenged the patients.\nThe change in the Action-Research-Arm-Test (ARAT) scores\nfrom baseline was also found to be signiﬁcant (p-value < 0:05) and\nbeyond the minimal clinically important difference (MCID) limit.\nThus, the results prove that the proposed control strategy with has\nthe potential to be a clinically"
     },
     "4": {
         "chunk_id": 5,
         "page": 1,
-        "text": "ks and\ngenerate neurofeedback in the form of visual and exoskeleton\nmotion. The CSD test helps prevent unnecessary retraining of\nthe classiﬁer. The feasibility of the developed online-BCI system\nwas ﬁrst tested on 10 healthy individuals, and then on 10\nstroke patients having hand disability. A comparison of the\nproposed online CSD-based adaptive classiﬁer with conventional\nnon-adaptive classiﬁer has shown a signiﬁcantly (p ≤0.01)\nhigher classiﬁcation accuracy in both the cases of healthy and\npat"
+        "text": "\nThus, the results prove that the proposed control strategy with has\nthe potential to be a clinically effective solution for personalized\nrehabilitation of poststroke hand functionality.\nIndex\nTerms—Impedance\nadaptation,\ntrigged\nassistance,\nneurorehabilitation, hand-exoskeleton, stroke.\nI. INTRODUCTION\nM\nOTOR impairment of the upper limb, in terms of loss of\nability to use the ﬁngers due to stroke, is a major cause\nof disability worldwide. For effective motor recovery, the\nstroke survivors need to"
     },
     "5": {
         "chunk_id": 6,
         "page": 1,
-        "text": "as shown a signiﬁcantly (p ≤0.01)\nhigher classiﬁcation accuracy in both the cases of healthy and\npatient groups. The results demonstrate that the online CSD-\nbased adaptive BCI system is superior to the non-adaptive BCI\nsystem and it is feasible to be used for actuating hand exoskeleton\nfor the stroke-rehabilitation applications.\nIndex Terms—Adaptive learning, Brain-computer interface,\nCovariate shift detection, Hand-exoskeleton, Neurorehabilitation.\nI. INTRODUCTION\nS\nINCE its inception in 1973 "
+        "text": " is a major cause\nof disability worldwide. For effective motor recovery, the\nstroke survivors need to undetake intensive physiotherapy\nusing their paretic limbs, involving active engagement [1]. In\nmost cases, effective recovery is delayed and sometimes hin-\ndered, as the conventional therapies are not adequately intense\nand engaging for the patients, or the trained professionals are\nunavailable [2].\nIn recent years, robotic therapies have been shown to provide\nintense repetitive exercise for the"
     },
     "6": {
         "chunk_id": 7,
         "page": 1,
-        "text": "hift detection, Hand-exoskeleton, Neurorehabilitation.\nI. INTRODUCTION\nS\nINCE its inception in 1973 by J.J. Vidal, brain-computer\ninterface (BCI) technology has seen a rapid growth in the\nlast three decades, thanks to the advancement in neurophys-\niology, electronics, signal processing, and computer science\n[1]. The BCI technology has found its utility as a potential\nmeans of communication and control for disabled people to\ninteract with the outside world [2]. Several features extracted\nfrom the"
+        "text": " [2].\nIn recent years, robotic therapies have been shown to provide\nintense repetitive exercise for the patients with partial or no\ninvolvement of a human therapist [3]. These are easily deploy-\nable and can also provide very reliable quantiﬁcation of the\nrehabilitation progress [4]. Although the robotic rehabilitation\nfor upper-limb poststroke impairment is often recommended\nby major health care organizations such as American Heart\nAssociation, the personalization of the therapeutic process\naccording"
     },
     "7": {
         "chunk_id": 8,
         "page": 1,
-        "text": "trol for disabled people to\ninteract with the outside world [2]. Several features extracted\nfrom the cortical signals such as the slow cortical potentials,\nsensory motor rhythms (SMR), and P300, have been exploited\nto make several applications using the BCI systems [3].\nAs BCI requires focused attention which is also a key\nfactor in regenerating motor skills, many neurorehabilitation\ntherapies have been designed using this technology [4], [5].\nAC and AD are with the Centre of Mechatronics, India"
+        "text": " such as American Heart\nAssociation, the personalization of the therapeutic process\naccording to the speciﬁc needs of a patient is a major prob-\nlem [5]. In our study we have focused on the rehabilitation of\nthe distal part of the upper-limb, particularly the ﬁnger ﬂexion/\nextension. Based on the structure and the actuation systems the\nexoskeletons are found mainly in two categories: a major por-\ntion of them are cable actuated [6], [7], [8], [9], [10], [11], and a\nminority of them are driven by"
     },
     "8": {
         "chunk_id": 9,
         "page": 1,
-        "text": "e been designed using this technology [4], [5].\nAC and AD are with the Centre of Mechatronics, Indian Institute of\nTechnology (IIT) Kanpur, India\nHR is with School of Computer Science and Electronic Engineering,\nUniversity of Essex, UK\nYKM and GP are with Intelligent Systems Research Centre, Ulster Uni-\nversity, UK\nCorresponding authors: AC (anir@iitk.ac.in)\nManuscript received June XX, 2017; revised Month XX, 201X.\nThese therapies have a potential for faster regeneration and\nreorganization of t"
+        "text": " major por-\ntion of them are cable actuated [6], [7], [8], [9], [10], [11], and a\nminority of them are driven by rigid structures or linkages [12],\n[13], [14], [15]. Recently pneumatic actuators [16] are also\nbeing used to build soft exoskeletons. Other than the exoskele-\ntons haptic devices such as ReHapticKnob [17] are also in use\nfor hand rehabilitation. The exoskeletons also vary in their\ndesign complexity, as some of them go for the full phalan-\nges [15] such as HANDEXOS [18], ExoK’ab [14] and"
     },
     "9": {
         "chunk_id": 10,
         "page": 1,
-        "text": "sed Month XX, 201X.\nThese therapies have a potential for faster regeneration and\nreorganization of the neuronal networks, often known as neu-\nroplasticity [6]. The strong correlation between EEG signals\nand mental tasks has led to many user centric applications\nsuch as virtual spellers for the communication [7], func-\ntional electrical stimulation (FES) based neuro-prosthesis for\ntetraplegics [4], hand exoskeleton control [8], [9], [10], [11]\nand telepresence for personal assistance [12]. In spi"
+        "text": " complexity, as some of them go for the full phalan-\nges [15] such as HANDEXOS [18], ExoK’ab [14] and Bio-\nmHED [9], while others such as CAFE [19], SNU Exo-Glove\ndeal with a subset of it [7], [10]. Sometimes, a sub-set for full\nphalanges is also driven in couple [16] in order to reduce the\ncomplexity, such as GENTLE/G [13] and HandSOME [20].\nThe individual ﬁnger modules are also actuated in different\nways as per the need of the therapeutic exercise. Hand exoskel-\netons such as [6], [14], [15] actuates"
     },
     "10": {
         "chunk_id": 11,
         "page": 1,
-        "text": " hand exoskeleton control [8], [9], [10], [11]\nand telepresence for personal assistance [12]. In spite of the\nseemingly bright prospect of the BCI technology, there are\nsome practical challenges regarding the robustness, accuracy,\nand information transfer rate (ITR) of such systems [13],\n[14], [15]. The non-stationary nature of neurophysiological\nsignals and dynamics of brain activity make the EEG-based\nBCI, a dynamically varying system, and thus improving its\nlearning performance is a challengi"
+        "text": "\nways as per the need of the therapeutic exercise. Hand exoskel-\netons such as [6], [14], [15] actuates all the joints of a ﬁnger\nmodule, while the ﬁnger modules of [7], [8], [16] are underac-\ntuated. The compromise between making actuating all the ﬁn-\ngers and actually all the joints of a ﬁnger module has to be\nmade, as incorporating both them (e.g., [15]) makes the exo-\nskeleton bulky, and limits the portability and wearability of it.\nThe actuations systems have also their individual limitations."
     },
     "11": {
         "chunk_id": 12,
         "page": 1,
-        "text": "-based\nBCI, a dynamically varying system, and thus improving its\nlearning performance is a challenging task [16]. It is well-\nknown that due to the presence of non-stationarity, the input\ndata distribution of EEG varies from trial-to-trial and also from\nsession-to-session transfer. The non-stationarities of the EEG\nsignals may be caused by various reasons such as changes in\nthe user attention level, electrode placement, and user fatigue\n[17]. As a result, these variations often appear as covaria"
+        "text": " limits the portability and wearability of it.\nThe actuations systems have also their individual limitations.\nIn the cable driven systems the tension in the wire doesn’t\nalways correctly reﬂect the summation of the joint torques and\nalso the tension in the wire often gets disturbed by the arm and\nManuscript received January 29, 2018; revised August 27, 2018; accepted\nOctober 22, 2018. Date of publication October 26, 2018; date of current ver-\nsion June 14, 2019. This paper was recommended for publication"
     },
     "12": {
         "chunk_id": 13,
         "page": 1,
-        "text": "l, electrode placement, and user fatigue\n[17]. As a result, these variations often appear as covariate\nshifts, wherein the input data distributions differ signiﬁcantly\nbetween training/calibration and evaluation/online feedback\nphases, while the conditional distribution remains the same\n[18]. Within an EEG-based BCI system that operates online\nin real-time non-stationary/changing environments, learning\napproaches are needed that can track the changes over time,\nand adapt in a timely fashion. The"
+        "text": " October 26, 2018; date of current ver-\nsion June 14, 2019. This paper was recommended for publication by Associate\nEditor L. Brayda upon evaluation of the reviewers’ comments. This work was\nsupported in part by the Department of Science and Technology (DST), India,\nand in part by U.K. India Education and Research Initiative (UKIERI) Thematic\nPartnership project: UKIERI-DST-2013-14/126, DST/INT/UK/P- 80/2014, and\nDST-UKIERI-2016-17-0128. (Corresponding author: Anirban Chowdhury.)\nA. Chowdhury, S."
     },
     "13": {
         "chunk_id": 14,
         "page": 1,
-        "text": "rning\napproaches are needed that can track the changes over time,\nand adapt in a timely fashion. The BCI systems, wherein the\nusers are trained to produce a ﬁxed EEG pattern, are often\ntime-consuming and tiring for the participants [13], while the\nadvent of Berlin BCI system greatly shortened the subject\nspeciﬁc training protocols by the use of machine learning\ntechniques [19], [20], [21]. Thus, it speeds up the conven-\ntional training protocols for improved performance [13], and\ncould be more n"
+        "text": " 80/2014, and\nDST-UKIERI-2016-17-0128. (Corresponding author: Anirban Chowdhury.)\nA. Chowdhury, S. S. Nishad, and A. Dutta are with the Department of\nMechanical Engineering, Indian Institute of Technology Kanpur, Kanpur\n208016, India (e-mail: anir@iitk.ac.in; shyam@iitk.ac.in; adutta@iitk.ac.in).\nY. K. Meena is with the Department of Computer Science, Swansea Univer-\nsity, Swansea SA2 8PP, U.K. (e-mail: Meena-Y@ulster.ac.uk).\nG. Prasad is with the School of Computing Engineering and Intelligent\nSystems,"
     },
     "14": {
         "chunk_id": 15,
         "page": 1,
-        "text": "t speeds up the conven-\ntional training protocols for improved performance [13], and\ncould be more natural and relevant for people with disability\n[4]. Adaptive Brain Interface (ABI) was one of the earliest\nexamples of such BCI systems [17], later many other systems\nusing error potential based adaptation [22], adaptive autore-\ngressive models [23], transductive learning [24], covariate\nshift adaptation [18], [25], Kullback-Leiber-Common-Spatial-\nPatterns (KLCSP) [26], interval-type-2-fuzzy class"
+        "text": " U.K. (e-mail: Meena-Y@ulster.ac.uk).\nG. Prasad is with the School of Computing Engineering and Intelligent\nSystems, Ulster University, Derry Londonderry BT48 7JL, U.K (e-mail: g.\nprasad@ulster.ac.uk).\nDigital Object Identiﬁer 10.1109/TOH.2018.2878232\n128\nIEEE TRANSACTIONS ON HAPTICS, VOL. 12, NO. 2, APRIL-JUNE 2019\n1939-1412 \u0001 2018 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.\nSee http://www.ieee.org/publications_standards/publications/rights/index.html"
     },
     "15": {
         "chunk_id": 16,
         "page": 1,
-        "text": "ation [18], [25], Kullback-Leiber-Common-Spatial-\nPatterns (KLCSP) [26], interval-type-2-fuzzy classiﬁers [27]\nhave been implemented.\nHowever, there is always a risk for inappropriate adap-\ntation, wherein the user may be confused by the unpre-\ndictable changes which may lead to degraded performance"
+        "text": " requires IEEE permission.\nSee http://www.ieee.org/publications_standards/publications/rights/index.html for more information.\nAuthorized licensed use limited to: Cornell University Library. Downloaded on September 03,2020 at 06:22:37 UTC from IEEE Xplore. Restrictions apply."
     },
     "16": {
         "chunk_id": 17,
         "page": 2,
-        "text": "2379-8920 (c) 2017 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.\nThis article has been accepted for publication in a future issue of this journal, but has not been fully edited. Content may change prior to final publication. Citation information: DOI 10.1109/TCDS.2017.2787040, IEEE\nTransactions on Cognitive and Developmental Systems\nIEEE TRANSACTIONS O"
+        "text": "wrist movements [11]. The rigid linkages although suitable for\nexerting higher forces for challenging rehabilitation exercises,\noften constrains the non-actuated joints and disrupt the natural\nmotion,\nthereby\nmaking\nsystem\nuncomfortable\nfor\nthe\npatients [16]. A detailed review of the existing wearable haptic\nsystems for the ﬁngertip and hand is given in [21]. Although\nseveral robotic hand exoskeletons already exist, design of\nlight-weight, fully wearable, low-cost and safe hand exoskele-\ntons facilitating"
     },
     "17": {
         "chunk_id": 18,
         "page": 2,
-        "text": "1109/TCDS.2017.2787040, IEEE\nTransactions on Cognitive and Developmental Systems\nIEEE TRANSACTIONS ON COGNITIVE AND DEVELOPMENTAL SYSTEMS, VOL. XX, NO. XX, MONTH 201X\n2\n[22]. Although the common spatial patterns (CSP) based\nfeature extraction method has been widely explored to com-\npute spatial ﬁlters which give maximum feature separability,\nthey are not invariant against dynamic intra- and inter-session\nchanges in the signal, as CSP only considers the difference in\nmeans between two classes whi"
+        "text": " already exist, design of\nlight-weight, fully wearable, low-cost and safe hand exoskele-\ntons facilitating natural ﬁnger motion, and the development of\nengaging and challenging training paradigms for neurorehabili-\ntation still require extensive research [1].\nApart from diverse design strategies there are also a variety\nof control approaches for hand exoskeletons. For over a\ndecade the mechanical impedance models are being used for\nassist-as-needed control of the exoskeletons. Its central objec-"
     },
     "18": {
         "chunk_id": 19,
         "page": 2,
-        "text": "session\nchanges in the signal, as CSP only considers the difference in\nmeans between two classes while ignoring the scatter within\na particular class [20], [28]. Next, Li et al., [18] proposed\na covariate shift adaptation (CSA) method for improving\nthe performance of BCI systems. Additionally, a covariate\nshift minimization (CSM) method was proposed for the non-\nstationary adaptation to reduce the feature set overlap and\nunbalance for different classes in the feature set domain [29].\nAlso, most "
+        "text": " impedance models are being used for\nassist-as-needed control of the exoskeletons. Its central objec-\ntive is to encourage the voluntary participation of the user in\nfollowing a desired trajectory, as the controller intervenes by\nproducing an assistance force which increases only when the\nuser deviates from the desired trajectory, and doesn’t inter-\nvene otherwise [22]. Thus it avoids the slacking effect, which\nhinders the process of motor skill learning [23]. One of the\nmain challenges in assist-as-needed"
     },
     "19": {
         "chunk_id": 20,
         "page": 2,
-        "text": " feature set overlap and\nunbalance for different classes in the feature set domain [29].\nAlso, most of the covariate shift adaptation (CSA) methods\nare commonly implemented in a batch processing manner,\nwhich limits its applicability in real-time application [29],\n[18], [30]. It is important to note that the non-stationary\nadaptation methods are majorly categorized into passive and\nactive approaches [31]. However, the traditional BCI systems\nare based on passive approach for non-stationary learn"
+        "text": " effect, which\nhinders the process of motor skill learning [23]. One of the\nmain challenges in assist-as-needed approach is to ﬁnd the\nideal joint angle trajectory for the required limb movement, as\nit forces the user to follow a desired trajectory [22]. This also\nreduces free interaction between the human and the device,\nrather than promoting it, which is beneﬁcial for an effective\nmotor recovery [24]. Moreover, to ﬁgure out the minimal\nassistance level in real time, the assist-as-needed controllers"
     },
     "20": {
         "chunk_id": 21,
         "page": 2,
-        "text": "es [31]. However, the traditional BCI systems\nare based on passive approach for non-stationary learning in\nEEG. In contrast, an active approach based non-stationary\nlearning method in BCI system may be a possible option that\nuses a CSD test to detect the presence of covariate shifts in the\nstreaming EEG features, and based upon the detected shift, an\nadaptive action is initiated. In our previous work [16], we have\nimplemented the active approach in single-trial EEG classiﬁ-\ncation in ofﬂine mode"
+        "text": " [24]. Moreover, to ﬁgure out the minimal\nassistance level in real time, the assist-as-needed controllers\nneed to solve optimization problems which increase the\ncomputational and hardware complexity compromising the\nagility of the system design.\nAnother control approach involving a triggered assistance is\nconsidered as a variant of the assist-as-needed principle [22].\nIn this approach the assistance is triggered when one or more\nperformance criteria hits a predeﬁned threshold, while the par-\nticipants"
     },
     "21": {
         "chunk_id": 22,
         "page": 2,
-        "text": "ork [16], we have\nimplemented the active approach in single-trial EEG classiﬁ-\ncation in ofﬂine mode and the performance of the system was\nsuperior to existing passive approach based BCI systems [32],\n[17], [29], [18], [33], [34]. However, improving the accuracy\nof the online BCI system for the neurorehabilitation purpose\nis still an open challenge.\nHere we present an online adaptive BCI system based on\na two-stage CSD test. In the ﬁrst stage of online CSD test,\nit generates a shift detection wa"
+        "text": " is triggered when one or more\nperformance criteria hits a predeﬁned threshold, while the par-\nticipants initially attempt the movement without robotic inter-\nvention. The performance criteria are usually set as muscle\nactivity, limb-velocity, tracking error, elapsed time, and force\ngeneration or a combination of these [25]. The exoskeletons\nsuch as HWARD and RUPERT used the threshold as elapsed\ntime [26], [27]. In the force triggered approaches the robotic\nassistance is provided when the participants"
     },
     "22": {
         "chunk_id": 23,
         "page": 2,
-        "text": "sed on\na two-stage CSD test. In the ﬁrst stage of online CSD test,\nit generates a shift detection warning using the exponentially\nweighted moving average (EWMA) model and in the second\nstage, this warning is validated by Hotelling’s T-square statis-\ntical test. The second stage of the CSD test aims to reduce the\nfalse detection rates [35], [36]. A combination of CSD test\nand supervised adaptation helps to build an online adaptive\nBCI system that aims to trigger a hand exoskeleton device\nto provi"
+        "text": "\ntime [26], [27]. In the force triggered approaches the robotic\nassistance is provided when the participants are able to generate\na force larger than a threshold force [28], [29]. In contrast,\nsome researchers followed the reverse approach, which is to\ninitiate the robotic assistance if the applied torque by the partic-\nipant is under a threshold torque for a certain period of\ntime [30], [31]. Although both the forward and reverse\napproaches of triggered assistance are intended for encouraging\nthe"
     },
     "23": {
         "chunk_id": 24,
         "page": 2,
-        "text": "helps to build an online adaptive\nBCI system that aims to trigger a hand exoskeleton device\nto provide a neurofeedback for healthy volunteers, and stroke\npatients suffering from ﬁnger impairment. We have chosen\nthis speciﬁc area of disability as EEG pattern recognition for\nﬁnger movements is relatively challenging due to low signal-\nto-noise ratio (SNR) and ﬁnger representative areas in the\nsomatosensory cortex are spatially over-lapping [37]. Also,\nthere is a need for undertaking such work beca"
+        "text": " both the forward and reverse\napproaches of triggered assistance are intended for encouraging\nthe active participation of the users, the forward approach (i.e.,\ntriggering the assistance when the participant meets the perfor-\nmance criteria) is intuitively less rewarding as the assistance is\ntriggered when the performance is higher i.e., the requirement\nof assistance is less. However, both forward and the reverse\napproach of triggered assistance have the tendency to make the\nparticipants apparently"
     },
     "24": {
         "chunk_id": 25,
         "page": 2,
-        "text": "sensory cortex are spatially over-lapping [37]. Also,\nthere is a need for undertaking such work because BCI systems\nrequiring quick calibration and user adaptation in real-time are\nin high demand, while there is a real shortage of such studies\non stroke patients [38]. The key contributions of the research\nin the paper are summarized as follows:\n1) It implements an online adaptive BCI system and tests\nit for feasibility on healthy and post-stroke individuals.\n2) For user-speciﬁc adaptation, the s"
+        "text": " forward and the reverse\napproach of triggered assistance have the tendency to make the\nparticipants apparently passive extending the assistance phase.\nAlthough many exoskeletons described here provides active/\npassive assistance to the patients, the haptics aspect of the\nsystem is often neglected. There are a few devices such as\nReHapticKnob [17], wherein the output impedance is modu-\nlated autonomously in order to vary the assistance/resistance\nlevel of the system and thereby adjusting the challenge"
     },
     "25": {
         "chunk_id": 26,
         "page": 2,
-        "text": "sts\nit for feasibility on healthy and post-stroke individuals.\n2) For user-speciﬁc adaptation, the system uses the two\nstage CSD-based adaptation technique, which reduces\nthe rate of false shift and is applicable to online stream-\ning data..\n3) It uses two feedback modes: visual feedback is given\non computer screen and proprioceptive feedback is pro-\nvided through a hand exoskeleton, which also motivates\nthe user, for adapting to the system. Thus it facilitates\nmutual learning.\n4) The performanc"
+        "text": " in order to vary the assistance/resistance\nlevel of the system and thereby adjusting the challenge level of\nthe therapeutic task without the intervention from a human\ntherapist.\nIn the light of the above mentioned structural and control\nsystem designs, the paper proposes a hand-exoskeleton for\nstroke rehabilitation which is agile in both the structural and\ncontrol aspects and validates its potential clinical effectiveness\nthrough pilot clinical trial on stroke patients. The developed\nhand exoskeleton"
     },
     "26": {
         "chunk_id": 27,
         "page": 2,
-        "text": "tivates\nthe user, for adapting to the system. Thus it facilitates\nmutual learning.\n4) The performance of the proposed system is demonstrated\nto be superior to the conventional system non-adaptive\nclassiﬁer.\nThe remainder of this paper proceeds as follows: Section II\npresents materials and methods that include system overview,\nexperimental protocol, data acquisition, and signal processing\nfor the proposed adaptive BCI system. Next, section III\npresents the performance analysis and results. Finall"
+        "text": " potential clinical effectiveness\nthrough pilot clinical trial on stroke patients. The developed\nhand exoskeleton is a four-bar linkage driven underactuated\nsystem capable of driving the index and middle ﬁngers in a\ncoupled fashion and thumb independently. It follows a trig-\ngered assistance approach (named here as impedance adapta-\ntion based trigged assistance) in order to make the design of\nthe control strategy agile enough by reducing the computa-\ntional and hardware complexity involved in conventional"
     },
     "27": {
         "chunk_id": 28,
         "page": 2,
-        "text": "roposed adaptive BCI system. Next, section III\npresents the performance analysis and results. Finally, Section\nIV includes the discussion and section V summarizes the\nﬁndings of this study.\nII. MATERIALS AND METHODS\nA. System Overview\nThe adaptive BCI system developed for the experimentation,\nuses g.USBamp (g.tec, Graz, Austria) biosignal ampliﬁer, EEG\ncap (g.tec), Ag/AgCl based EEG electrodes for recording scalp\nEEG data. The experimental paradigm and software for the\nsignal processing and feed"
+        "text": " control strategy agile enough by reducing the computa-\ntional and hardware complexity involved in conventional\nassist-as-needed approach. Additionally, The triggered assis-\ntance strategy reacts interactively to the volitional effort of the\npatients, without constraining them to follow a desired trajec-\ntory (as in the case of the conventional implementation of\nassist-as-needed approach) or force pattern, to incorporate the\nidea of free interaction, which is often considered advanta-\ngeous in a"
     },
     "28": {
         "chunk_id": 29,
         "page": 2,
-        "text": " recording scalp\nEEG data. The experimental paradigm and software for the\nsignal processing and feedback generation were built in-house\nusing MATLAB-Simulink environment. The neurofeedback\nwas provided in the form of a visual hand grasp on the\ncomputer screen and actual motion of the same grasping action\nwas provided using a hand-exoskeleton for moving coupled\nindex-middle ﬁngers and thumb.\nThe exoskeleton was developed using a nylon based light\nweight material by a rapid prototyping method and "
+        "text": " pattern, to incorporate the\nidea of free interaction, which is often considered advanta-\ngeous in a rehabilitation scenario [24]. The rehabilitation\napproach, proposed in this paper is a challenge based one, in\nwhich, the challenge level is modiﬁed by varying the virtual\nimpedance of the exoskeleton system based on the force gen-\neration capacity of the user. The advantage of this strategy is\nthat it maximizes the patient’s engagement as it optimally sets\nthe difﬁculty level so that the patients"
     },
     "29": {
         "chunk_id": 30,
         "page": 2,
-        "text": "oskeleton was developed using a nylon based light\nweight material by a rapid prototyping method and it is\nportable and comfortable to wear [39]. It does the ﬂexion and\nextension motion of the ﬁngers for the patients suffering from\nﬁnger impairment after stroke. The index and middle ﬁngers\nare coupled and a four-bar mechanism drives them jointly.\nAlthough they are coupled, the ﬁnger attachments are made\nin such a manner, that it doesn’t put unnecessary pressure on\nthe ﬁngers. For driving the thum"
+        "text": " it maximizes the patient’s engagement as it optimally sets\nthe difﬁculty level so that the patients do not get frustrated by\na too easy or a too difﬁcult task [32]. The novel contributions\nof the study are as follows:\n1) A novel challenge based neurorehabilitation strategy,\nby adapting the mass and the damping parameters of\nthe impedance model, to facilitate to the stroke patients,\na performance based progressively challenging physi-\ncal exercise;\n2) a fusion between the active non-assist and passive"
     },
     "30": {
         "chunk_id": 31,
         "page": 2,
-        "text": " made\nin such a manner, that it doesn’t put unnecessary pressure on\nthe ﬁngers. For driving the thumb, there is another four-bar\nmechanism. The four-bar linkages are driven by servo motors\nin position control mode for following a predeﬁned human\nﬁnger trajectory of ﬂexion and extension motion.\nB. Experimental Protocol\nAn overview of the experimental protocol is shown in Fig.\n1. It follows a conventional SMR BCI architecture consisting\nof two stages. The ﬁrst stage is the data acquisition without"
+        "text": " based progressively challenging physi-\ncal exercise;\n2) a fusion between the active non-assist and passive assis-\ntance mode based control strategy for promoting free\ninteraction and\n3) a new performance metric based on force generation\ncapacity of the patients, which also correlated with the\nmotor recovery measure for grip-strength.\nThe rest of the paper is organized as follows. In Section II,\nthe design and development of the hand exoskeleton is dis-\ncussed. The impedance adaptation based trigged"
     },
     "31": {
         "chunk_id": 32,
         "page": 2,
-        "text": "tional SMR BCI architecture consisting\nof two stages. The ﬁrst stage is the data acquisition without\ngiving any feedback, from which an initial classiﬁer is trained\nusing the extracted features and the initial parameters for CSD\nbased classiﬁer adaptation is obtained. This is followed by the\nonline BCI stage that issues neurofeedback on the basis of the\nclassiﬁer outputs. Data acquisition during ﬁrst stage consists of\ntwo runs of 40 trials and each run takes about 7 minutes and 30\nseconds. Next,"
+        "text": " design and development of the hand exoskeleton is dis-\ncussed. The impedance adaptation based trigged assistance\ncontrol strategy and its experimentation on stroke patients are\ndiscussed in Section III. The impact of the proposed control\nstrategy using hand exoskeleton on stroke patients is presented\nin Section IV, while the discussion and conclusion based on the\nresults obtained, are stated in Sections V and VI respectively.\nII. EXOSKELETON DESIGN\nHuman ﬁngertip path during grasping and extension"
     },
     "32": {
         "chunk_id": 33,
         "page": 2,
-        "text": "rst stage consists of\ntwo runs of 40 trials and each run takes about 7 minutes and 30\nseconds. Next, the classiﬁer was trained in the off-line mode\nand it takes nearly 30 s, which is followed by one feedback\nrun of 40 trials in online BCI mode. In each run 20 trials are\nleft and remaining 20 trials are right hand MI. Therefore it is\na balanced classiﬁcation problem where the chance accuracy\nof the classiﬁer is 50%. This transition from calibration to\nfeedback stage nearly takes only 16 mins, whi"
+        "text": " Sections V and VI respectively.\nII. EXOSKELETON DESIGN\nHuman ﬁngertip path during grasping and extension tasks is\nnon-circular [34]. The simplest mechanism which generates\nCHOWDHURY et al.: HAND-EXOSKELETON ASSISTED PROGRESSIVE NEUROREHABILITATION USING IMPEDANCE ADAPTATION BASED...\n129\nAuthorized licensed use limited to: Cornell University Library. Downloaded on September 03,2020 at 06:22:37 UTC from IEEE Xplore. Restrictions apply."
     },
     "33": {
         "chunk_id": 34,
-        "page": 2,
-        "text": " classiﬁer is 50%. This transition from calibration to\nfeedback stage nearly takes only 16 mins, which is desirable\nin a rehabilitation scenario, as patients may get tired and loose"
+        "page": 3,
+        "text": "this path is a planar four-bar linkage. To accomplish this\ndesign, (i) human ﬁnger motion of healthy subjects was\nrecorded (Figs. 1, 2) while they performed full extension and\ngrasping, and (ii) four-bar linkages for the thumb and index\nﬁnger were synthesized optimally for path generation so as to\nmatch the recorded ﬁngertip trajectories (Fig. 3). The input\nlink O2A is attached to the servomotor’s shaft for actuating\nthe exoskeleton. The method employed by Nishad et al. [33]\nfor three DOF per ﬁnger"
     },
     "34": {
         "chunk_id": 35,
         "page": 3,
-        "text": "2379-8920 (c) 2017 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.\nThis article has been accepted for publication in a future issue of this journal, but has not been fully edited. Content may change prior to final publication. Citation information: DOI 10.1109/TCDS.2017.2787040, IEEE\nTransactions on Cognitive and Developmental Systems\nIEEE TRANSACTIONS O"
+        "text": " shaft for actuating\nthe exoskeleton. The method employed by Nishad et al. [33]\nfor three DOF per ﬁnger exoskeleton module design is adapted\nfor this single DOF ﬁnger exoskeleton. The optimal link\nlengths are given in Table II.\nA CAD model of the exoskeleton was developed and then a\nprototype was fabricated using selective laser sintering.\nThe index and middle ﬁngers are coupled and actuated by a\nsingle four-bar linkage and the thumb by another four-bar\nlinkage. This was done, as it was observed"
     },
     "35": {
         "chunk_id": 36,
         "page": 3,
-        "text": "1109/TCDS.2017.2787040, IEEE\nTransactions on Cognitive and Developmental Systems\nIEEE TRANSACTIONS ON COGNITIVE AND DEVELOPMENTAL SYSTEMS, VOL. XX, NO. XX, MONTH 201X\n3\nFig. 1. An overview of the experimental protocol showing the EEG electrode placements (top-left); calibration, and online feedback generation stages (right)\nand also the participant interacting with the BCI system (bottom-left).\nFig. 2.\nTiming diagram of a trial during online BCI run. Here feedback\ntrigger time instant (FTTI) = 5"
+        "text": " four-bar linkage and the thumb by another four-bar\nlinkage. This was done, as it was observed that, the index and\nmiddle ﬁngertip paths are similar and they move on the same\nplane. Hence, this is an underactuated design with two active\nDOF, one for the index and middle ﬁngers combined, and one\nfor the thumb. Two ﬁngertip inserts are attached through pas-\nsive revolute joints to the exoskeleton ﬁnger modules, inside\nwhich the ﬁngers are inserted during exercise. The ﬁngertip\ninserts allow for some"
     },
     "36": {
         "chunk_id": 37,
         "page": 3,
-        "text": "g. 2.\nTiming diagram of a trial during online BCI run. Here feedback\ntrigger time instant (FTTI) = 5. The FTTI is not ﬁxed but it varies depending\nupon the selection of suitable time segment from the calibration phase. A\ntime-segment of 1.5 s before the FTTI is used for feature extraction, CSD\ntest and feedback trigger generation.\nattention if the session is excessively longer. Each trial period\nin the calibration phase was of 8 s (similar to that shown in\nthe timing paradigm of online BCI in Fi"
+        "text": " ﬁnger modules, inside\nwhich the ﬁngers are inserted during exercise. The ﬁngertip\ninserts allow for some variation of ﬁnger lengths and hence\nthe same exoskeleton can be used by different persons having\nslightly different ﬁnger lengths. The ﬁxture (Fig. 4) for the ﬁn-\nger exoskeletons includes an arm-rest support for providing\ncomfort during rehabilitation exercises.\nExoskeleton designs for rehabilitation are often not focused\non wearability [35], [36], while in our case it is considered\none of"
     },
     "37": {
         "chunk_id": 38,
         "page": 3,
-        "text": "n the calibration phase was of 8 s (similar to that shown in\nthe timing paradigm of online BCI in Fig. 2), within which\nﬁrst three seconds was the preparatory phase where a message\nstating “Get Ready” appeared in the middle of a computer\nscreen. After a 2 s period, a beep sound occurred and then at\nthe end of the 3rd second, a cue in the form of a hand-image\nappeared on the screen, either on the left or in the right side.\nAccording to the appearance of the cue, the participants were\ninstructed t"
+        "text": " are often not focused\non wearability [35], [36], while in our case it is considered\none of the key design aspects, so that its application can also\nbe extended to daily living activities. Pacchierotti et al. [21]\ndeﬁned the wearable exoskeletons on the basis of their form\nfactor, weight, shape, area of interest and ergonomics. A desir-\nable characteristic for the form factor of an exoskeleton is that\nFig. 1.\nFinger motion capture setup [33]: Eight LED markers. Motion is\nrecorded using a single camera."
     },
     "38": {
         "chunk_id": 39,
         "page": 3,
-        "text": "eft or in the right side.\nAccording to the appearance of the cue, the participants were\ninstructed to perform an MI task of a left or right-hand grasp.\nIn the calibration stage, the cue lasted up to the end of 8th\nsecond, after which the screen goes blank for a random period\nof 2 s to 3 s before the start of another trial. The acquired EEG\nsignals along with the class-labels are then fed into a feature\nextraction module, which extracts the CSP features to train\na support vector machine (SVM) cla"
+        "text": " is that\nFig. 1.\nFinger motion capture setup [33]: Eight LED markers. Motion is\nrecorded using a single camera.\nTABLE I\nVALUES OF PARAMETERS FOR GA() FUNCTION IN MATLAB\nFig. 2.\nHuman index ﬁngertip path for extension/grasp motion: The oval\nmarkers represent the positions of LED markers L1-L8 placed on a ﬁnger for\ndata recording. The ﬁngertip curve traced is non-circular. The ﬁrst two\nmarkers (leftmost) are on the back of the hand. The data points are trans-\nformed with respect to the coordinate system"
     },
     "39": {
         "chunk_id": 40,
         "page": 3,
-        "text": "ature\nextraction module, which extracts the CSP features to train\na support vector machine (SVM) classiﬁer with linear kernel\nand also calculates the CSD parameters, later to be used in\nthe online-feedback BCI phase for adapting the classiﬁer. The\nprocess of feature extraction and classiﬁer training was done\nby taking a sliding window of 1.5 s and shifted in steps of 0.5\ns to ﬁnd out the interval of maximum decoding accuracy by\nmeans of a randomized 10 fold cross-validation. This interval\nwas th"
+        "text": " (leftmost) are on the back of the hand. The data points are trans-\nformed with respect to the coordinate system x-y formed by these two\nmarkers. 24 such data-sets were collected from healthy subjects for the design\ncomputations.\nFig. 3.\nSchematic Sketch of the ﬁnger exoskeleton design using a four-bar\nlinkage: The four-bar linkage is optimized to generate the path of the LED L8,\nand is constrained to lie as close to the ﬁnger as possible, by introducing a\n‘Bound’ constraint.\nTABLE II\nOPTIMIZATION"
     },
     "40": {
         "chunk_id": 41,
         "page": 3,
-        "text": "of maximum decoding accuracy by\nmeans of a randomized 10 fold cross-validation. This interval\nwas then locked to be used in the online evaluation stage to\ngenerate neurofeedback according to the classiﬁer’s output.\nThis selection of time-segment is speciﬁc to a participant. An\nexample of the timing diagram of a trial during online BCI\nphase is shown in Fig. 2, where the feedback was triggered\nat 5 s, which means that the EEG data over the period 3.5\nto 5 s was used for feature extraction in this"
+        "text": " to lie as close to the ﬁnger as possible, by introducing a\n‘Bound’ constraint.\nTABLE II\nOPTIMIZATION RESULTS\n130\nIEEE TRANSACTIONS ON HAPTICS, VOL. 12, NO. 2, APRIL-JUNE 2019\nAuthorized licensed use limited to: Cornell University Library. Downloaded on September 03,2020 at 06:22:37 UTC from IEEE Xplore. Restrictions apply."
     },
     "41": {
         "chunk_id": 42,
-        "page": 3,
-        "text": " s, which means that the EEG data over the period 3.5\nto 5 s was used for feature extraction in this case. The time\nwhen the feedback was triggered is termed here as feedback\ntrigger time instant (FTTI). Once the feedback is triggered, it\ntakes 3 s to complete, and hence the trial ended at 8 s. FTTI\nvaries from participant to participant, and it could take any\nof the following [4.5, 5.0, 5.5, . . . , 8] s time points. It is to be\nnoted that as the feedback duration is ﬁxed for 3 s, the trial\nlen"
+        "page": 4,
+        "text": "it should not hinder the natural movements and should follow\nthe shape of the body part on to which it is worn. The exoskel-\neton, designed in this study acts only on the ﬁnger pads and\nfollows the natural human ﬁnger trajectory using the four-bar\nmechanism. Hence, no obstruction occurs during the natural\nmotion of the ﬁngers. The unique design of the arm-rest with\nthe two stands makes it easy and comfortable to wear for long\ntime making it fully wearable and portable (see Fig. 4). The\narm-rest follows"
     },
     "42": {
         "chunk_id": 43,
-        "page": 3,
-        "text": ". , 8] s time points. It is to be\nnoted that as the feedback duration is ﬁxed for 3 s, the trial\nlength extends beyond 8 s if FTTI > 5, and the trial length\nis shorter than 8 s if FTTI < 5 s. The online BCI stage starts\nwith the initial classiﬁer model calculated from the calibration\nstage but as the trials progress, and the covariate shifts were\ndetected, the classiﬁer was also retrained on new features to\nadapt the changes in the new input data distribution.\nC. Data Acquisition\nSeveral fMRI st"
+        "page": 4,
+        "text": " comfortable to wear for long\ntime making it fully wearable and portable (see Fig. 4). The\narm-rest follows the natural shape of the forearm. ‘Velcro\nstraps’ keep the exoskeleton attached to the hand and the fore-\narm. A patient with hemiplegia using the exoskeleton is shown\nin Fig. 5.\nThe device weighs 410g. Two Hitec HS5685MH servo\nmotors with 180 degree rotation are used to actuate the exo-\nskeleton. These motors weighing 60 g, are small in size\n(41 \u0001 20 \u0001 38, in mm) and are capable of exerting"
     },
     "43": {
         "chunk_id": 44,
-        "page": 3,
-        "text": "eatures to\nadapt the changes in the new input data distribution.\nC. Data Acquisition\nSeveral fMRI studies have shown that the MI of the se-\nquential hand movements involves ipsilateral cortical regions\nmainly in the overlapping supplementary motor area (SMA)\nand primary motor cortex (M1) [40]. Also a coupled fMRI\nand EEG study pointed out that the current sources of the\nﬁnger movements are in frontal medial and parietal regions\n[41]. Therefore in our study the scalp EEG was recorded with\n12 elec"
+        "page": 4,
+        "text": " These motors weighing 60 g, are small in size\n(41 \u0001 20 \u0001 38, in mm) and are capable of exerting 12.9 kg cm\ntorque at 7.4 V. The device is also back-drivable, a feature\nwhich was required during the experiments to calculate the\ninitial impedance parameters. Among the lightweight exoskel-\netons, the device built by Arata et al. [37] weighs 320 g, which\nuses compliant mechanisms, while the soft robotic glove using\nhydraulic actuators designed by Polygerinos et al. [38] weighs\n285 g.\nA patient with"
     },
     "44": {
         "chunk_id": 45,
-        "page": 3,
-        "text": "tal medial and parietal regions\n[41]. Therefore in our study the scalp EEG was recorded with\n12 electrodes covering these areas at F3, FC3, C3, CP3, P3,\nFCz, CPz, F4, FC4, C4, CP4, and P4 locations according to\n10-20 international system. Surface EMG electrodes were also\nplaced on ﬂexor-digitorum-superﬁcialis (FDS) muscles in the\nright and left forearm to monitor any overt hand movement\nduring MI trials. The signals were sampled at 512 Hz and\ninitially ﬁltered with 0.1 Hz to 100 Hz pass-band ﬁlt"
+        "page": 4,
+        "text": " robotic glove using\nhydraulic actuators designed by Polygerinos et al. [38] weighs\n285 g.\nA patient with hemiplegia using the exoskeleton is shown in\nFig. 5. There are several problems which could arise while\napplying the device to a paretic hand such as: 1) as the upper-\nlimb of the patients is generally weak, aligning the device\nwith the orientation of the hand is a little cumbersome, 2) due\nto the weakness in the hand and ﬁnger muscles, the ﬁngers can\nslip out of the ﬁnger-inserts if not properly"
     },
     "45": {
         "chunk_id": 46,
-        "page": 3,
-        "text": "trials. The signals were sampled at 512 Hz and\ninitially ﬁltered with 0.1 Hz to 100 Hz pass-band ﬁlter and a\nnotch ﬁlter at 50 Hz during data acquisition.\nD. Study Participants\n10 healthy volunteers and 10 hemiplegic patients partici-\npated in the experiment. All of them had no prior experience in\nundergoing BCI trials. The healthy participants were in the age\ngroup of 20-50 (mean = 41±9.21) years and the demographics\nof the participating patients are given in Table. I. The patients\nwere recruit"
+        "page": 4,
+        "text": " the weakness in the hand and ﬁnger muscles, the ﬁngers can\nslip out of the ﬁnger-inserts if not properly pushed inside or\nthe wrist and arm are loosely fastened with the exoskeleton, 3)\nas the exoskeleton is for prolonged use, any part of it should\nnot be pinching or putting pressure on the hand making any\nsort of discomfort while doing the excercise. The design of the\narm-rest is very useful here, and unique in the sense that most\nof the existing designs of the hand exoskeleton do not have\nsuch"
     },
     "46": {
         "chunk_id": 47,
-        "page": 3,
-        "text": " and the demographics\nof the participating patients are given in Table. I. The patients\nwere recruited ensuring they had no history of epilepsy. The\ncognitive impairment was also checked and patients scoring\nat least 7/10 in Hodgekinson’s mini-mental test score were\nconsidered for the experiment [42]. The participants signed\na written consent form before starting the experiments and\nthe experimental protocol was approved by the institute ethics\ncommittee of IIT Kanpur, India."
+        "page": 4,
+        "text": " and unique in the sense that most\nof the existing designs of the hand exoskeleton do not have\nsuch an arm rest which covers from the back of the hand to\nthe mid-lower arm with two stands which hold them ﬁx on a\ntable. Generally, the impaired upper limb is weak in a patient\nand it needs such a support system which not only will keep\nthe hand steady and comfortable while doing the therapeutic\ntask, but could also be easily detached during activities of\ndaily living (ADL). A ﬁxed support system generally"
     },
     "47": {
         "chunk_id": 48,
         "page": 4,
-        "text": "2379-8920 (c) 2017 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.\nThis article has been accepted for publication in a future issue of this journal, but has not been fully edited. Content may change prior to final publication. Citation information: DOI 10.1109/TCDS.2017.2787040, IEEE\nTransactions on Cognitive and Developmental Systems\nIEEE TRANSACTIONS O"
+        "text": " but could also be easily detached during activities of\ndaily living (ADL). A ﬁxed support system generally will\nrestrict the portability of the exoskeleton.\nA questionnaire to evaluate the usability of the hand-exo-\nskeleton was also given to the participants, to get the qualita-\ntive feedback of their experience of using it. The responses\nshow that the exoskeleton was easy to put on with minimal\nexternal assistance requirement. The exoskeleton was also\ncomfortable to wear for long duration, and"
     },
     "48": {
         "chunk_id": 49,
         "page": 4,
-        "text": "1109/TCDS.2017.2787040, IEEE\nTransactions on Cognitive and Developmental Systems\nIEEE TRANSACTIONS ON COGNITIVE AND DEVELOPMENTAL SYSTEMS, VOL. XX, NO. XX, MONTH 201X\n4\nTABLE I\nDEMOGRAPHICS OF THE PATIENTS\nParticipants\nAge\n(Years) Gender\nIS\n(L/R)\nDS\n(L/R)\nTSS\n(Months)\nS01\n48\nMale\nLeft\nRight\n8\nS02\n71\nMale\nLeft\nRight\n20\nS03\n63\nMale\nRight\nRight\n8\nS04\n35\nFemale\nRight\nRight\n3\nS05\n24\nMale\nLeft\nRight\n8\nS06\n45\nFemale\nLeft\nRight\n6\nS07\n48\nMale\nLeft\nRight\n2\nS08\n62\nFemale\nLeft\nRight\n6\nS09\n28\nMale\nLeft\nRight"
+        "text": "\nexternal assistance requirement. The exoskeleton was also\ncomfortable to wear for long duration, and there was no dis-\ncomfort in performing the ﬁnger extension and grasping\nmotions while using the exoskeleton.\nThe design features are summarized in the Table III.\nIII. IMPEDANCE ADAPTATION BASED TRIGGED ASSISTANCE\nA. Control System Overview\nTwo force sensors (FSRs), mounted on the upper and lower\ninner walls of each ﬁnger-insert, are used to sense the force\nexerted by the participant in the directions"
     },
     "49": {
         "chunk_id": 50,
         "page": 4,
-        "text": "06\n45\nFemale\nLeft\nRight\n6\nS07\n48\nMale\nLeft\nRight\n2\nS08\n62\nFemale\nLeft\nRight\n6\nS09\n28\nMale\nLeft\nRight\n1\nS10\n51\nFemale\nRight\nRight\n48\nIS: Impaired Side, DS: Dominant Side, TSS: Time Since Stroke\nL: Left Hand, R: Right Hand\nE. Methods\nThe EEG-based online BCI implemented using CSD-based\nadaptive classiﬁer is abbreviated here as EEG-CSAC. For\ncomparative evaluation, its decoding accuracy is compared\nwith the case where the same classiﬁer is not adapted (i.e. cal-\nibration stage classiﬁer parameters "
+        "text": "\ninner walls of each ﬁnger-insert, are used to sense the force\nexerted by the participant in the directions of grasping and\nFig. 4.\nView of the hand exoskeleton worn on the hand of a person. The\nindex and middle ﬁngers are inserted into the ﬁnger-insert of the coupled\nindex-middle link of the exoskeleton and the thumb is inserted into the ﬁnger-\ninsert of the thumb link. The inside of the ﬁnger insert is zoomed at the left\nside with an arrow to show the force-sensor attachments, where the ﬁnger-tip"
     },
     "50": {
         "chunk_id": 51,
         "page": 4,
-        "text": "ith the case where the same classiﬁer is not adapted (i.e. cal-\nibration stage classiﬁer parameters remain unchanged), named\nas EEG-based non-adaptive classiﬁer (EEG-NAC). The EEG-\nNAC only lacks the CSD-based adaptation part, while the rest\nare same for both the methods. It is to be noted that the online\nBCI was implemented only using the EEG-CSAC method and\nEEG-NAC was applied later in off-line mode on the same\ndata, once the online BCI run is completed. This was done\nto check the decoding acc"
+        "text": " is zoomed at the left\nside with an arrow to show the force-sensor attachments, where the ﬁnger-tip\nof the user is actually touching. The servo motors as depicted in the ﬁgure are\ndriving the each individual link. When the user tries to grasp or extend the ﬁn-\ngers the applied forces are picked up by the force sensors placed in either\ndirection and then the exoskeleton controller converts them into appropriate\nmotion.\nFig. 5.\nExperimental setup: A participant is doing exercise, wearing the\nhand exoskeleton"
     },
     "51": {
         "chunk_id": 52,
         "page": 4,
-        "text": "mode on the same\ndata, once the online BCI run is completed. This was done\nto check the decoding accuracy with and without adaptation.\nThe methods are described as follows: First the temporal and\nspatial ﬁltering, which are common to both the EEG-NAC and\nEEG-CSAC are described. Then the algorithm of EEG-NAC is\noutlined followed by the details of the additional steps relating\nto EEG-CSAC, which are covariate-shift detection, validation,\nand adaptation.\n1) Temporal and Spatial Filtering:\nThe recor"
+        "text": " into appropriate\nmotion.\nFig. 5.\nExperimental setup: A participant is doing exercise, wearing the\nhand exoskeleton on her impaired hand. The applied ﬁngertip force is dis-\nplayed on the screen.\nTABLE III\nDESIGN FEATURES\nCHOWDHURY et al.: HAND-EXOSKELETON ASSISTED PROGRESSIVE NEUROREHABILITATION USING IMPEDANCE ADAPTATION BASED...\n131\nAuthorized licensed use limited to: Cornell University Library. Downloaded on September 03,2020 at 06:22:37 UTC from IEEE Xplore. Restrictions apply."
     },
     "52": {
         "chunk_id": 53,
-        "page": 4,
-        "text": " covariate-shift detection, validation,\nand adaptation.\n1) Temporal and Spatial Filtering:\nThe recorded sig-\nnals have been band-pass ﬁltered for two frequency bands\n(i.e. µ= [8-12] Hz, β= [16-24] Hz). These two frequency\nranges have been chosen empirically as they provide stable\nfrequency response for Event-Related-Desynchronization or\nEvent-Related-Synchronization (ERD/ERS) [43]. Due to vol-\numetric conduction raw EEG scalp potentials do not have\ngood spatial resolution. If our signal of inter"
+        "page": 5,
+        "text": "extension. From the readings of the four force sensors (two for\nindex ﬁnger and two for middle ﬁnger), the net force acting in\na particular direction (grasping or extension) is calculated\nusing Eq. (1).\nFnet ¼ ðFmp þ FipÞ \u0003 ðFma þ FiaÞ:\n(1)\nHere, Fip, Fmp are the force readings on the posterior side of\nthe index and middle ﬁngertips respectively and Fia, Fma are\nthe force readings for the anterior side. Thus, if the net force\nFnet > 0, then it is considered to be acting in the extension\ndirection"
     },
     "53": {
         "chunk_id": 54,
-        "page": 4,
-        "text": "tric conduction raw EEG scalp potentials do not have\ngood spatial resolution. If our signal of interest is dominated\nby the other sources having stronger signal in the same\nfrequency range, EEG signal classiﬁcation is affected [20].\nAn effective spatial ﬁltering algorithm is common-spatial-\npattern (CSP) algorithm [44]. It is an efﬁcient tool to analyze\nmultichannel EEG data for binary classiﬁcation. It is basically\na supervised decomposition of signals parameterized by a\nmatrix W ∈R\n\b\nC×C\n \n(C:"
+        "page": 5,
+        "text": " side. Thus, if the net force\nFnet > 0, then it is considered to be acting in the extension\ndirection and if Fnet < 0 then the net force is considered to\nbe acting in the grasping direction. This net force is compared\nwith a threshold force level Fth. To set the threshold force we\nasked the participants to keep their hand passive and moved\nthe exoskeleton for a ﬁnger open and close motion. Then we\ntook the average of all the forces which was passively\nreﬂected on the force sensor to calculate the"
     },
     "54": {
         "chunk_id": 55,
-        "page": 4,
-        "text": "on. It is basically\na supervised decomposition of signals parameterized by a\nmatrix W ∈R\n\b\nC×C\n \n(C: number of channels). The matrix is\nused to project the original sensor space E into the surrogate\nsensor space, using eq.(1)\nZ = WE\n(1)\nwhere, E ∈R\n\b\nC×T\n \nis the EEG measurement of a single-\ntrial and T is the number of samples per channel. W is the CSP\nprojection matrix. The rows of W are the spatial ﬁlters and the\ncolumns are the common spatial patterns. A small number of\nspatially ﬁltered sig"
+        "page": 5,
+        "text": "\ntook the average of all the forces which was passively\nreﬂected on the force sensor to calculate the threshold force\nlevel. Thus the value of Fth turned out to be 0.02 N. As the\nparticipants were asked not to make a deliberate attempt of\nmovement during this experiment, the Fth can be safely\nassumed to be the force reﬂected by slight vibration or the pas-\nsive resistance offered by the ﬁngers. In this regard it is to be\nnoted that all the participants had negligible spasticity in their\nﬁngers. The"
     },
     "55": {
         "chunk_id": 56,
-        "page": 4,
-        "text": "tial ﬁlters and the\ncolumns are the common spatial patterns. A small number of\nspatially ﬁltered signals are used as features for classiﬁcation\npurpose. These are generally ﬁrst and last rows of Z, i.e. Zt,\nwhere t ∈\n\b\n1...2m\n \n. The feature vector is derived from Zt\nby eq.(2) as,\nxt = log\n \nvar(Zt)\n2m\nP\ni=1\nvar(Zt)\n!\n(2)\nAfter doing the temporal and spatial ﬁltering, and ﬁnally\ntaking the log variance using (2), we obtain the feature vector\nof 12 elements from which the ﬁrst and last features a"
+        "page": 5,
+        "text": " this regard it is to be\nnoted that all the participants had negligible spasticity in their\nﬁngers. The threshold force level ensures that the applied\nforce is not due to any random vibration in the ﬁngers, which\ndoesn’t represent patient’s volitional effort. The user would be\nable to drive the exoskeleton deliberately only when, the net\nﬁngertip force Fnet applied by him/her exceeds the threshold\nforce Fth, i.e.,\njFnetj > jFthj:\n(2)\nIn this case, the exoskeleton is said to operate in active non-"
     },
     "56": {
         "chunk_id": 57,
-        "page": 4,
-        "text": "iance using (2), we obtain the feature vector\nof 12 elements from which the ﬁrst and last features are kept,\nignoring the elements in between. These two elements we\ndesignate as ﬁrst and second best features in Fig. 3. Thus from\ntwo different frequency bands (i.e. µ and β) we obtain four\nelements which forms the feature vector of 1 × 4 dimension\nfor a single trial.\n2) EEG-based Non-Adaptive Classiﬁer (EEG-NAC):\nIn\nthis, a support-vector-machine (SVM) based pattern classiﬁer\nwith linear kernel is"
+        "page": 5,
+        "text": "\nforce Fth, i.e.,\njFnetj > jFthj:\n(2)\nIn this case, the exoskeleton is said to operate in active non-\nassist mode, in which an impedance model (Section III-B) is\nused to compute the exoskeleton motion from the ﬁngertip\nforce. In case the inequality Eq. (2) is not satisﬁed at any point\nof time, the controller starts a watchdog ðwtÞ and waits for a\nparticular period of time wth before issuing the ﬂag that the\nuser failed to generate the required force to drive the exoskele-\nton. The wth was empirically"
     },
     "57": {
         "chunk_id": 58,
-        "page": 4,
-        "text": "ﬁer (EEG-NAC):\nIn\nthis, a support-vector-machine (SVM) based pattern classiﬁer\nwith linear kernel is built upon the common assumption that\nthe distribution of extracted features remains stationary over\ntime. In the EEG-NAC method initially an inductive classiﬁer\nis trained on the calibration dataset that consists of labeled\ntrials. Then, in the online BCI stage, unlabeled features from\nstreaming data are processed sequentially for the classiﬁcation.\nIn this method, only EEG-based CSP features ar"
+        "page": 5,
+        "text": " that the\nuser failed to generate the required force to drive the exoskele-\nton. The wth was empirically set to 500 ms to give the partici-\npant enough time to respond. In this case, the exoskeleton is\nsaid to operate in passive assistance mode, in which, the user\ngets full assistance from the exoskeleton controller, as the ﬁn-\ngers are moved in the direction of motion with a default veloc-\nity ð_udefÞ to complete the ongoing grasping/extension. The\ndefault velocity ð_udefÞ was set to 9.27 deg/s"
     },
     "58": {
         "chunk_id": 59,
-        "page": 4,
-        "text": "ata are processed sequentially for the classiﬁcation.\nIn this method, only EEG-based CSP features are considered\nfor the classiﬁcation.\n3) EEG-based Covariate Shift Adaptive Classiﬁer (EEG-\nCSAC): The EEG-based covariate shift adaptive classiﬁer\n(EEG-CSAC) belongs to the category of active learning ap-\nproach [16], wherein the classiﬁer parameters are updated at\neach CSD during the online feedback phase. This adaptive\nclassiﬁer is implemented using SVM with linear kernel. The\nshift-detection is "
+        "page": 5,
+        "text": " to complete the ongoing grasping/extension. The\ndefault velocity ð_udefÞ was set to 9.27 deg/s for the crank, to\ngive the user sufﬁcient time for proprioception. During the\npassive assistance the exoskeleton was driven in velocity con-\ntrol mode, where it maintained a ﬁxed velocity of 9.27 deg/s\nuntil it receives further input from the user (i.e., until\nFnet > Fth). At any point of time during the passive assis-\ntance mode, if the user is able to apply enough ﬁngertip force\nin the direction of motion"
     },
     "59": {
         "chunk_id": 60,
-        "page": 4,
-        "text": " phase. This adaptive\nclassiﬁer is implemented using SVM with linear kernel. The\nshift-detection is performed using the covariate shift detection\n(CSD) test based on EWMA model [35], [36], [45]. The\nalgorithm is provided with a calibration dataset, and a classiﬁer\nf is trained. In the online BCI phase, the CSD-EWMA test is\nused to detect the covariate shift and the classiﬁer f is retrained\nto update its classiﬁcation decision boundary, and then the\nupdated classiﬁer f is used to classify the upc"
+        "page": 5,
+        "text": " the passive assis-\ntance mode, if the user is able to apply enough ﬁngertip force\nin the direction of motion to drive the exoskeleton (i.e.,\nsatisfying Eq. (2)), the controller switches to the active non-\nassist mode. The fact that the exoskeleton controller provides\nassistance only when, the user fails to drive the exoskeleton\ndeliberately, it facilitates the impedance adaptation based\ntrigged assistance policy, an essential requirement for motor\nskill learning.\nB. Impedance Model\nImpedance models"
     },
     "60": {
         "chunk_id": 61,
-        "page": 4,
-        "text": "te its classiﬁcation decision boundary, and then the\nupdated classiﬁer f is used to classify the upcoming input\ndata from online BCI paradigm. The interactions between the\ncovariate shift-detection, validation, and adaptation stages are\nexplained in Fig. 4 and in the following subsections.\na) Covariate Shift Warning (CSW): The ﬁrst stage in\na CSD-EWMA test provides covariate shift warning in the\nprocess. It makes an initial estimate of the covariate shift\n(i.e. whether the actual shift has occur"
+        "page": 5,
+        "text": " assistance policy, an essential requirement for motor\nskill learning.\nB. Impedance Model\nImpedance models are widely used to convert the applied\nforce to control the position of robots [39] in a robot human\ncooperation task. Perez-Ibarra et. al. [40] proposed an ankle\nrehabilitation strategy based on an adaptive impedance control\nmodel. They used damping and stiffness parameters only, and\nupdated the stiffness parameter based on the patient’s perfor-\nmance in a video game. Metzger et al. [1] reported"
     },
     "61": {
         "chunk_id": 62,
-        "page": 4,
-        "text": "rocess. It makes an initial estimate of the covariate shift\n(i.e. whether the actual shift has occurred) and is performed\nby an EWMA model. If the CSD test outcome is positive,\nthen the second stage test gets activated, and a validation is\nperformed in order to reduce the number of false-alarms [35].\nThe EWMA model is explained by the following equation,\nz(i) = λx(i) + (1 −λ)z(i−1)\n(3)\nwhere, the importance of the current and historical obser-\nvations is decided by the parameter λ(0 < λ ≤1). z(i"
+        "page": 5,
+        "text": " the stiffness parameter based on the patient’s perfor-\nmance in a video game. Metzger et al. [1] reported an assess-\nment driven selection and adaptation of the exercise difﬁculty\nin a robot assisted therapy. They also used an impedance\nmodel that had only a stiffness parameter which was varied to\nevaluate a patient’s ability to perceive and differentiate haptic\nstimuli during active object grasping. As per the literature in\n[41] and [42], including a spring in the impedance model can\nimpede the"
     },
     "62": {
         "chunk_id": 63,
-        "page": 4,
-        "text": "importance of the current and historical obser-\nvations is decided by the parameter λ(0 < λ ≤1). z(i) is\nthe exponentially weighted moving average (EWMA) of the"
+        "page": 5,
+        "text": " As per the literature in\n[41] and [42], including a spring in the impedance model can\nimpede the human-robot interaction. This is because the\nspring essentially absorbs energy and gives it back to the sys-\ntem, thus, causing oscillations. Hence, the impedance model\nconsidered here consists of the inertia and damping terms\nonly, to provide the best cooperation between the robot exo-\nskeleton and a human. Each ﬁnger module of the exoskeleton\nhas only one active degree of freedom, the input link angle"
     },
     "63": {
         "chunk_id": 64,
         "page": 5,
-        "text": "2379-8920 (c) 2017 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.\nThis article has been accepted for publication in a future issue of this journal, but has not been fully edited. Content may change prior to final publication. Citation information: DOI 10.1109/TCDS.2017.2787040, IEEE\nTransactions on Cognitive and Developmental Systems\nIEEE TRANSACTIONS O"
+        "text": " a human. Each ﬁnger module of the exoskeleton\nhas only one active degree of freedom, the input link angle u\nof the four-bar mechanism. This u is related to the net force\nFnet, to form the proposed impedance model as,\nFnet ¼ M€u þ C_u:\n(3)\nThe estimates of the patient’s M, C parameters were calcu-\nlated with reference to a healthy individual’s M, C parameters.\nIn order to estimate the M, C parameters speciﬁc to a healthy\nindividual, the following experiments were conducted. A group\nof 10 healthy"
     },
     "64": {
         "chunk_id": 65,
         "page": 5,
-        "text": "1109/TCDS.2017.2787040, IEEE\nTransactions on Cognitive and Developmental Systems\nIEEE TRANSACTIONS ON COGNITIVE AND DEVELOPMENTAL SYSTEMS, VOL. XX, NO. XX, MONTH 201X\n5\nFig. 3. Shift in the decision boundary from calibration to online feedback phase due to covariate shift, in (a) µ[8 −12 Hz] band and (b) β[16 −24 Hz]\nband for healthy participant S01. TDB is showing the initial decision boundary after the calibration phase and FDB is showing the change in the decision\nboundary due to covariate sh"
+        "text": " speciﬁc to a healthy\nindividual, the following experiments were conducted. A group\nof 10 healthy people between the age group of 20 \u0003 50 years\nwere asked to perform the grasping and extension wearing the\nexoskeleton while its actuators were inactive. As the servomo-\ntors used are back-drivable, they can be moved even in the\npower-off condition. The ﬁngertip force and the corresponding\nchange in the actuator angle were recorded. The variation of the\nﬁngertip force (FH) with the actuator angle, averaged"
     },
     "65": {
         "chunk_id": 66,
         "page": 5,
-        "text": "ter the calibration phase and FDB is showing the change in the decision\nboundary due to covariate shift adaptation in the online feedback phase. The blue cross (’+’ symbols are showing the left MI features and blue circle (’o’)\nsymbols are showing the right MI features in the online feedback phase.\ncurrent trial and x(i) is the observation in the current trial.\nBy observation we mean here the ﬁrst principal component of\nthe CSP feature of the current trial. As the EEG features are\ngenerally mult"
+        "text": " in the actuator angle were recorded. The variation of the\nﬁngertip force (FH) with the actuator angle, averaged over all\nparticipants is shown in Fig. 6a. An one-way ANOVA test\nbetween the force proﬁles of all the healthy participants resulted\nin p-value > 0.05, meaning that there is no signiﬁcant difference\nbetween the means of these force proﬁles. Therefore, we took\nthe average of all the force proﬁles to set the FH. From the actua-\ntor angular position, the velocity and the acceleration were"
     },
     "66": {
         "chunk_id": 67,
         "page": 5,
-        "text": " principal component of\nthe CSP feature of the current trial. As the EEG features are\ngenerally multivariate, it could be misleading to monitor such\ninput processes independently. For example, if the probability\nof one feature variable to exceed the control limit is 0.0027\nthen 0.27% of false detection rate is expected. Thus the use\nof d independent control charts for d independent feature\nvariables can result into highly distorted outcomes. For this\nreason principal component analysis (PCA) was"
+        "text": " proﬁles to set the FH. From the actua-\ntor angular position, the velocity and the acceleration were com-\nputed numerically (Fig. 6b). The actuator velocity, acceleration\nand ﬁngertip force data were then used to estimate the M, C\nparameters of the impedance model Eq. (3), by solving a non-\nlinear curve ﬁtting problem using a non-linear least square\nsolver. The problem was formulated as follows:\nmin\nM;C\nX\nN\ni¼1\nðM €ui þ C _ui \u0003 FHiÞ2;\n(4)\nwhere N is the total number of data points. The sampling rate"
     },
     "67": {
         "chunk_id": 68,
         "page": 5,
-        "text": "es can result into highly distorted outcomes. For this\nreason principal component analysis (PCA) was used to reduce\nthe dimension of the feature vector and a single component\nwas used as the observation x(i) [16]. The CSP feature vector\n(Featcsp of dimension 1 × 4) obtained from a particular\ntrial in the online feedback phase is transformed using PCA\ncoefﬁcient matrix COEFFpca (dimension 4 × 4), calculated\nfrom the calibration phase to get the principal components\n(xpcs).\nxpcs = COEFFpca.Feat′\nc"
+        "text": "\nM;C\nX\nN\ni¼1\nðM €ui þ C _ui \u0003 FHiÞ2;\n(4)\nwhere N is the total number of data points. The sampling rate\nof the data acquisition device was 50 Hz, which gave a total of\nN ¼ 104 data points for one grasping motion taking 2.08 s.\n132\nIEEE TRANSACTIONS ON HAPTICS, VOL. 12, NO. 2, APRIL-JUNE 2019\nAuthorized licensed use limited to: Cornell University Library. Downloaded on September 03,2020 at 06:22:37 UTC from IEEE Xplore. Restrictions apply."
     },
     "68": {
         "chunk_id": 69,
-        "page": 5,
-        "text": "alculated\nfrom the calibration phase to get the principal components\n(xpcs).\nxpcs = COEFFpca.Feat′\ncsp\n(4)\nFrom xpcs, the ﬁrst principal component is taken as the ob-\nservation xi for that trial. Now, the one-step-ahead prediction\nof x(i) is EWMA z(i−1), from which we can calculate the\nprediction error as,\nerr(i) = x(i) −z(i−1)\n(5)\nThen according to [46] the upper and lower control limits\nfor x(i) can be calculated as,\nUCL(i) = z(i−1) + Lσerr(i−1)\n(6)\nLCL(i) = z(i−1) −Lσerr(i−1)\n(7)\nwhere, UCL(i"
+        "page": 6,
+        "text": "The algorithm to solve the non-linear least square problem is\nthe subspace trust region method based on the interior-reﬂec-\ntive Newton method. Here, we used the MATLAB implemen-\ntation of the solver i.e., lsqcurvefitðÞ. The average M, C\nparameters for a healthy individual interacting with the exo-\nskeleton were found to be 5.3 Ns2=deg and 0.82 Ns2=deg.\nUsing these values, we can numerically integrate Eq. (3) using\nthe second order Runge-Kutta method, to get the current posi-\ntion and velocity of"
     },
     "69": {
         "chunk_id": 70,
-        "page": 5,
-        "text": " can be calculated as,\nUCL(i) = z(i−1) + Lσerr(i−1)\n(6)\nLCL(i) = z(i−1) −Lσerr(i−1)\n(7)\nwhere, UCL(i) and LCL(i) are the upper and lower control\nlimits respectively for trial i. L is the control limit multiplier.\nThe value of L is chosen to be equal to 2, which is suitable\nfor detecting minor shifts in trial-to-trial transfer [16]. The\nstandard deviation σerr of the one-step ahead error err is\ncalculated directly using smoothed variance [35] from the\nfollowing relation,\nσ2\nerr(i) = αerr2\n(i) + ("
+        "page": 6,
+        "text": " Eq. (3) using\nthe second order Runge-Kutta method, to get the current posi-\ntion and velocity of the crank, given the previous state of the\nposition, velocity of the crank and the applied force. Thus, the\nnet force Fnet is converted into the exoskeleton motion using\nthe impedance model. Fig. 6c shows the reconstructed force\nproﬁle after the estimation of M, C of the healthy participants,\nwhich is plotted over the original force proﬁle to check the\nvalidity of the M, C estimates.\nC. Clinical Intervention"
     },
     "70": {
         "chunk_id": 71,
-        "page": 5,
-        "text": "culated directly using smoothed variance [35] from the\nfollowing relation,\nσ2\nerr(i) = αerr2\n(i) + (1 −α)σ2\nerr(i−1)\n(8)\nwhere, α is the 5% level of signiﬁcance for the conﬁdence\ninterval of (1 −α).\nFinally, x(i) is checked whether it lies within the control\nlimit i.e. UCL(i) ≥x(i) ≥LCL(i). If x(i) falls outside\nthe control limit then only the covariate shift detection(CSD)\nwarning is raised. Once CSD warning is raised, the process\ngoes for the CSD validation in stage-II, to conﬁrm the covari-\na"
+        "page": 6,
+        "text": " is plotted over the original force proﬁle to check the\nvalidity of the M, C estimates.\nC. Clinical Intervention Protocol\nIn this study, we have conducted a single-arm clinical trial\ncomprising of 4 hemiparetic stroke patients who underwent\nthe same intervention for 6. The intervention was given three\ntimes per week and consists of two stages. The ﬁrst stage was\nthe Physical Practice (PP) stage of 30 min followed by a\nbrain-computer interface (BCI) supported mental Practice\n(MP) stage of almost an"
     },
     "71": {
         "chunk_id": 72,
-        "page": 5,
-        "text": " CSD warning is raised, the process\ngoes for the CSD validation in stage-II, to conﬁrm the covari-\nate shift.\nThe CSD parameters has been generated in the calibration\nphase, on the basis of which the two stage CSD test detects\nthe trial-to-trial shifts in the online feedback phase. There are\nmainly four parameters to be obtained after the end of the\ncalibration phase. These are λ, z(0), σ2\nerr(0) and COEFFpca.\nWe obtain λ by minimizing the sum of the squared one-\nstep-ahead prediction error, on "
+        "page": 6,
+        "text": " 30 min followed by a\nbrain-computer interface (BCI) supported mental Practice\n(MP) stage of almost an hour including the BCI calibration\ntime of around 16 min. Participants were made to sit on a chair\nin an upright position at about 0.5 m distance from the com-\nputer screen with the exoskeleton worn on their impaired hand\n(Fig. 5).\nIn the PP stage the participants were instructed to execute\nextension or grasping motion when the corresponding cue sig-\nnal was provided on the screen. Depending on"
     },
     "72": {
         "chunk_id": 73,
-        "page": 5,
-        "text": "and COEFFpca.\nWe obtain λ by minimizing the sum of the squared one-\nstep-ahead prediction error, on the data recored during the\ncalibration phase. z(0) is the mean of the observations x\nin the calibration dataset, σ2\nerr(0) is obtained by dividing\nthe sum of squared one-step-ahead prediction errors by the\nlength of the calibration dataset, and COEFFpca is the PCA\ncoefﬁcient matrix. These four parameters λ, z(0), σ2\nerr(0) and\nCOEFFpca calculated from the calibration phase acts as the\ninitial par"
+        "page": 6,
+        "text": " or grasping motion when the corresponding cue sig-\nnal was provided on the screen. Depending on the ﬁngertip\nforce exerted by the patient, the exoskeleton would operate\neither in active non-assist mode or passive assistance mode.\nWe have termed one such grasping followed by an extension\nas a practice unit (PU). This grasping and extension cycle was\nrepeated one after another for 30 min. Participants also got\nreal-time feedback of their applied ﬁngertip force on the com-\nputer screen so that they"
     },
     "73": {
         "chunk_id": 74,
-        "page": 5,
-        "text": "meters λ, z(0), σ2\nerr(0) and\nCOEFFpca calculated from the calibration phase acts as the\ninitial parameters at the online feedback phase. Later, z and\nσ2\nerr changes trial by trial during the online feedback phase,\nwhile λ remains ﬁxed from the calibration phase. L is a\nparameter in the EEG-CSAC and it is used as the control\nlimit multiplier, which deﬁnes the upper and lower limits of\nthe shift-detection boundary. Hence, a small value of L (e.g.\nL = 2) makes the shift-detection test sensitive to"
+        "page": 6,
+        "text": " also got\nreal-time feedback of their applied ﬁngertip force on the com-\nputer screen so that they could take corrective measures to\ndrive the exoskeleton more efﬁciently. The average of all the\nFnet (where, Fnet > Fth) is considered as PUscore, i.e., the\naverage net force (greater than threshold force) generated in a\nPU. Now a PP session of 30 min is composed of many such\nPUs (the number of PUs depends on the performance of the\nparticipant during that PP session). Thus the session score\n(SS) is"
     },
     "74": {
         "chunk_id": 75,
-        "page": 5,
-        "text": "tection boundary. Hence, a small value of L (e.g.\nL = 2) makes the shift-detection test sensitive to minor shifts,\nwhich may occur during the trial-to-trial transfer; whereas, a\nlarger value of L (e.g. L = 3) is accounted for long-term\nnon-stationaries such as run-to-run or session-to-session [16].\nAs, in our study the objective is to detect the shift in trial-to-\ntrial transfer, the value of L = 2. The same value was chosen"
+        "page": 6,
+        "text": " PUs depends on the performance of the\nparticipant during that PP session). Thus the session score\n(SS) is deﬁned as the average of all the PUscore in 5.\nSS ¼\nPNpu\nn¼1 PUscoreðnÞ\nNpu\n;\n(5)\nwhere, PUscoreðnÞ is the PUscore of nth PU during a PP session.\nNpu is the total number of PUs in a PP session. Before starting\na new session, the participants were given the target to achieve\nbetter score than in the previous session. To make the rehabili-\ntation paradigm more challenging, a performance based"
     },
     "75": {
         "chunk_id": 76,
         "page": 6,
-        "text": "2379-8920 (c) 2017 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.\nThis article has been accepted for publication in a future issue of this journal, but has not been fully edited. Content may change prior to final publication. Citation information: DOI 10.1109/TCDS.2017.2787040, IEEE\nTransactions on Cognitive and Developmental Systems\nIEEE TRANSACTIONS O"
+        "text": " in the previous session. To make the rehabili-\ntation paradigm more challenging, a performance based\nimpedance update strategy was implemented in the exoskele-\nton controller. The performance was measured using the ses-\nsion score (SS), based on which, the impedance parameters\nfor the next session were updated (Section III-D). This policy\nFig. 6.\nDifferent kinematic and dynamic characteristics of a healthy individual during grasping motion wearing the exoskeleton: (a) Fingertip force and actua-"
     },
     "76": {
         "chunk_id": 77,
         "page": 6,
-        "text": "1109/TCDS.2017.2787040, IEEE\nTransactions on Cognitive and Developmental Systems\nIEEE TRANSACTIONS ON COGNITIVE AND DEVELOPMENTAL SYSTEMS, VOL. XX, NO. XX, MONTH 201X\n6\nFig. 4.\nInteraction between difference modules of the shift detection and\nclassiﬁer adaptation for single trial detection of MI tasks.\nFig. 5.\nAn example of CSD test is shown from many trials recorded over\nseveral participants. Observations (x) from each trial are plotted along with\ntheir upper and lower control limits, calculate"
+        "text": " a healthy individual during grasping motion wearing the exoskeleton: (a) Fingertip force and actua-\ntor position, (b) actuator velocity and acceleration. An impedance model for the grasping motion wearing the exoskeleton was developed using these characteris-\ntics. (c) The reconstruction of the actuator position proﬁle during grasp. Black dotted line is the experimental position proﬁle and green solid line is computed\nusing the impedance model.\nFig. 7.\nImpedance parameter adpatation: An example"
     },
     "77": {
         "chunk_id": 78,
         "page": 6,
-        "text": "ervations (x) from each trial are plotted along with\ntheir upper and lower control limits, calculated from the EWMA model. Shift\npoints, detected from the two-stage CSD test are marked with arrows.\nexperimentally, in our previous study [16], where the same\nCSD test was applied on ofﬂine analysis of BCI competition\ndatasets.\nTo show the changes in the observation of a particular trial,\nwith and without the shift detection the ﬁrst principal compo-\nnent of the CSP feature (xi) has been plotted aga"
+        "text": " solid line is computed\nusing the impedance model.\nFig. 7.\nImpedance parameter adpatation: An example shows how the session\nspeciﬁc force proﬁle (Fs) is constructed from the session score (SS) and the\nhealthy participant’s force proﬁle (FH). The yellow region is showing the stan-\ndard deviation of the healthy population mean of the force proﬁle (FH). The\nscore SS for this particular session was 0.18 N, which is equal to the average\nforce generated in that session. The average force in case of the"
     },
     "78": {
         "chunk_id": 79,
         "page": 6,
-        "text": "hout the shift detection the ﬁrst principal compo-\nnent of the CSP feature (xi) has been plotted against the upper\n(UCL) and lower (LCL) control limit in Fig 5. This ﬁgure\nclearly shows the trials where the x went beyond the control\nlimit for which shift-detection warning has been generated.\nWe picked a chunk of 300 trials over several runs from the\nrecored datasets to plot the graph in Fig. 5.\nb) Covariate Shift Validation (CSV): The stage-II of the\ntwo stage CSD test is the CSV and it is execu"
+        "text": " N, which is equal to the average\nforce generated in that session. The average force in case of the healthy partic-\nipant (FmH) was 1.18 N. The threshold force Fth was set to 0.02 N.\nCHOWDHURY et al.: HAND-EXOSKELETON ASSISTED PROGRESSIVE NEUROREHABILITATION USING IMPEDANCE ADAPTATION BASED...\n133\nAuthorized licensed use limited to: Cornell University Library. Downloaded on September 03,2020 at 06:22:37 UTC from IEEE Xplore. Restrictions apply."
     },
     "79": {
         "chunk_id": 80,
-        "page": 6,
-        "text": " Covariate Shift Validation (CSV): The stage-II of the\ntwo stage CSD test is the CSV and it is executed only if the\nstage-I (i.e. CSW) raises a shift-detection warning. This stage\nis introduced to reduce the number of false warnings which\nleads to unnecessary retraining of the classiﬁer. It relies on\nthe two sets of observations (n1 and n2); one which has been\ngenerated during training phase (n1) and another one, which is\ngenerated by the CSW instant (n2). The set n1 is assumed to\nbe stationary "
+        "page": 7,
+        "text": "continuously challenges the participant by increasing the difﬁ-\nculty level of the task as the performance level is enhanced.\nIn the MP stage the participants were given a hybrid-BCI\nbased multimodal neurofeedback contingent to the simulta-\nneous activations in the EEG and EMG signal measured by a\nspectral power correlation between the two. In one particular\nsession of the MP, there were ﬁve runs of approximately 7\nmin 30 sec each consisting of 40 trials. Each trial starts with a\nthree second rest"
     },
     "80": {
         "chunk_id": 81,
-        "page": 6,
-        "text": "and another one, which is\ngenerated by the CSW instant (n2). The set n1 is assumed to\nbe stationary as it is a set of multivariate feature obtained after\nspatial ﬁltering from the calibration phase and compared with\nthe set n2 from the current trial at the CSW time point with\nsame number of multivariate features obtained after spatial\nﬁltering in online feedback phase. Multivariate Hotelling’s T-\nSquared test [47] is applied to validate the stationarity. The\nadvantage of using this hypothesis te"
+        "page": 7,
+        "text": " approximately 7\nmin 30 sec each consisting of 40 trials. Each trial starts with a\nthree second rest period, followed by the presentation of the\ncue in each of which the participants were asked to perform a\nleft/ right-hand grasp attempt. Although the cue remains for\ntwo seconds, the participants were asked to perform the task\nuntil ﬁve seconds after the presentation of the cue. Among the\nﬁve runs, ﬁrst two runs were for calibrating the BCI system\nand the subsequent three runs were for giving online"
     },
     "81": {
         "chunk_id": 82,
-        "page": 6,
-        "text": "Squared test [47] is applied to validate the stationarity. The\nadvantage of using this hypothesis test is that it is a non-\nparametric test and it can provide a decision whether the two\nsubsequences n1 and n2 are stationary with similar means.\nThe Hotelling’s T-Square test is based on the equation,\nHT 2 = (µ1 −µ2)\n\u001a\u0012 Σ1\n|n1| + Σ2\n|n2|\n\u0013\u001b−1\n(µ1 −µ2)′\n(9)\nwhere, Σ1 and Σ2 are the covariances and µ1 and µ2 are the\nmeans of the two subsequences n1 and n2 respectively. The\nlengths of the sub-sequence"
+        "page": 7,
+        "text": " ﬁrst two runs were for calibrating the BCI system\nand the subsequent three runs were for giving online neuro-\nfeedback based on the EEG-EMG pattern classiﬁer trained\nduring the calibration stage. For the online neurofeedback\nruns, visual and proprioceptive feedbacks were provided\nthrough the screen and hand-exoskeleton, respectively, during\nthe last three seconds of the task period. Details on the meth-\nods used during the BCI based mental practice can be found in\nauthors’ previous works [43], [44]."
     },
     "82": {
         "chunk_id": 83,
-        "page": 6,
-        "text": "and µ2 are the\nmeans of the two subsequences n1 and n2 respectively. The\nlengths of the sub-sequences n1 and n2 are denoted as |n1|\nand |n2| respectively. The covariate shift warning is validated\nonly if the p value of the test is less than 0.05 and thus the\ndetection of shift is conﬁrmed.\nc) Covariate Shift Adaptation (CSA): Once the CSD is\nvalidated, the adaptation phase starts (see Fig. 4). It is assumed\nthat in each trial, the true label is available (as is the case\nin a rehabilitation appli"
+        "page": 7,
+        "text": " the meth-\nods used during the BCI based mental practice can be found in\nauthors’ previous works [43], [44]. The current study focuses\nonly on the design of the exoskeleton and its impedance adap-\ntation based trigged assistance control, to provide a challenge\nbased rehabilitation strategy, implemented using impedance\nparameter adaptation. All results in this paper relate to the\nphysical practice part only.\nD. Impedance Parameters Updating Method\nThis method adapts the impedance parameters so that"
     },
     "83": {
         "chunk_id": 84,
-        "page": 6,
-        "text": "is assumed\nthat in each trial, the true label is available (as is the case\nin a rehabilitation application, where the MI instruction is\nprovided with a cue in each trial). The data corresponding\nto correct labels are appended to the existing training data\nused for classiﬁer training and the updated data are then used\nto retrain the classiﬁer. The retrained classiﬁer is then used\nto classify the upcoming data. On each CSD, the calibration\ndata thus gets updated and a classiﬁer is built and adapte"
+        "page": 7,
+        "text": " only.\nD. Impedance Parameters Updating Method\nThis method adapts the impedance parameters so that the\npatients’ lower force generation capacity can be augmented\nby considering the performance of a healthy human being as a\nreference. In this method, the average force proﬁle FH of a\nhealthy person is scaled so that, the force proﬁle Fs required\nfrom the patient in the next session has its mean equal to the\npatient’s previous session score SS. Thus:\nFsi ¼\nFHi\nmeanðFHÞ SS\ni ¼ 1; 2; . . . ; N:\n(6)\nThe"
     },
     "84": {
         "chunk_id": 85,
-        "page": 6,
-        "text": "coming data. On each CSD, the calibration\ndata thus gets updated and a classiﬁer is built and adapted\nincrementally.\n4) Classiﬁcation and Evaluation Metrics: The performance\nof the system is measured on the basis of the classiﬁcation\naccuracy. The classiﬁcation accuracy of the SVM pattern\nclassiﬁer f is given in percentage (%). The performance of\nthe CSD test is measured in percentage (%) for the CSW and\nCSV, which are as given in (10) and (11) respectively.\nCSW(%) =\n \nNumber of shift detected\nT"
+        "page": 7,
+        "text": " to the\npatient’s previous session score SS. Thus:\nFsi ¼\nFHi\nmeanðFHÞ SS\ni ¼ 1; 2; . . . ; N:\n(6)\nThe new impedance parameters M and C are computed using\nthe same procedure as discussed in section III-B. The trajec-\ntory data _u and €u are of the healthy person as stated above,\nwhile the force proﬁle FH is replaced by the new proﬁle Fs.\nOne example is shown in Fig. 7. It can be seen that the average\nforce applied by a healthy subject was 1.18 N and this force\nwas lowered to 0.18 N for the patient"
     },
     "85": {
         "chunk_id": 86,
-        "page": 6,
-        "text": "CSW and\nCSV, which are as given in (10) and (11) respectively.\nCSW(%) =\n \nNumber of shift detected\nTotal number of trials\n!\n× 100\n(10)\nCSV (%) =\n \nNumber of shift validated\nTotal number of trials\n!\n× 100\n(11)\nThe statistical signiﬁcance of the results is assessed using\nthe Wilcoxon signed rank test for the pairwise comparison\nbetween EEG-NAC and EEG-CSAC at conﬁdence level 0.01.\nIII. RESULTS\nThe superiority of the proposed EEG-CSAC method is\nshown by comparing its decoding accuracy with the conv"
+        "page": 7,
+        "text": "\nforce applied by a healthy subject was 1.18 N and this force\nwas lowered to 0.18 N for the patient to enable him/her to\nmove the ﬁngers with an enhanced velocity, as long as the\napplied force is above the threshold force level. As the force\ngeneration capacity of the patients is initially quite low and\nsometimes it goes below the threshold force level, they take\nmuch more time than a healthy person to complete each PU.\nE. Participants\nFour chronic hemiparetic stroke (ischemic) patients (3\nfemales,"
     },
     "86": {
         "chunk_id": 87,
-        "page": 6,
-        "text": "uperiority of the proposed EEG-CSAC method is\nshown by comparing its decoding accuracy with the conven-\ntional EEG-NAC method, both in case of healthy and patient\ngroups. Also the performance of the two-stage CSD algorithm\nin reducing the false detection by CSV is shown by comparing\nthe percentage of CSW and CSV for each participant. We also\ninvestigated the co-relation between CSV and the improvement\nin accuracy due to EEG-CSAC, to get an idea of how sensitive\nEEG-CSAC is with respect to the oc"
+        "page": 7,
+        "text": " person to complete each PU.\nE. Participants\nFour chronic hemiparetic stroke (ischemic) patients (3\nfemales, 1 male, age 62:75 \u0004 5:56 (range 56-69)) who had\npartial impairment in ﬁnger extension and grasping ability\nwere recruited for the six week long single arm non-random-\nized\nclinical\ntrial.\nThe\nmean\ntime\nsinnce\nstroke\nwas\n23:25 \u0004 3:77 months (range 19-28 months). All the partici-\npants were ﬁrst time stroke victims. All participants provided\nwritten informed consent for their participation and"
     },
     "87": {
         "chunk_id": 88,
-        "page": 6,
-        "text": "ment\nin accuracy due to EEG-CSAC, to get an idea of how sensitive\nEEG-CSAC is with respect to the occurrence of the actual\ncovariate-shifts in the streaming data.\nThe classiﬁcation accuracies of EEG-NAC and EEG-CSAC\nfor the healthy participant group are shown in Table II and\nthat for patient group are shown in Table III. In case of the\nEEG-NAC method, the average classiﬁcation accuracy for the"
+        "page": 7,
+        "text": " ﬁrst time stroke victims. All participants provided\nwritten informed consent for their participation and this study\nwas approved by the University Research Ethics Committee\nof the Ulster University, Northern Ireland, UK. All research\nprocedures were carried out in accordance with approved\ninstitutional guidelines and regulations. Inclusion criteria\nwere as follows: ischemic stroke resulting in hand disability,\ntime since stroke onset greater than 6 months, age between\n18-80 years (both inclusive),"
     },
     "88": {
         "chunk_id": 89,
         "page": 7,
-        "text": "2379-8920 (c) 2017 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.\nThis article has been accepted for publication in a future issue of this journal, but has not been fully edited. Content may change prior to final publication. Citation information: DOI 10.1109/TCDS.2017.2787040, IEEE\nTransactions on Cognitive and Developmental Systems\nIEEE TRANSACTIONS O"
+        "text": " disability,\ntime since stroke onset greater than 6 months, age between\n18-80 years (both inclusive), and no history of neurological\ncondition. Exclusion criteria were as follows: severe deﬁcits\nin cognition (Mini-Mental State Examination (MMSE [45])\nscore <21), pregnant or breastfeeding. The trial is registered\nwith the ISRCTN with reference number ISRCTN13139098.\nThe demographics of the patients are shown in Table IV.\nThe functional recovery of the hand was measured in terms\nof grip-strength (GS)"
     },
     "89": {
         "chunk_id": 90,
         "page": 7,
-        "text": "1109/TCDS.2017.2787040, IEEE\nTransactions on Cognitive and Developmental Systems\nIEEE TRANSACTIONS ON COGNITIVE AND DEVELOPMENTAL SYSTEMS, VOL. XX, NO. XX, MONTH 201X\n7\nhealthy group was found to be 75.25 ± 5.46%, while for the\nsame group EEG-CSAC method yielded an signiﬁcantly (p <\n0.01) increased average accuracy of 81.5 ± 4.89%. In case of\nthe patient group, we obtained an average accuracy of 70.25±\n3.43% for EEG-NAC while for the patient group also EEG-\nCSAC performed signiﬁcantly (p < 0.01)"
+        "text": " are shown in Table IV.\nThe functional recovery of the hand was measured in terms\nof grip-strength (GS) using a dynamometer, and Action\nResearch Arm Test (ARAT) [46] which are standard measure-\nments of motor outcome [47], [48]. Participants were seated\non a chair with their feet touching the ground. The elbow joint\nwas at right angle, while applying gripping force on the dyna-\nmometer. Three readings were averaged to obtain each GS\nmeasurement. ARAT is a reliable way of testing the upper-\nlimb functionality"
     },
     "90": {
         "chunk_id": 91,
         "page": 7,
-        "text": "0.25±\n3.43% for EEG-NAC while for the patient group also EEG-\nCSAC performed signiﬁcantly (p < 0.01) superior with an\naverage accuracy of 75.75 ± 3.92%. The comparison of the\nclassiﬁcation accuracy distribution for the methods used in\nthe experimental process is shown in Fig. 6 for healthy and\npatient groups. Tables II & III also show the time-points of\nfeedback trigger in the 5th column with the heading FTTI, i.e.\nFeedback trigger time instance. The average FTTI for healthy\nis 6.35 ± 1.06 s and"
+        "text": " were averaged to obtain each GS\nmeasurement. ARAT is a reliable way of testing the upper-\nlimb functionality by checking the grasp, grip, pinch and\ngross-movement activities. The total score associated with the\ntest is 57, while the minimal clinically important difference\nTABLE IV\nDEMOGRAPHICS OF THE PATIENT PARTICIPANTS\n134\nIEEE TRANSACTIONS ON HAPTICS, VOL. 12, NO. 2, APRIL-JUNE 2019\nAuthorized licensed use limited to: Cornell University Library. Downloaded on September 03,2020 at 06:22:37 UTC"
     },
     "91": {
         "chunk_id": 92,
         "page": 7,
-        "text": "heading FTTI, i.e.\nFeedback trigger time instance. The average FTTI for healthy\nis 6.35 ± 1.06 s and average FTTI of patient is 7.30 ± 0.67\ns. A two tailed paired t-test reveals that the healthy group’s\nFTTI is signiﬁcantly lesser than the patient group’s FTTI.\nThe Kappa values are also calculated apart from the accu-\nracy to highlight the efﬁciency of the classiﬁers as sensitivity\nand speciﬁcity measures are implicit in its calculation process\nand it is also feasible to show the performance for"
+        "text": " licensed use limited to: Cornell University Library. Downloaded on September 03,2020 at 06:22:37 UTC from IEEE Xplore. Restrictions apply."
     },
     "92": {
         "chunk_id": 93,
-        "page": 7,
-        "text": "measures are implicit in its calculation process\nand it is also feasible to show the performance for all the\nparticipants within a limited space. The comparison of kappa\nvalues between the two classiﬁers also show the signiﬁcantly\n(p-value< 0.01) higher performance of EEG-CSAC than EEG-\nNAC, which further reinforces our claim. The kappa values are\nshown in Table IV.\nTABLE II\nCLASSIFICATION ACCURACIES IN HEALTHY GROUP (H)\nHealthy Group (H)\nCalibration\nOnline Feedback\nParticipants\n10-CV\n(%)\nEEG-NA"
+        "page": 8,
+        "text": "(MCID) limit is 5.7 [47]. Five such GS and ARAT measure-\nments were obtained: one at the beginning, one at the end of\nthe entire hand therapy, and three in the intermediate sessions.\nThe participants had partial disability in their hand and the\nbaseline impairment was measured using the clinical scales of\nGrip-Strength and Action Research Arm Test, which were\n8:71 \u0004 4:75 kg and 23:5 \u0004 12:5 (out of total score of 57)\nrespectively. This disability was due to Ischemic stroke in dif-\nferent parts of"
     },
     "93": {
         "chunk_id": 94,
-        "page": 7,
-        "text": "IES IN HEALTHY GROUP (H)\nHealthy Group (H)\nCalibration\nOnline Feedback\nParticipants\n10-CV\n(%)\nEEG-NAC\n(%)\nEEG-CSAC\n(%)\nFTTI\nS01\n68.75\n70.00\n72.50\n7\nS02\n75.00\n85.00\n87.50\n4.50\nS03\n87.50\n80.00\n82.50\n7.00\nS04\n82.50\n75.00\n80.00\n8.00\nS05\n87.50\n77.50\n80.00\n6.50\nS06\n87.50\n80.00\n87.50\n6.50\nS07\n75.00\n75.00\n82.50\n6.50\nS08\n67.50\n70.00\n82.50\n5.00\nS09\n87.50\n67.50\n85.00\n5.50\nS10\n66.25\n72.50\n75.00\n7.00\nMean\n78.50\n75.25\n81.50\n6.35\nStd\n9.01\n5.46\n4.89\n1.06\np value (between EEG-NAC vs. EEG-CSAC) <0.01\nFTTI: Feedba"
+        "page": 8,
+        "text": " total score of 57)\nrespectively. This disability was due to Ischemic stroke in dif-\nferent parts of the brain as shown in Table IV last column.\nIV. RESULTS\nResults describe the change in the force generation capacity\nof the patient participants. The average ﬁngertip force per ses-\nsion (SS), the change in the average operating velocity of the\nexoskeleton, and the required level of assistance are also ana-\nlyzed The variation of the impedance parameters M, C across\nall the therapy sessions is also"
     },
     "94": {
         "chunk_id": 95,
-        "page": 7,
-        "text": "0\n75.25\n81.50\n6.35\nStd\n9.01\n5.46\n4.89\n1.06\np value (between EEG-NAC vs. EEG-CSAC) <0.01\nFTTI: Feedback Trigger Time Instant; 10-CV = 10-Fold Cross\nValidation\nEstimation of the information transfer rate (ITR) is also\nnecessary to measure the performance of the system imple-\nmented online. Table V shows the ITR for each classiﬁer for\nall the participants (healthy and patients). The ITR has been\ncalculated in bits/trial according to the formula given in [48].\nB = log2 N + P log2 P + (1 −P) log2\n1 −"
+        "page": 8,
+        "text": " ana-\nlyzed The variation of the impedance parameters M, C across\nall the therapy sessions is also obtained for each participant, to\ncheck the effectiveness of challenge based strategy in updating\nthe difﬁculty level of the task.\nThe performance of participants in the ﬁrst, middle and the\nlast therapy session is shown in Fig. 8. For each participant,\nthe top row (Figs. 8a, 8b, 8c, 8d) shows the variation of net\nforce Fnet during grasping motion in one of the practice\nunits in these three sessions."
     },
     "95": {
         "chunk_id": 96,
-        "page": 7,
-        "text": "ulated in bits/trial according to the formula given in [48].\nB = log2 N + P log2 P + (1 −P) log2\n1 −P\nN −1\n(12)\nwhere, B is the information transfer rate, N = number of\nclasses, P = accuracy (expressed between 0 to 1). Results\nshow that the average increase in the accuracy of 5.88% leads\nto an average increase in ITR of 9.84%, which is 1.6735 times\nof the increase in accuracy. This ﬁnding is in harmony with\nTABLE III\nCLASSIFICATION ACCURACIES IN PATIENT GROUP (P)\nPatient Group (P)\nCalibration\nOn"
+        "page": 8,
+        "text": " variation of net\nforce Fnet during grasping motion in one of the practice\nunits in these three sessions. The time taken for each motion\nwas around 15–20 seconds. The corresponding force proﬁle\nFs, based on the score SS of that session, is shown in the bot-\ntom row. Fig. 8 shows that the session score SS has increased\ncontinuously from the ﬁrst session till the last one. Details of\nthis increase are shown in Fig. 9a. We can also see that the\nproﬁle of Fs has shifted closer to that of FH, as the session"
     },
     "96": {
         "chunk_id": 97,
-        "page": 7,
-        "text": "rmony with\nTABLE III\nCLASSIFICATION ACCURACIES IN PATIENT GROUP (P)\nPatient Group (P)\nCalibration\nOnline Feedback\nParticipants\n10-CV\n(%)\nEEG-NAC\n(%)\nEEG-CSAC\n(%)\nFTTI\nS01\n87.50\n70.00\n72.50\n8.00\nS02\n91.25\n67.50\n72.50\n6.50\nS03\n90.00\n75.00\n82.50\n7.50\nS04\n77.50\n65.00\n72.50\n7.50\nS05\n91.25\n75.00\n77.50\n6.00\nS06\n91.25\n67.50\n72.50\n7.00\nS07\n68.75\n67.50\n75.00\n8.00\nS08\n78.75\n72.50\n75.00\n7.50\nS09\n53.75\n72.50\n82.50\n8.00\nS10\n66.25\n70.00\n75.00\n7.00\nMean\n79.63\n70.25\n75.75\n7.30\nStd\n13.11\n3.43\n3.92\n0.67\np value (b"
+        "page": 8,
+        "text": " shown in Fig. 9a. We can also see that the\nproﬁle of Fs has shifted closer to that of FH, as the session\nscore SS has increased. This enhancement in the force genera-\ntion capability is observed for all the participants. The Fnet\nproﬁle also gives us the idea of when the system went into pas-\nsive assistance mode, from the time segments where Fnet fell\nbelow the threshold force level (Fth ¼ 0.02 N). Details of the\nFig. 8.\nChange in the force proﬁles of the participants (a) P01, (b) P02, (c) P03,"
     },
     "97": {
         "chunk_id": 98,
-        "page": 7,
-        "text": "2.50\n8.00\nS10\n66.25\n70.00\n75.00\n7.00\nMean\n79.63\n70.25\n75.75\n7.30\nStd\n13.11\n3.43\n3.92\n0.67\np value (between EEG-NAC vs. EEG-CSAC) <0.01\nFTTI: Feedback Trigger Time Instant; 10-CV = 10-Fold Cross\nValidation\nTABLE IV\nKAPPA VALUES IN HEALTHY (H) AND PATIENT (P) GROUPS\nHealthy Group (H)\nPatient Group (H)\nParticipants EEG-NAC EEG-CSAC EEG-NAC EEG-CSAC\nS01\n0.40\n0.45\n0.40\n0.45\nS02\n0.70\n0.75\n0.35\n0.45\nS03\n0.60\n0.65\n0.50\n0.65\nS04\n0.50\n0.60\n0.30\n0.45\nS05\n0.55\n0.60\n0.50\n0.55\nS06\n0.60\n0.75\n0.35\n0.45\nS07\n0.50"
+        "page": 8,
+        "text": " N). Details of the\nFig. 8.\nChange in the force proﬁles of the participants (a) P01, (b) P02, (c) P03, and (d) P04: The top row in each subﬁgure (a)-(e), shows the net force Fnet dur-\ning grasping motion in the ﬁrst, the middle, and the last sessions (left to right). The bottom row shows the modiﬁed force proﬁle Fs obtained using the method\ndescribed in Section III-D. The horizontal broken line in each graph shows the average force level.\nCHOWDHURY et al.: HAND-EXOSKELETON ASSISTED PROGRESSIVE NEUROREHABILITATION"
     },
     "98": {
         "chunk_id": 99,
-        "page": 7,
-        "text": "0.60\n0.65\n0.50\n0.65\nS04\n0.50\n0.60\n0.30\n0.45\nS05\n0.55\n0.60\n0.50\n0.55\nS06\n0.60\n0.75\n0.35\n0.45\nS07\n0.50\n0.65\n0.35\n0.50\nS08\n0.40\n0.65\n0.45\n0.50\nS09\n0.35\n0.70\n0.45\n0.65\nS10\n0.45\n0.50\n0.40\n0.50\nMean\n0.51\n0.63\n0.41\n0.52\nStd\n0.10\n0.09\n0.06\n0.07\nthe argument provided in [48], that a slight improvement in\naccuracy can inﬂuence the information transfer rate to a great\nextent.\nThe choices of the smoothing constant λ for the CSD tests\nare given in Table VI (2nd column) & Table VII (2nd column)\nfor healthy an"
+        "page": 8,
+        "text": " each graph shows the average force level.\nCHOWDHURY et al.: HAND-EXOSKELETON ASSISTED PROGRESSIVE NEUROREHABILITATION USING IMPEDANCE ADAPTATION BASED...\n135\nAuthorized licensed use limited to: Cornell University Library. Downloaded on September 03,2020 at 06:22:37 UTC from IEEE Xplore. Restrictions apply."
     },
     "99": {
         "chunk_id": 100,
-        "page": 7,
-        "text": "stant λ for the CSD tests\nare given in Table VI (2nd column) & Table VII (2nd column)\nfor healthy and patient groups respectively. The results of\nCSW & CSV are shown in the 3rd and 4th columns of the\nTable VI & Table VII, respectively for healthy and patient\ngroups. The average rate of CSW in healthy group was\nfound as 15.75 ± 5.65%, while in the patient group it was\n16.75 ± 2.89%. However, after the CSV at stage II, the rate\nof CSD reduced signiﬁcantly (p < 0.01), as the average CSV\nrates for h"
+        "page": 9,
+        "text": "reduction in the assistance level, as the sessions progressed are\ngiven in Fig. 9c.\nFrom Fig. 9a, it can be seen that the highest increment in\nSS was found to be 0.17 N in case of the participant P01,\nwhile the least increment of 0.12 N was seen in case of the\nparticipant P03. The group mean of the score SS in the ﬁrst\nsession was 0.04 N, while in the last session, it increased to\n0.19 N; an overall increase of 0.15 N. Thus, given the healthy\nindividual’s score SS of 1.18 N (Fig. 7), group mean increase"
     },
     "100": {
         "chunk_id": 101,
-        "page": 7,
-        "text": "the CSV at stage II, the rate\nof CSD reduced signiﬁcantly (p < 0.01), as the average CSV\nrates for healthy group and patient group were 9.25 ± 3.54\nand 9 ± 2.10 respectively. We also investigated the corre-\nlation between the variation of accuracy difference between\nEEG-CSAC and EEG-NAC and the variation in CSV rates,\nwhich reveals that there is a positive correlation (r = 0.853,\np < 0.01) between these two quantities, as seen in Fig. 7.\nThe CSV rate and accuracy difference between EEG-NAC and\nE"
+        "page": 9,
+        "text": " increase of 0.15 N. Thus, given the healthy\nindividual’s score SS of 1.18 N (Fig. 7), group mean increase\nin SS of the participants was from 3.39 to 16.10 percent. An\noverall increase in the average velocity was also seen\n(Fig. 9b). Each point in Fig. 9b gives an estimate of how fast\nthe participant operated the exoskeleton, while performing the\npractice units within a session. The group mean increment in\nthe average velocity is +11 deg/s, with the highest increment\nof +0.16 deg/s for the participant"
     },
     "101": {
         "chunk_id": 102,
-        "page": 7,
-        "text": " these two quantities, as seen in Fig. 7.\nThe CSV rate and accuracy difference between EEG-NAC and\nEEG-CSAC are shown in Table VIII for all participants across\nthe two participant groups."
+        "page": 9,
+        "text": " in\nthe average velocity is +11 deg/s, with the highest increment\nof +0.16 deg/s for the participant P04 and the least increment\nof +0.03 deg/s for the participant P01. This shows that,\nalthough the impedance (difﬁculty) level of the system\nincreased when there was an increase in the SS level, all the\nparticipants were found motivated by the increased challenge\nlevel.\nAs the participants got more and more engaged in the reha-\nbilitation process and increased their effort, a corresponding\nreduction"
     },
     "102": {
         "chunk_id": 103,
-        "page": 8,
-        "text": "2379-8920 (c) 2017 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.\nThis article has been accepted for publication in a future issue of this journal, but has not been fully edited. Content may change prior to final publication. Citation information: DOI 10.1109/TCDS.2017.2787040, IEEE\nTransactions on Cognitive and Developmental Systems\nIEEE TRANSACTIONS O"
+        "page": 9,
+        "text": " more and more engaged in the reha-\nbilitation process and increased their effort, a corresponding\nreduction in the passive assistance provided by the exoskele-\nton was seen. This means that they were able to maintain their\nﬁngertip force above the threshold level more consistently.\nThe assistance level was calculated as a percentage of time\nthe exoskeleton controller went into passive assistance mode\nas compared to the user-driven mode. Fig. 9c shows that for\nall the participants, the assistance"
     },
     "103": {
         "chunk_id": 104,
-        "page": 8,
-        "text": "1109/TCDS.2017.2787040, IEEE\nTransactions on Cognitive and Developmental Systems\nIEEE TRANSACTIONS ON COGNITIVE AND DEVELOPMENTAL SYSTEMS, VOL. XX, NO. XX, MONTH 201X\n8\nTABLE V\nTHE ITRS FOR TWO DIFFERENT CLASSIFIERS ACROSS ALL THE\nPARTICIPANTS\nITR(bits/trial)\nGroup\nParticipants EEG-NAC EEG-CSAC Difference\nHealthy\nS01\n0.1187\n0.1515\n0.0327\nS02\n0.3902\n0.4564\n0.0663\nS03\n0.2781\n0.3310\n0.0529\nS04\n0.1887\n0.2781\n0.0894\nS05\n0.2308\n0.2781\n0.0473\nS06\n0.2781\n0.4564\n0.1784\nS07\n0.1887\n0.3310\n0.1423\nS08\n0.1187"
+        "page": 9,
+        "text": " mode\nas compared to the user-driven mode. Fig. 9c shows that for\nall the participants, the assistance level was reduced at the end\nof the therapy. The maximum reduction in the assistance level\nwas found to be 77.85 percent for the participant P01, while\nthe minimum was found to be 19.75 percent for the participant\nP04. The group mean reduction of 37.84 percent in the\nrequired assistance level was also found to be signiﬁcant\n(p\u0003value < 0.05).\nVariation of M and C parameters of the impedance model"
     },
     "104": {
         "chunk_id": 105,
-        "page": 8,
-        "text": "\n0.2781\n0.0894\nS05\n0.2308\n0.2781\n0.0473\nS06\n0.2781\n0.4564\n0.1784\nS07\n0.1887\n0.3310\n0.1423\nS08\n0.1187\n0.3310\n0.2123\nS09\n0.0903\n0.3902\n0.2999\nS10\n0.1515\n0.1887\n0.0373\nPatients\nS01\n0.1187\n0.1515\n0.0327\nS02\n0.0903\n0.1515\n0.0612\nS03\n0.1887\n0.3310\n0.1423\nS04\n0.0659\n0.1515\n0.0855\nS05\n0.1887\n0.2308\n0.0421\nS06\n0.0903\n0.1515\n0.0612\nS07\n0.0903\n0.1887\n0.0985\nS08\n0.1515\n0.1887\n0.0373\nS9\n0.1515\n0.3310\n0.1795\nS10\n0.1187\n0.1887\n0.0700\nMean\n0.1644\n0.2629\n0.0984\nTABLE VI\nλ VALUES AND CSD TEST METRICS IN HEALTHY ("
+        "page": 9,
+        "text": " also found to be signiﬁcant\n(p\u0003value < 0.05).\nVariation of M and C parameters of the impedance model\nis shown in Figs. 10 and 11, which show that both the M and\nC parameters increased through the sessions with a group\nmean change of 0.0027 Ns2=deg and 0.0021 Ns/deg in M and\nC respectively.\nA group mean increase of 9.04 kg is observed over the base-\nline average GS of 8.71 kg in the begining of the therapy. The\nGS measurements are also correlated with the SS (Fig. 12),\nconsidering the SS values on"
     },
     "105": {
         "chunk_id": 106,
-        "page": 8,
-        "text": "0\n0.1187\n0.1887\n0.0700\nMean\n0.1644\n0.2629\n0.0984\nTABLE VI\nλ VALUES AND CSD TEST METRICS IN HEALTHY (H) GROUP\nHealthy Group\nParticipants lambda λ CSW in (%) CSV in (%)\nS01\n0.10\n10.00\n7.50\nS02\n0.80\n7.50\n5.00\nS03\n0.20\n10.00\n7.50\nS04\n0.10\n20.00\n7.50\nS05\n0.10\n12.50\n7.50\nS06\n0.10\n20.00\n12.50\nS07\n0.70\n15.00\n12.50\nS08\n0.30\n17.50\n12.50\nS09\n0.90\n25.00\n15.00\nS10\n0.20\n20.00\n5.00\nMean\n0.35\n15.75\n9.25\nStd\n0.32\n5.65\n3.54\np-value (CSW vs. CSV) < 0.01\nIV. DISCUSSION\nThe results produced by the experiments prove "
+        "page": 9,
+        "text": " therapy. The\nGS measurements are also correlated with the SS (Fig. 12),\nconsidering the SS values on those days only when the GS\nmeasurements were taken. A signiﬁcantly (p < 0:01) high\nFig. 9.\nThe variation in (a) session score (SS), (b) velocity, and (c) required assistance level with the therapy sessions.\nFig. 10.\nThe mass parameter M for the therapy sessions.\nFig. 11.\nThe damping coefﬁcient C for the therapy sessions.\n136\nIEEE TRANSACTIONS ON HAPTICS, VOL. 12, NO. 2, APRIL-JUNE 2019\nAuthorized"
     },
     "106": {
         "chunk_id": 107,
-        "page": 8,
-        "text": "5.65\n3.54\np-value (CSW vs. CSV) < 0.01\nIV. DISCUSSION\nThe results produced by the experiments prove two major\nclaims made in the paper. The ﬁrst is that EEG-CSAC based\nonline adaptation leads to superior performance of the BCI\nsystem in terms of classiﬁcation accuracy (p < 0.01), as\ncompared to the conventional EEG-NAC method. The fact\nthat it occurred both in the case of healthy as well as patient\ngroups, establishes the robustness of the method. The second\nis that the two-stage covariate shift"
+        "page": 9,
+        "text": " for the therapy sessions.\n136\nIEEE TRANSACTIONS ON HAPTICS, VOL. 12, NO. 2, APRIL-JUNE 2019\nAuthorized licensed use limited to: Cornell University Library. Downloaded on September 03,2020 at 06:22:37 UTC from IEEE Xplore. Restrictions apply."
     },
     "107": {
         "chunk_id": 108,
-        "page": 8,
-        "text": "t\ngroups, establishes the robustness of the method. The second\nis that the two-stage covariate shift detection test signiﬁcantly\n(p < 0.01) reduced the number of re-training of the classiﬁer\nin a single run of the online BCI. As each time a valid shift is\ndetected, the classiﬁer needs to be re-trained; the CSV values\nin Table VI & Table VII show the requirement of classiﬁer\nre-training for each participant. Similarly, CSW values in\nTable VI & Table VII show the re-training requirement of the\ncla"
+        "page": 10,
+        "text": "correlation is seen between GS and SS for all participants.\nFrom the Fig. 13a it can be seen that all the participants were\nable to increase their ARAT scores throughout the clinical\ntrial, while Fig. 13b shows that the group mean had\nchanged (mean\u0004 std = +23.75 \u0004 2.5) signiﬁcantly (p-value\n< 0:05) from the pre (23.5 \u0004 12.5) to post (47.25 \u0004 12.12)\nintervention, which is also clinically signiﬁcant as it is found\nto be greater than the MCID limit.\nV. DISCUSSION\nContinuous increase in the impedance"
     },
     "108": {
         "chunk_id": 109,
-        "page": 8,
-        "text": "rticipant. Similarly, CSW values in\nTable VI & Table VII show the re-training requirement of the\nclassiﬁer without using the second stage of the two-stage CSD\nTABLE VII\nλ VALUES AND CSD TEST METRICS IN PATIENT (P) GROUP\nPatinet Group\nParticipants lambda λ CSW in (%) CSV in (%)\nS01\n0.1\n20.00\n7.50\nS02\n0.3\n15.00\n7.50\nS03\n0.2\n15.00\n10.00\nS04\n1.0\n20.00\n12.50\nS05\n0.7\n12.50\n7.50\nS06\n0.1\n12.50\n7.50\nS07\n0.1\n17.50\n12.50\nS08\n0.3\n17.50\n7.50\nS09\n0.2\n17.50\n100\nS10\n0.2\n20.00\n7.50\nMean\n0.32\n16.75\n9.00\nStd\n0.297"
+        "page": 10,
+        "text": " as it is found\nto be greater than the MCID limit.\nV. DISCUSSION\nContinuous increase in the impedance level (Figs. 10 and\n11) is an outcome of the continuous increase in session score\nof the participants (Fig. 9a), which in turn is due to the\nincreased effort put by them in the subsequent sessions. This\nshows that the proposed impedance updating strategy was suc-\ncessful in providing the required amount of challenge at each\nsession to motivate the participants towards greater functional\nrecovery"
     },
     "109": {
         "chunk_id": 110,
-        "page": 8,
-        "text": "1\n17.50\n12.50\nS08\n0.3\n17.50\n7.50\nS09\n0.2\n17.50\n100\nS10\n0.2\n20.00\n7.50\nMean\n0.32\n16.75\n9.00\nStd\n0.2974\n2.89\n2.1\np-value (CSW vs. CSV) < 0.01\nTABLE VIII\nRELATION BETWEEN EEG-NAC TO EEG-CSAC ACCURACY\nIMPROVEMENT AND CSV FOR HEALTHY (H) AND PATIENTS (P) GROUPS\nEEG-NAC to\nGroup\nSubject CSV in (%) EEG-CSAC change(%)\nHealthy\nS01\n7.50\n2.50\nS02\n5.00\n2.50\nS03\n7.50\n2.50\nS04\n7.50\n5.00\nS05\n7.50\n2.50\nS06\n12.50\n7.50\nS07\n12.50\n7.50\nS08\n12.50\n12.50\nS09\n15.00\n17.50\nS10\n5.00\n2.50\nPatients\nS01\n7.5\n2.50\nS02\n7.50\n5.0"
+        "page": 10,
+        "text": " of challenge at each\nsession to motivate the participants towards greater functional\nrecovery of their impaired hand. The enhancement of the aver-\nage force applied (the session score SS), the reduction in the\nrequired assistance and the increment in the impedance\nthroughout the sessions prove the feasibility and effectiveness\nof the impedance adaptation based trigged assistance strategy,\nfor updating the challenge level of the poststroke hand\ntherapy.\nThe current investigation of hand functional"
     },
     "110": {
         "chunk_id": 111,
-        "page": 8,
-        "text": "7.50\nS07\n12.50\n7.50\nS08\n12.50\n12.50\nS09\n15.00\n17.50\nS10\n5.00\n2.50\nPatients\nS01\n7.5\n2.50\nS02\n7.50\n5.00\nS03\n10.00\n7.50\nS04\n12.50\n7.50\nS05\n7.50\n2.50\nS06\n7.50\n5.00\nS07\n12.50\n7.50\nS08\n7.50\n2.50\nS9\n10.00\n10.00\nS10\n7.50\n5.00\ntest. It’s worth mentioning that the comparison between CSW\nand CSV values reveal that the introduction of the second\nstage signiﬁcantly reduced the need for classiﬁer re-training.\nThis two-stage CSD test serves two important purposes; 1) it\nreduces the delay in system by avoiding "
+        "page": 10,
+        "text": " updating the challenge level of the poststroke hand\ntherapy.\nThe current investigation of hand functional recovery using\nthe robotic exoskeleton is signiﬁcant in many aspects. From\nthe design point of view, a underactuated design helps in mak-\ning a device fully portable, lightweight, and easily deployable\nfor use in hospital or home. The minimization of the design\ncomplexity is based on the idea that grasping needs can be\nmet with lesser number of degrees of freedom (DOF) [49] and\nit is often considered"
     },
     "111": {
         "chunk_id": 112,
-        "page": 8,
-        "text": "his two-stage CSD test serves two important purposes; 1) it\nreduces the delay in system by avoiding unnecessary retraining\nand 2) it minimizes the risk for inappropriate adaptation of\nthe classiﬁer during the online feedback phase, which is one\nof the major concerns of adaptive BCI technique[13]. The\ndifference between healthy and patient groups in terms of\nFTTI suggests that healthy participants’ MI-activation, related\nto cue presentation, was quicker than the patients’. This is\nalso expected, "
+        "page": 10,
+        "text": " that grasping needs can be\nmet with lesser number of degrees of freedom (DOF) [49] and\nit is often considered enough to use one DOF per phalanx for\nneurorehabilitation [50]. Unlike cable driven mechanisms,\ndirect drive is less complicated as the effects of cable routing,\nfriction and backlash are avoided [51]. Linkages have the\nadvantage of efﬁcient power transmission and bi-directional\nactuation [52]. The problem of joint axis misalignment was\ncircumvented by using four-bar linkages for path generation."
     },
     "112": {
         "chunk_id": 113,
-        "page": 8,
-        "text": " MI-activation, related\nto cue presentation, was quicker than the patients’. This is\nalso expected, as in patients brain lesions may disturb the\nbrain networks responsible for the MI. Additionally, it may\nbe possible that the patients tend to get more fatigued than\nthe healthy participants during the experiments which may\nlead to such delayed response. Moreover, we investigated how\nsusceptive is the performance of the newly proposed EEG-"
+        "page": 10,
+        "text": " [52]. The problem of joint axis misalignment was\ncircumvented by using four-bar linkages for path generation.\nAll the mechanisms and drives are placed on the back of the\nhand which is supported through an arm rest. Thus, little\nweight is felt on the patient’s ﬁngers during the rehabilitation\nprocess.\nThe musclular model free approach of providing assistance\nto the patients also simpliﬁes the exoskeleton control and the\ntherapeutic process. First of all, it is difﬁcult to construct the\npatient speciﬁc"
     },
     "113": {
         "chunk_id": 114,
-        "page": 9,
-        "text": "2379-8920 (c) 2017 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.\nThis article has been accepted for publication in a future issue of this journal, but has not been fully edited. Content may change prior to final publication. Citation information: DOI 10.1109/TCDS.2017.2787040, IEEE\nTransactions on Cognitive and Developmental Systems\nIEEE TRANSACTIONS O"
+        "page": 10,
+        "text": " control and the\ntherapeutic process. First of all, it is difﬁcult to construct the\npatient speciﬁc model of human motor system [53], or prede-\nﬁne trajectory for each individual, which sometimes needs the\ninvolvement of a human therapist [54]. Therefore, a similar\napproach of not forcing the patients to follow a predeﬁned\njoint angle trajectory is chosen, like some other studies [1],\n[23], [24]. While Crocher et al. [24] used joint synergies\ninstead of predeﬁned trajectories for promoting free interac-"
     },
     "114": {
         "chunk_id": 115,
-        "page": 9,
-        "text": "1109/TCDS.2017.2787040, IEEE\nTransactions on Cognitive and Developmental Systems\nIEEE TRANSACTIONS ON COGNITIVE AND DEVELOPMENTAL SYSTEMS, VOL. XX, NO. XX, MONTH 201X\n9\nFig. 6. Comparison of classiﬁer performance in Healthy(EEG-CSAC(H) and\nEEG-NAC(H)) and Patient(EEG-CSAC(P) and EEG-NAC(P)) groups\nFig. 7. Correlation between EEG-NAC to EEG-CSAC accuracy improvement\nand CSV. Red dots indicating the data for each participant and the black line\ndrawn is the linear-least-square estimate of the data "
+        "page": 10,
+        "text": " [24]. While Crocher et al. [24] used joint synergies\ninstead of predeﬁned trajectories for promoting free interac-\ntion, here we used an impedance model, adjusted as per the\npatient’s performance level, without putting any velocity/\nacceleration constraints.\nContinuous measurement of the force contribution is often\nmade indirectly from the robot’s torque [40], as it is difﬁcult\nto mount sensors in the small space of the ﬁnger surface [55].\nHowever, the acquisition of clean torque signal is difﬁcult,"
     },
     "115": {
         "chunk_id": 116,
-        "page": 9,
-        "text": " data for each participant and the black line\ndrawn is the linear-least-square estimate of the data distribution.\nCSAC method to the detection of covariate shifts. To this\nend we have computed the correlation between the number\nof covariate shifts that occurred in a particular run of the\nonline BCI, and the improvement in accuracy due to classiﬁer\nadaptation, which showed a signiﬁcantly high correlation\n(r = 0.853, p < 0.01). This establishes the fact that the\ncovariate shifts were correctly est"
+        "page": 10,
+        "text": " in the small space of the ﬁnger surface [55].\nHowever, the acquisition of clean torque signal is difﬁcult,\nspecially with noisy strain gauges. Hence, we measured the\npatient’s force contribution directly using the FSRs mounted\ninside the ﬁnger-inserts. The ﬁngertip inserts also allow some\nvariation in the ﬁnger lengths of different patients. This type\nof integration of force sensors can also be found in an earlier\nstudy [39]. The difﬁculty level of the task is normally con-\ntrolled by the human"
     },
     "116": {
         "chunk_id": 117,
-        "page": 9,
-        "text": "lation\n(r = 0.853, p < 0.01). This establishes the fact that the\ncovariate shifts were correctly estimated and the classiﬁers\nwere appropriately updated leading to the improvements in\nthe accuracy and thus the covariate shift adaptation was in\ngeneral meaningful and robust.\nThe CSD-based adaptive online BCI system, proposed here\nrequires a total of 16 min of calibration time which is\ncomparable to the other adaptive BCIs found in literature [49].\nMutual learning is also promoted in the current i"
+        "page": 10,
+        "text": " in an earlier\nstudy [39]. The difﬁculty level of the task is normally con-\ntrolled by the human therapist [56]. This feature has been\nautomated by the performance based update of impedance\nparameters in our system. The force feedback encourages the\npatient to exert more effort leading towards higher recovery\n[57]. The switching between the two modes (active non-assist\nand passive assistance) is decided by the magnitude of the\nforce generated by the patient. This kind of time triggered\napproaches"
     },
     "117": {
         "chunk_id": 118,
-        "page": 9,
-        "text": " the other adaptive BCIs found in literature [49].\nMutual learning is also promoted in the current implementa-\ntion of adaptive BCI system by introducing visual as well\nas proprioceptive neurofeedback [9]. The visual feedback is\nanthromorphic and plays a key role in neurorehabilitation as\nit is related to the activation of action-observation networks\n[50]. The motor imagery activated proprioceptive feedback (by\nmoving the patient’s paretic ﬁngers with the help of the hand-\nexoskeleton), also eng"
+        "page": 10,
+        "text": " decided by the magnitude of the\nforce generated by the patient. This kind of time triggered\napproaches are popular with exoskeletons such as Gentle/\nG [58] and Rupert [59]. Thus the inter-modal switching\nFig. 12.\nVariation in the grip-strength (GS) with the session score (SS) for\nall participants P01–P04: Signiﬁcantly (p < 0:01) high correlation coefﬁ-\ncients (r) between GS and SS are found. The lines show the linear-least-square\nﬁt for the data-points corresponding to each participant.\nFig. 13."
     },
     "118": {
         "chunk_id": 119,
-        "page": 9,
-        "text": "e feedback (by\nmoving the patient’s paretic ﬁngers with the help of the hand-\nexoskeleton), also engages the neurons in the neighboring\nareas of the lesion, through intact afferent pathways [51].\nThus simultaneous application of both of these modes of\ngiving neurofeedback is very important for stroke patients\nin recovering lost motor skills. The computation cost asso-\nciated with the two-stage CSD test and classiﬁer adaptation\nis in milliseconds, using a standard mobile workstations and\na MATLAB"
+        "page": 10,
+        "text": " lines show the linear-least-square\nﬁt for the data-points corresponding to each participant.\nFig. 13.\nThe variation in ARAT scores for individual participants over the\nclinical trial period are shown in (a),while the group mean change in the\nARAT score from Pre to Post intervention is shown in (b). The change in the\ngroup mean of ARAT is found to be both statistically signiﬁcant (p-val-\nue < 0:05) and greater than the MCID limit of 5.7.\nCHOWDHURY et al.: HAND-EXOSKELETON ASSISTED PROGRESSIVE NEUROREHABILITATION"
     },
     "119": {
         "chunk_id": 120,
-        "page": 9,
-        "text": " test and classiﬁer adaptation\nis in milliseconds, using a standard mobile workstations and\na MATLAB/Simulink platform, therefore it can be easily\nextended for generating continuous feedback, (although in\nthe current study it is one time in a trial). The fact that\nthe EEG-CSAC based online BCI enabled all the healthy\nand stroke participants to trigger the hand-exoskeleton by\ntheir motor imagery task with satisfactory levels of accuracy,\nwhich are superior (p < 0.01) to that obtained with EEG-\nNA"
+        "page": 10,
+        "text": " and greater than the MCID limit of 5.7.\nCHOWDHURY et al.: HAND-EXOSKELETON ASSISTED PROGRESSIVE NEUROREHABILITATION USING IMPEDANCE ADAPTATION BASED...\n137\nAuthorized licensed use limited to: Cornell University Library. Downloaded on September 03,2020 at 06:22:37 UTC from IEEE Xplore. Restrictions apply."
     },
     "120": {
         "chunk_id": 121,
-        "page": 9,
-        "text": "sk with satisfactory levels of accuracy,\nwhich are superior (p < 0.01) to that obtained with EEG-\nNAC, clearly demonstrates the effectiveness of the technique\nin adapting to the non-stationarity of the brain-waves and\nproviding neurofeedback with enhanced accuracy. Here the\nnon-stationarity includes changes from calibration to online\nfeedback generation stage as well as inter-trial changes within\na single run of the online BCI. Several studies have tried\nto improve the power of CSP-based BCIs by"
+        "page": 11,
+        "text": "approach with real-time force feedback helps in avoiding the\nslacking effect, commonly associated with passive assistance.\nThe results obtained from the study clearly show the incre-\nment of ﬁngertip force generation capacity with a reduction in\nthe assistance level and increase in the range of motion. The\nresults conform to the notion that the assistance requirement is\nreduced with the enhancement of the performance level of the\npatients [40]. The positive effect of resistance driven exercises\non"
     },
     "121": {
         "chunk_id": 122,
-        "page": 9,
-        "text": "a single run of the online BCI. Several studies have tried\nto improve the power of CSP-based BCIs by introducing\nKL divergence based loss functions to minimize within class\nmismatching [26] or optimizing CSP algorithm [20]. Time\nseries prediction and adaptive auto-regression based feature\nextraction were also investigated to minimise the adverse effect\nof non-stationarity in BCI [52]. While these studies focus in\nﬁnding features that are invariant to non-stationary effects; our\nattempt is to tak"
+        "page": 11,
+        "text": " of the performance level of the\npatients [40]. The positive effect of resistance driven exercises\non poststroke motor function is also supported by some non-\nrobotic studies [60], [61]. The present study also reafﬁrms the\nvalidity of robot mediated hand therapy, which has been\nreported in many other previous studies [62], [63].\nSome of the shortcomings of the device include its inability\nto deal with tremor suppression [39] and higher levels of hyper-\ntonia [64], especially in those cases where"
     },
     "122": {
         "chunk_id": 123,
-        "page": 9,
-        "text": "studies focus in\nﬁnding features that are invariant to non-stationary effects; our\nattempt is to take conventional feature extraction methods and\ntry to update the classiﬁer with the occurrence of covariate\nshifts. The advantage is that our method is independent of what\nfeature extraction technique is used. Similar approaches are\nalready popular to make adaptive BCI systems [29], [17], [32],\n[22], [18]. Although our approach have some resemblance to a\nrecent off-line study where EWMA based adapt"
+        "page": 11,
+        "text": " with tremor suppression [39] and higher levels of hyper-\ntonia [64], especially in those cases where the muscle tone\nincrease by repetitive movements. Due to these factors we\ncouldn’t accommodate such patients in the study. Moreover, as\nthe BCI based mental practice phase was also included follow-\ning the physical practice phase using the proposed challenge\nbased strategy, the functional recovery of the participants may\nhave been affected by both of these phases. Hence, controlled\ntrials need to"
     },
     "123": {
         "chunk_id": 124,
-        "page": 9,
-        "text": " [18]. Although our approach have some resemblance to a\nrecent off-line study where EWMA based adaptive processing\nis used before stack regularized LDA based classiﬁcation [53],\nthe two-stage CSD test and classiﬁer updating strategy are\nnovel in the current work. Also here it is implemented in online\nBCI and its feasibility is tested on stroke patients. However,\nAlonso et al. validated their algorithm on multiclass decoding,\nwhereas our current work is implemented on binary classiﬁ-\ncation [53]."
+        "page": 11,
+        "text": " of the participants may\nhave been affected by both of these phases. Hence, controlled\ntrials need to be performed in future to compare the effect of\neach phase on the total hand functional recovery. It is worth\nmentioning that the preliminary results obtained in this study\nwith a small number of patients need to be further validated on\nlarge patient cohorts. However, the ﬁngertip force generation\ncapacity, in terms of the session score (SS) is found to be sig-\nniﬁcantly correlated with the ofﬂine"
     },
     "124": {
         "chunk_id": 125,
-        "page": 9,
-        "text": "ithm on multiclass decoding,\nwhereas our current work is implemented on binary classiﬁ-\ncation [53]. Hence, there is further scope for extending it to\nmulticlass decoding. Indeed both of the methods dealt with the\ntemporal variability considering different time segments, but\nunlike Alonso et al. the subject speciﬁc frequency variability\nis not considered in the current work, rather the frequency\nbands [8 −12] Hz and [16 −24] Hz are kept ﬁxed for all the\nparticipants. The main reason was to keep "
+        "page": 11,
+        "text": "\ncapacity, in terms of the session score (SS) is found to be sig-\nniﬁcantly correlated with the ofﬂine assessment of the hand\nfunctional recovery in terms of the grip-strength in all the par-\nticipants. This shows that the ﬁngertip force measurements, via\nthe force sensors, can facilitate direct monitoring of the prog-\nress of the motor recovery, without needing the off-line mea-\nsurement of the grip strength. As the impedance parameters are\nadapted to adjust the challenge level of the task as per"
     },
     "125": {
         "chunk_id": 126,
-        "page": 9,
-        "text": "ands [8 −12] Hz and [16 −24] Hz are kept ﬁxed for all the\nparticipants. The main reason was to keep the method simple\nand to focus on the validity of the CSD-based adaptation in\nonline BCI. A direct comparison of classiﬁcation accuracies\nwith other adaptive BCI systems is not possible as it is difﬁcult\nto produce exact experimental conditions for each one of them.\nTherefore we took a state-of-the-art conventional CSP-based\nnon-adaptive classiﬁcation method, EEG-NAC for comparing\nthe performance "
+        "page": 11,
+        "text": " strength. As the impedance parameters are\nadapted to adjust the challenge level of the task as per the user\nperformance, the proposed system may also offer personalized\nexercises for a rehabilitative hand therapy.\nVI. CONCLUSION\nThe study clearly demonstrates the feasibility of a novel\nchallenge-based neurorehabilitation strategy using a fully\nwearable, portable and lightweight hand-exoskeleton, as the\npatients are able to operate at higher impedance level, requir-\ning lesser assistance as the therapy"
     },
     "126": {
         "chunk_id": 127,
-        "page": 9,
-        "text": "art conventional CSP-based\nnon-adaptive classiﬁcation method, EEG-NAC for comparing\nthe performance of the current EEG-CSAC algorithm.\nIn online studies the scope of pre-processing is generally\nlimited as it increases the time complexity of the system and\nreduces the speed of response. Therefore the classiﬁcation\naccuracy sometimes gets heavily affected due to contamination\nof artifacts and external noises. It can be seen in the Tables\nII-III, that the classiﬁcation accuracy dropped below 70% fo"
+        "page": 11,
+        "text": " as the\npatients are able to operate at higher impedance level, requir-\ning lesser assistance as the therapy sessions progress. The\nnovel combination of active non-assist mode along with trig-\ngered passive assistance promotes free interaction during the\nrehabilitation process. The new force generation capacity\nbased performance metric, SS is also found to be signiﬁcantly\ncorrelated with GS, providing a way of online motor recovery\nassessment using hand-exoskeleton mounted force sensors.\nFinally,"
     },
     "127": {
         "chunk_id": 128,
-        "page": 9,
-        "text": "al noises. It can be seen in the Tables\nII-III, that the classiﬁcation accuracy dropped below 70% for a\nfew participants in EEG-NAC. The CSP-based spatial ﬁltering\ntechnique was used here as it improves the signal to noise\nratio in the data and increases inter-class feature separability.\nAlthough PCA-based dimensionality reduction may have neg-"
+        "page": 11,
+        "text": " a way of online motor recovery\nassessment using hand-exoskeleton mounted force sensors.\nFinally, signiﬁcant positive changes in ARAT shows potential\nclinical effectiveness of the study. However, controlled trials\nneed to be performed in larger patient population in future to\nidentify the individual contribution of the BCI based mental\npractice phase and the physical practice phase using the pro-\nposed\nchallenge-based\nstrategy\non\nthe\nhand\nfunctional\nrecovery.\nREFERENCES\n[1] J.-C. Metzger et al.,"
     },
     "128": {
         "chunk_id": 129,
-        "page": 10,
-        "text": "2379-8920 (c) 2017 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.\nThis article has been accepted for publication in a future issue of this journal, but has not been fully edited. Content may change prior to final publication. Citation information: DOI 10.1109/TCDS.2017.2787040, IEEE\nTransactions on Cognitive and Developmental Systems\nIEEE TRANSACTIONS O"
+        "page": 11,
+        "text": " pro-\nposed\nchallenge-based\nstrategy\non\nthe\nhand\nfunctional\nrecovery.\nREFERENCES\n[1] J.-C. Metzger et al., “Assessment-driven selection and adaptation of\nexercise difﬁculty in robot-assisted therapy: A pilot study with a hand\nrehabilitation robot,” J. NeuroEngineering Rehabil., vol. 11, no. 1, Nov.\n2014, Art. no. 154.\n[2] R. W. Teasell, N. C. Foley, S. K. Bhogal, and M. R. Speechley, “An\nevidence-based review of stroke rehabilitation,” Topics Stroke Rehabil.,\nvol. 10, no. 1, pp. 29–58, 2003.\n[3]"
     },
     "129": {
         "chunk_id": 130,
-        "page": 10,
-        "text": "1109/TCDS.2017.2787040, IEEE\nTransactions on Cognitive and Developmental Systems\nIEEE TRANSACTIONS ON COGNITIVE AND DEVELOPMENTAL SYSTEMS, VOL. XX, NO. XX, MONTH 201X\n10\native effects on the EEG data quality as it lumps the variance,\nbut Xiao and Ding 2013 [54] used PCA-based spectral features\nin successfully decoding individual ﬁnger movements from\nEEG. The CSD-based adaptation approach proposed here is\nsupervised in nature as we implemented synchronous online\nBCI, where the label of a particul"
+        "page": 11,
+        "text": " review of stroke rehabilitation,” Topics Stroke Rehabil.,\nvol. 10, no. 1, pp. 29–58, 2003.\n[3] H. I. Krebs et al., “Robot-aided neurorehabilitation: A robot for wrist\nrehabilitation,” IEEE Trans. Neural Syst. Rehabil. Eng., vol. 15, no. 3,\npp. 327–335, Sep. 2007.\n[4] F. Wang, D. E. Barkana, and N. Sarkar, “Impact of visual error augmen-\ntation when integrated with assist-as-needed training method in robot-\nassisted rehabilitation,” IEEE Trans. Neural Syst. Rehabil. Eng., vol. 18,\nno. 5, pp. 571–579,"
     },
     "130": {
         "chunk_id": 131,
-        "page": 10,
-        "text": "here is\nsupervised in nature as we implemented synchronous online\nBCI, where the label of a particular trial is known before hand\nand we assumed full compliance with cues. As this assumption\nmay be questionable, partially supervised adaptation using a\nwell-known technique of Error-Potentials can be explored in\nconjunction with CSD for better performance [22].\nFuture work may include extending the proposed EEG-\nCSAC based adaptive online BCI for continuous control\nwith increased information trans"
+        "page": 11,
+        "text": " in robot-\nassisted rehabilitation,” IEEE Trans. Neural Syst. Rehabil. Eng., vol. 18,\nno. 5, pp. 571–579, Oct. 2010.\n[5] L. Dipietro et al., “Learning, not adaptation, characterizes stroke motor\nrecovery: Evidence from kinematic changes induced by robot-assisted\ntherapy in trained and untrained task in the same workspace,” IEEE\nTrans. Neural Syst. Rehabil. Eng., vol. 20, no. 1, pp. 48–57, Jan. 2012.\n[6] P. Agarwal, Y. Yun, J. Fox, K. Madden, and A. D. Deshpande, “Design,\ncontrol, and testing of a"
     },
     "131": {
         "chunk_id": 132,
-        "page": 10,
-        "text": "proposed EEG-\nCSAC based adaptive online BCI for continuous control\nwith increased information transfer rate to generate smoother\nfeedback. Also the current scope of synchronous BCI may\nbe extended to asynchronous cases for more practical use in\nactivities of daily living using assistive technologies.\nV. CONCLUSION\nThe paper implements an online BCI system with a two-\nstage CSD test based classiﬁer adaptation. The online BCI\nsystem, capable of generating MI triggered visual and hand\nexoskeleton "
+        "page": 11,
+        "text": " 2012.\n[6] P. Agarwal, Y. Yun, J. Fox, K. Madden, and A. D. Deshpande, “Design,\ncontrol, and testing of a thumb exoskeleton with series elastic actuation,”\nInt. J. Robot. Res., vol. 36, no. 3, pp. 355–375, 2017.\n[7] M. Cortese, M. Cempini, P. R. de Almeida Ribeiro, S. R. Soekadar,\nM. C. Carrozza, and N. Vitiello, “A mechatronic system for robot-\nmediated hand telerehabilitation,” IEEE/ASME Trans. Mechatronics,\nvol. 20, no. 4, pp. 1753–1764, Aug. 2015.\n[8] J. Sabater-Navarro, N. Garcia, D. Ramos,"
     },
     "132": {
         "chunk_id": 133,
-        "page": 10,
-        "text": "r adaptation. The online BCI\nsystem, capable of generating MI triggered visual and hand\nexoskeleton based neurofeedback, was tested for its practical\nfeasibility and effectiveness on both healthy individuals and\nstroke patients. In comparison to the conventional CSP-based\nnon-adaptive method, EEG-CSAC performed signiﬁcantly bet-\nter in terms of classiﬁcation accuracy. The classiﬁcation ac-\ncuracy improvements strongly correlated with the number of\nvalidated CSD occurrences, further proving the c"
+        "page": 11,
+        "text": " Mechatronics,\nvol. 20, no. 4, pp. 1753–1764, Aug. 2015.\n[8] J. Sabater-Navarro, N. Garcia, D. Ramos, E. Camayo, and A. Vivas,\n“Hand neuro-rehabilitation system using nitinol spring actuators,”\nRobot. Auton. Syst., vol. 63, pp. 50–56, 2015.\n[9] S. W. Lee, K. A. Landers, and H. Park, “Development of a biomimetic\nhand exotendon device (biomhed) for restoration of functional hand\nmovement post-stroke,” IEEE Trans. Neural Syst. Rehabil. Eng., vol. 22,\nno. 4, pp. 886–898, Jul. 2014.\n[10] F. Zhang, L."
     },
     "133": {
         "chunk_id": 134,
-        "page": 10,
-        "text": "improvements strongly correlated with the number of\nvalidated CSD occurrences, further proving the consistency of\nEEG-CSAC algorithm. The two-stage CSD test comprising\nof EWMA test and Hotellings T-square statistical test was\ndemonstrated to be effective in reducing the false detection rate\nand thereby preventing unnecessary adaptation of the classiﬁer.\nOverall, the EEG-CSAC has been proven to be a practical and\nsigniﬁcantly superior method for designing adaptive BCI based\nhand-exoskeleton integ"
+        "page": 11,
+        "text": " IEEE Trans. Neural Syst. Rehabil. Eng., vol. 22,\nno. 4, pp. 886–898, Jul. 2014.\n[10] F. Zhang, L. Hua, Y. Fu, H. Chen, and S. Wang, “Design and develop-\nment of a hand exoskeleton for rehabilitation of hand injuries,” Mecha-\nnism Mach. Theory, vol. 73, pp. 103–116, 2014.\n[11] U. Jeong, H.-K. In, and K.-J. Cho, “Implementation of various control\nalgorithms for hand rehabilitation exercise using wearable robotic\nhand,” Intell. Serv. Robot., vol. 6, no. 4, pp. 181–189, Oct. 2013.\n[12] N. S. K. Ho et"
     },
     "134": {
         "chunk_id": 135,
-        "page": 10,
-        "text": "a practical and\nsigniﬁcantly superior method for designing adaptive BCI based\nhand-exoskeleton integrated neurorehabilitation therapies for\nstroke patients.\nACKNOWLEDGMENT\nThis work is supported by Department of Science and Tech-\nnology (DST), India and UK India Education and Research\nInitiative (UKIERI) Thematic Partnership project ”A BCI\noperated hand exoskeleton based neurorehabilitation system”\n(UKIERI-DST-20130354). We also thank Regency Hospital,\nKanpur, India to enable the experiments on "
+        "page": 11,
+        "text": " robotic\nhand,” Intell. Serv. Robot., vol. 6, no. 4, pp. 181–189, Oct. 2013.\n[12] N. S. K. Ho et al., “An EMG-driven exoskeleton hand robotic training\ndevice on chronic stroke subjects: Task training system for stroke reha-\nbilitation,” in Proc. IEEE Int. Conf. Rehabil. Robot., Jun. 2011, pp. 1–5.\n[13] R. C. V. Loureiro, W. S. Harwin, R. Lamperd, and C. Collin, “Evaluation of\nreach and grasp robot-assisted therapy suggests similar functional recovery\npatterns on proximal and distal arm segments in"
     },
     "135": {
         "chunk_id": 136,
-        "page": 10,
-        "text": "”\n(UKIERI-DST-20130354). We also thank Regency Hospital,\nKanpur, India to enable the experiments on stroke patients.\nREFERENCES\n[1] J. J. Vidal, “Toward Direct Brain-Computer Communication,” Annu. Rev.\nBiophys., vol. 2, no. 1, pp. 157–180, Jun. 1973.\n[2] G. Dornhege, Toward brain-computer interfacing.\nMIT press, 2007.\n[3] N. Birbaumer, A. K¨ubler, N. Ghanayim, T. Hinterberger, J. Perelmouter,\nJ. Kaiser, I. Iversen, B. Kotchoubey, N. Neumann, and H. Flor, “The\nthought translation device (TTD) for"
+        "page": 11,
+        "text": " robot-assisted therapy suggests similar functional recovery\npatterns on proximal and distal arm segments in sub-acute hemiplegia,” IEEE\nTrans. Neural Syst. Rehabil. Eng., vol. 22, no. 3, pp. 593–602, May 2014.\n[14] O. Sandoval-Gonzalez et al., “Design and development of a hand exo-\nskeleton robot for active and passive rehabilitation,” Int. J. Adv. Robot.\nSyst., vol. 13, no. 2, 2016, Art. no. 66.\n[15] S. Ueki et al., “Development of a hand-assist robot with multi-degrees-\nof-freedom for rehabilitation"
     },
     "136": {
         "chunk_id": 137,
-        "page": 10,
-        "text": "aiser, I. Iversen, B. Kotchoubey, N. Neumann, and H. Flor, “The\nthought translation device (TTD) for completely paralyzed patients,”\nIEEE Trans. Neural Syst. Rehabil. Eng., vol. 8, no. 2, pp. 190–193,\n2000.\n[4] G. Prasad, P. Herman, D. Coyle, S. McDonough, and J. Crosbie,\n“Applying a brain-computer interface to support motor imagery practice\nin people with stroke for upper limb recovery: a feasibility study.” J.\nNeuroeng. Rehabil., vol. 7, no. 1, p. 60, 2010.\n[5] V. Crocher, A. Sahbani, J. Rober"
+        "page": 11,
+        "text": "\n[15] S. Ueki et al., “Development of a hand-assist robot with multi-degrees-\nof-freedom for rehabilitation therapy,” IEEE/ASME Trans. Mecha-\ntronics, vol. 17, no. 1, pp. 136–146, Feb. 2012.\n[16] H. Yap, J. Lim, J. Goh, and C. Yeow, “Design of a soft robotic glove for\nhand rehabilitation of stroke patients with clenched ﬁst deformity using\ninﬂatable plastic actuators,” J. Med. Devices, vol. 10, no. 4, Aug. 2016,\nArt. no. 044504.\n[17] J. Metzger, O. Lambercy, and R. Gassert, “Performance comparison"
     },
     "137": {
         "chunk_id": 138,
-        "page": 10,
-        "text": "lity study.” J.\nNeuroeng. Rehabil., vol. 7, no. 1, p. 60, 2010.\n[5] V. Crocher, A. Sahbani, J. Robertson, A. Roby-Brami, and G. Morel,\n“Constraining upper limb synergies of hemiparetic patients using a\nrobotic exoskeleton in the perspective of neuro-rehabilitation,” IEEE\nTrans. Neural Syst. Rehabil. Eng., vol. 20, no. 3, pp. 247–257, 2012.\n[6] M. A. Dimyan and L. G. Cohen, “Neuroplasticity in the context of motor\nrehabilitation after stroke,” Nature reviews. Neurology, vol. 7, no. 2, pp.\n76–85, "
+        "page": 11,
+        "text": " 4, Aug. 2016,\nArt. no. 044504.\n[17] J. Metzger, O. Lambercy, and R. Gassert, “Performance comparison of\ninteraction control strategies on a hand rehabilitation robot,” in Proc.\nIEEE Int. Conf. Rehabil. Robot., Aug. 2015, pp. 846–851.\n[18] A. Chiri, N. Vitiello, F. Giovacchini, S. Roccella, F. Vecchi, and\nM. C. Carrozza, “Mechatronic design and characterization of the index\nﬁnger module of a hand exoskeleton for post-stroke rehabilitation,”\nIEEE/ASME Trans. Mechatronics, vol. 17, no. 5, pp. 884–894,"
     },
     "138": {
         "chunk_id": 139,
-        "page": 10,
-        "text": "context of motor\nrehabilitation after stroke,” Nature reviews. Neurology, vol. 7, no. 2, pp.\n76–85, 2011.\n[7] H. Cecotti, “Spelling with non-invasive Brain-Computer Interfaces–\ncurrent and future trends.” Journal of physiology, Paris, vol. 105, no.\n1-3, pp. 106–14, 2011.\n[8] J. Ueda, D. Ming, V. Krishnamoorthy, M. Shinohara, and T. Ogasawara,\n“Individual muscle control using an exoskeleton robot for muscle func-\ntion testing,” IEEE Transactions on Neural Systems and Rehabilitation\nEngineering, v"
+        "page": 11,
+        "text": " exoskeleton for post-stroke rehabilitation,”\nIEEE/ASME Trans. Mechatronics, vol. 17, no. 5, pp. 884–894, Oct. 2012.\n[19] C. L. Jones, F. Wang, R. Morrison, N. Sarkar, and D. G. Kamper,\n“Design and development of the cable actuated ﬁnger exoskeleton for\nhand rehabilitation following stroke,” IEEE/ASME Trans. Mechatronics,\nvol. 19, no. 1, pp. 131–140, Feb. 2014.\n[20] E. B. Brokaw, I. Black, R. J. Holley, and P. S. Lum, “Hand spring oper-\nated movement enhancer (handsome): A portable, passive hand"
     },
     "139": {
         "chunk_id": 140,
-        "page": 10,
-        "text": "or muscle func-\ntion testing,” IEEE Transactions on Neural Systems and Rehabilitation\nEngineering, vol. 18, no. 4, pp. 339–350, 2010.\n[9] A. Ramos-Murguialday, M. Sch¨urholz, V. Caggiano, M. Wildgruber,\nA. Caria, E. M. Hammer, S. Halder, and N. Birbaumer, “Proprioceptive\nFeedback and Brain Computer Interface (BCI) Based Neuroprostheses,”\nPLoS ONE, vol. 7, no. 10, 2012.\n[10] A. Chowdhury, H. Raza, A. Dutta, S. S. Nishad, A. Saxena, and\nG. Prasad, “A Study on Cortico-muscular Coupling in Finger Mo"
+        "page": 11,
+        "text": " Holley, and P. S. Lum, “Hand spring oper-\nated movement enhancer (handsome): A portable, passive hand exoskel-\neton for stroke rehabilitation,” IEEE Trans. Neural Syst. Rehabil. Eng.,\nvol. 19, no. 4, pp. 391–399, Aug. 2011.\n[21] C. Pacchierotti, S. Sinclair, M. Solazzi, A. Frisoli, V. Hayward, and\nD. Prattichizzo, “Wearable haptic systems for the ﬁngertip and the hand:\nTaxonomy, review, and perspectives,” IEEE Trans. Haptics, vol. 10,\nno. 4, pp. 580–600, Oct.–Dec. 2017.\n138\nIEEE TRANSACTIONS ON"
     },
     "140": {
         "chunk_id": 141,
-        "page": 10,
-        "text": "A. Dutta, S. S. Nishad, A. Saxena, and\nG. Prasad, “A Study on Cortico-muscular Coupling in Finger Motions\nfor Exoskeleton Assisted Neuro-Rehabilitation,” in Proc. 37th Annual\nInternational Conference of the IEEE Engineering in Medicine and\nBiology Society (EMBC), 2015, 2015, pp. 4610–4614.\n[11] A. Chowdhury, H. Raza, A. Dutta, and G. Prasad, “Eeg-emg based\nhybrid brain computer interface for triggering hand exoskeleton for\nneuro-rehabilitation,” in Proc. of the Advances in Robotics, Jun. 2017,\np"
+        "page": 11,
+        "text": " IEEE Trans. Haptics, vol. 10,\nno. 4, pp. 580–600, Oct.–Dec. 2017.\n138\nIEEE TRANSACTIONS ON HAPTICS, VOL. 12, NO. 2, APRIL-JUNE 2019\nAuthorized licensed use limited to: Cornell University Library. Downloaded on September 03,2020 at 06:22:37 UTC from IEEE Xplore. Restrictions apply."
     },
     "141": {
         "chunk_id": 142,
-        "page": 10,
-        "text": "ering hand exoskeleton for\nneuro-rehabilitation,” in Proc. of the Advances in Robotics, Jun. 2017,\npp. 45:1–45:6.\n[12] J. Zhao, W. Li, X. Mao, H. Hu, L. Niu, and G. Chen, “Behavior-based\nssvep hierarchical architecture for telepresence control of humanoid\nrobot to achieve full-body movement,” IEEE Transactions on Cognitive\nand Developmental Systems, vol. 9, no. 2, pp. 197–209, Jun. 2017.\n[13] J. R. Wolpaw, N. Birbaumer, D. J. McFarland, G. Pfurtscheller, and T. M.\nVaughan, “Brain-Computer Interf"
+        "page": 12,
+        "text": "[22] L. Marchal-Crespo and D. J. Reinkensmeyer, “Review of control strate-\ngies for robotic movement training after neurologic injury,” J. NeuroEn-\ngineering Rehabil., vol. 6, no. 1, Jun. 2009, Art. no. 20.\n[23] C. Obayashi, T. Tamei, and T. Shibata, “Assist-as-needed robotic trainer\nbased on reinforcement learning and its application to dart-throwing,”\nNeural Netw., vol. 53, pp. 52–60, 2014.\n[24] V. Crocher, A. Sahbani, J. Robertson, A. Roby-Brami, and G. Morel,\n“Constraining upper limb synergies"
     },
     "142": {
         "chunk_id": 143,
-        "page": 10,
-        "text": ". Wolpaw, N. Birbaumer, D. J. McFarland, G. Pfurtscheller, and T. M.\nVaughan, “Brain-Computer Interfaces for Communication and Control.”\nClinical Neurophysiology : Ofﬁcial Journal of the International Feder-\nation of Clinical Neurophysiology, vol. 113, no. 6, pp. 767–91, Jun.\n2002.\n[14] Y. Jiang, N. T. Hau, and W. Y. Chung, “Semi-asynchronous bci using\nwearable two-channel eeg,” IEEE Transactions on Cognitive and Devel-\nopmental Systems, vol. PP, no. 99, pp. 1–1, 2017.\n[15] D. Rathee, H. Raza, G"
+        "page": 12,
+        "text": " V. Crocher, A. Sahbani, J. Robertson, A. Roby-Brami, and G. Morel,\n“Constraining upper limb synergies of hemiparetic patients using a\nrobotic exoskeleton in the perspective of neuro-rehabilitation,” IEEE\nTrans. Neural Syst. Rehabil. Eng., vol. 20, no. 3, pp. 247–257, May 2012.\n[25] R. Colombo et al., “Robotic techniques for upper limb evaluation and\nrehabilitation of stroke patients,” IEEE Trans. Neural Syst. Rehabil.\nEng., vol. 13, no. 3, pp. 311–324, Sep. 2005.\n[26] C. D. Takahashi, L. Der-Yeghiaian,"
     },
     "143": {
         "chunk_id": 144,
-        "page": 10,
-        "text": "on Cognitive and Devel-\nopmental Systems, vol. PP, no. 99, pp. 1–1, 2017.\n[15] D. Rathee, H. Raza, G. Prasad, and H. Cecotti, “Current source density\nestimation enhances the performance of motor-imagery-related brain–\ncomputer interface,” IEEE Trans. on Neural Syst. and Rehab. Eng.,\nvol. 25, no. 12, pp. 2461–2471, Dec. 2017.\n[16] H. Raza, H. Cecotti, Y. Li, and G. Prasad, “Adaptive learning with\ncovariate shift-detection for motor imagery-based braincomputer inter-\nface,” Soft Computing, vol. 20"
+        "page": 12,
+        "text": " Neural Syst. Rehabil.\nEng., vol. 13, no. 3, pp. 311–324, Sep. 2005.\n[26] C. D. Takahashi, L. Der-Yeghiaian, V. H. Le, and S. C. Cramer, “A\nrobotic device for hand motor therapy after stroke,” in Proc. 9th Int.\nConf. Rehabil. Robot., Jun. 2005, pp. 17–20.\n[27] J. Huang, X. Tu, and J. He, “Design and evaluation of the rupert wearable\nupper extremity exoskeleton robot for clinical and in-home therapies,”\nIEEE Trans. Syst. Man Cybern.: Syst., vol. 46, no. 7, pp. 926–935,\nJul. 2016.\n[28] R. C. V. Loureiro"
     },
     "144": {
         "chunk_id": 145,
-        "page": 10,
-        "text": "ovariate shift-detection for motor imagery-based braincomputer inter-\nface,” Soft Computing, vol. 20, no. 8, pp. 3085–3096, Aug. 2016.\n[17] P. Shenoy, M. Krauledat, B. Blankertz, R. P. N. Rao, and K.-R. M¨uller,\n“Towards adaptive classiﬁcation for BCI,” J. Neural Eng., vol. 3, no. 1,\npp. R13–R23, Mar. 2006.\n[18] Y. Li, H. Kambara, Y. Koike, and M. Sugiyama, “Application of\ncovariate shift adaptation techniques in brain-computer interfaces,” IEEE\nTransactions on Biomedical Engineering, vol. 57, n"
+        "page": 12,
+        "text": "\nIEEE Trans. Syst. Man Cybern.: Syst., vol. 46, no. 7, pp. 926–935,\nJul. 2016.\n[28] R. C. V. Loureiro and W. S. Harwin, “Reach amp; grasp therapy: Design\nand control of a 9-dof robotic neuro-rehabilitation system,” in Proc.\nIEEE 10th Int. Conf. Rehabil. Robot., Jun. 2007, pp. 757–763.\n[29] F. Amirabdollahian, R. Loureiro, E. Gradwell, C. Collin, W. Harwin,\nand G. Johnson, “Multivariate analysis of the fugl-meyer outcome\nmeasures assessing the effectiveness of gentle/s robot-mediated stroke\ntherapy,”"
     },
     "145": {
         "chunk_id": 146,
-        "page": 10,
-        "text": "on techniques in brain-computer interfaces,” IEEE\nTransactions on Biomedical Engineering, vol. 57, no. 6, pp. 1318–1324,\nJun. 2010.\n[19] B. Blankertz, G. Dornhege, M. Krauledat, K. R. M¨uller, and G. Curio,\n“The non-invasive Berlin Brain-Computer Interface: Fast acquisition of\neffective performance in untrained subjects,” NeuroImage, vol. 37, no. 2,\npp. 539–550, 2007.\n[20] B. Blankertz, R. Tomioka, S. Lemm, M. Kawanabe, and K. R. M¨uller,\n“Optimizing spatial ﬁlters for robust EEG single-trial an"
+        "page": 12,
+        "text": " of the fugl-meyer outcome\nmeasures assessing the effectiveness of gentle/s robot-mediated stroke\ntherapy,” J. NeuroEngineering Rehabil., vol. 4, no. 1, Feb. 2007,\nArt. no. 4.\n[30] R. Colombo et al., “Robotic techniques for upper limb evaluation and\nrehabilitation of stroke patients,” IEEE Trans. Neural Syst. Rehabil.\nEng., vol. 13, no. 3, pp. 311–324, Sep. 2005.\n[31] R. Colombo et al., “Assessing mechanisms of recovery during robot-\naided neurorehabilitation of the upper limb,” Neurorehabilitation"
     },
     "146": {
         "chunk_id": 147,
-        "page": 10,
-        "text": ", S. Lemm, M. Kawanabe, and K. R. M¨uller,\n“Optimizing spatial ﬁlters for robust EEG single-trial analysis,” IEEE\nSignal Processing Magazine, vol. 25, no. 1, pp. 41–56, 2008.\n[21] P. Y. Zhou and K. C. C. Chan, “Fuzzy feature extraction for multi-\nchannel eeg classiﬁcation,” IEEE Transactions on Cognitive and Devel-\nopmental Systems, vol. PP, no. 99, pp. 1–1, 2016.\n[22] A. Buttﬁeld, P. W. Ferrez, and J. D. R. Mill´an, “Towards a robust BCI:\nError potentials and online learning,” IEEE Trans. Neura"
+        "page": 12,
+        "text": " mechanisms of recovery during robot-\naided neurorehabilitation of the upper limb,” Neurorehabilitation Neu-\nral Repair, vol. 22, no. 1, pp. 50–63, 2008.\n[32] P. Maciejasz, J. Eschweiler, K. Gerlach-Hahn, A. Jansen-Toy, and\nS. Leonhardt, “A survey on robotic devices for upper limb rehabil-\nitation,” J. Neuroengineering Rehabil., vol. 11, Jan. 2014, Art. no. 3.\n[33] S. S. Nishad, A. Dutta, and A. Saxena, “Design and control of a three ﬁn-\nger hand exoskeleton for translation of a slender object,”"
     },
     "147": {
         "chunk_id": 148,
-        "page": 10,
-        "text": "nd J. D. R. Mill´an, “Towards a robust BCI:\nError potentials and online learning,” IEEE Trans. Neural Syst. Rehabil.\nEng., vol. 14, no. 2, pp. 164–168, Jun. 2006.\n[23] C. Vidaurre, A. Schl¨ogl, R. Cabeza, R. Scherer, and G. Pfurtscheller,\n“Study of on-line adaptive discriminant analysis for EEG-based brain\ncomputer interfaces,” IEEE Trans. on Biomed. Eng., vol. 54, no. 3, pp.\n550–556, 2007.\n[24] X. Liao, D. Yao, and C. Li, “Transductive SVM for reducing the training\neffort in BCI.” Journal of ne"
+        "page": 12,
+        "text": " Saxena, “Design and control of a three ﬁn-\nger hand exoskeleton for translation of a slender object,” in Proc. 11th\nInt. Conf. Ubiquitous Robots Ambient Intell., Nov. 2014, pp. 179–184.\n[34] M. F. Orlando, H. Akolkar, A. Dutta, A. Saxena, and L. Behera,\n“Optimal design and control of a hand exoskeleton,” in Proc. IEEE\nConf. Robot. Autom. Mechatronics, Jun. 2010, pp. 72–77.\n[35] D. Leonardis et al., “An EMG-controlled robotic hand exoskeleton for\nbilateral rehabilitation,” IEEE Trans. Haptics, vol."
     },
     "148": {
         "chunk_id": 149,
-        "page": 10,
-        "text": ". Liao, D. Yao, and C. Li, “Transductive SVM for reducing the training\neffort in BCI.” Journal of neural engineering, vol. 4, no. 3, pp. 246–54,\nSep. 2007.\n[25] H. Raza, H. Cecotti, Y. Li, and G. Prasad, “Learning with Covariate\nShift-Detection and Adaptation in Non-Stationary Environments : Ap-\nplication to Brain-Computer Interface,” in Proc. 2015 International Joint\nConference on Neural Networks (IJCNN), 2015, pp. 1–8."
+        "page": 12,
+        "text": " “An EMG-controlled robotic hand exoskeleton for\nbilateral rehabilitation,” IEEE Trans. Haptics, vol. 8, no. 2, pp. 140–151,\nApr.–Jun. 2015.\n[36] D. Prattichizzo, F. Chinello, C. Pacchierotti, and M. Malvezzi, “Towards\nwearability in ﬁngertip haptics: A 3-dof wearable device for cutan-\neous force feedback,” IEEE Trans. Haptics, vol. 6, no. 4, pp. 506–516,\nOct.–Dec. 2013.\n[37] J. Arata, K. Ohmoto, R. Gassert, O. Lambercy, H. Fujimoto, and\nI. Wada, “A new hand exoskeleton device for rehabilitation"
     },
     "149": {
         "chunk_id": 150,
-        "page": 11,
-        "text": "2379-8920 (c) 2017 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.\nThis article has been accepted for publication in a future issue of this journal, but has not been fully edited. Content may change prior to final publication. Citation information: DOI 10.1109/TCDS.2017.2787040, IEEE\nTransactions on Cognitive and Developmental Systems\nIEEE TRANSACTIONS O"
+        "page": 12,
+        "text": " R. Gassert, O. Lambercy, H. Fujimoto, and\nI. Wada, “A new hand exoskeleton device for rehabilitation using a\nthree-layered sliding spring mechanism,” in Proc. IEEE Int. Conf.\nRobot. Autom., May 2013, pp. 3902–3907.\n[38] P. Polygerinos, Z. Wang, K. C. Galloway, R. J. Wood, and C. J. Walsh,\n“Soft robotic glove for combined assistance and at-home rehabilitation,”\nRobot. Auton. Syst., vol. 73, pp. 135–143, 2015.\n[39] A. Wege, K. Kondak, and G. Hommel, “Force control strategy for a\nhand exoskeleton based"
     },
     "150": {
         "chunk_id": 151,
-        "page": 11,
-        "text": "1109/TCDS.2017.2787040, IEEE\nTransactions on Cognitive and Developmental Systems\nIEEE TRANSACTIONS ON COGNITIVE AND DEVELOPMENTAL SYSTEMS, VOL. XX, NO. XX, MONTH 201X\n11\n[26] M. Arvaneh, C. Guan, K. K. Ang, and C. Quek, “Optimizing spatial ﬁl-\nters by minimizing within-class dissimilarities in electroencephalogram-\nbased brain-computer interface,” IEEE Trans. Neural Netw. Learn. Syst.,\nvol. 24, no. 4, pp. 610–619, 2013.\n[27] P. A. Herman, G. Prasad, and T. M. McGinnity, “Designing an interval\nty"
+        "page": 12,
+        "text": " 2015.\n[39] A. Wege, K. Kondak, and G. Hommel, “Force control strategy for a\nhand exoskeleton based on sliding mode position control,” in Proc.\nIEEE/RSJ Int. Conf. Intell. Robots Syst., Oct. 2006, pp. 4615–4620.\n[40] J. C. P\u0002erez-Ibarra, A. A. G. Siqueira, and H. I. Krebs, “Assist-as-needed\nankle rehabilitation based on adaptive impedance control,” in Proc.\nIEEE Int. Conf. Rehabil. Robot., Aug. 2015, pp. 723–728.\n[41] R. Ikeura and H. Inooka, “Variable impedance control of a robot for\ncooperation"
     },
     "151": {
         "chunk_id": 152,
-        "page": 11,
-        "text": ". 4, pp. 610–619, 2013.\n[27] P. A. Herman, G. Prasad, and T. M. McGinnity, “Designing an interval\ntype-2 fuzzy logic system for handling uncertainty effects in brain–\ncomputer interface classiﬁcation of motor imagery induced eeg patterns,”\nIEEE Trans. on Fuzzy Syst., vol. 25, no. 1, pp. 29–42, Feb. 2017.\n[28] H. Raza, H. Cecotti, and G. Prasad, “Optimising Frequency Band\nSelection with Forward-Addition and Backward-Elimination Algorithms\nin EEG-based Brain-Computer Interfaces,” in Proc. 2015 Int"
+        "page": 12,
+        "text": " 2015, pp. 723–728.\n[41] R. Ikeura and H. Inooka, “Variable impedance control of a robot for\ncooperation with a human,” in Proc. IEEE Int. Conf. Robot. Autom.,\nMay 1995, vol. 3, pp. 3097–3102.\n[42] A. Dutta and G. Obinata, “Impedance control of a robotic gripper for\ncooperation with humans,” Control Eng. Pract., vol. 10, pp. 379–389,\nJan. 2002.\n[43] A. Chowdhury, H. Raza, A. Dutta, and G. Prasad, “EEG-EMG based\nhybrid brain computer interface for triggering hand exoskeleton for\nneuro-rehabilitation,”"
     },
     "152": {
         "chunk_id": 153,
-        "page": 11,
-        "text": "ition and Backward-Elimination Algorithms\nin EEG-based Brain-Computer Interfaces,” in Proc. 2015 International\nJoint Conference on Neural Networks (IJCNN), 2015, pp. 1–7.\n[29] A. Satti, C. Guan, D. Coyle, and G. Prasad, “A covariate shift min-\nimization method to alleviate non-stationarity effects for an adaptive\nbrain-computer interface,” in Proc. International Conference on Pattern\nRecognition, Aug. 2010, pp. 105–108.\n[30] H. Raza, G. Prasad, Y. Li, and H. Cecotti, “Covariate shift-adaptation\n"
+        "page": 12,
+        "text": " “EEG-EMG based\nhybrid brain computer interface for triggering hand exoskeleton for\nneuro-rehabilitation,” in Proc. Adv. Robot., 2017, pp. 45:1–45:6.\n[44] A. Chowdhury, H. Raza, Y. K. Meena, A. Dutta, and G. Prasad, “Online\ncovariate shift detection based adaptive brain-computer interface to trig-\nger hand exoskeleton feedback for neuro-rehabilitation,” IEEE Trans.\nCogn. Develop. Syst., vol. 10, no. 4, pp. 1070–1080, Dec. 2018.\n[45] M. F. Folstein, S. E. Folstein, and P. R. McHugh, “Mini-mental state:"
     },
     "153": {
         "chunk_id": 154,
-        "page": 11,
-        "text": "Aug. 2010, pp. 105–108.\n[30] H. Raza, G. Prasad, Y. Li, and H. Cecotti, “Covariate shift-adaptation\nusing a transductive learning model for handling non-stationarity in\nEEG based brain-computer interfaces,” in Proc. 2014 IEEE International\nConference on Bioinformatics and Biomedicine (BIBM), Nov. 2014, pp.\n230–236.\n[31] G. Ditzler, M. Roveri, C. Alippi, and R. Polikar, “Learning in Nonsta-\ntionary Environments : a Survey,” IEEE Comput. Intell. Mag., vol. 10,\nno. 4, pp. 12–25, 2015.\n[32] C. Vidau"
+        "page": 12,
+        "text": " no. 4, pp. 1070–1080, Dec. 2018.\n[45] M. F. Folstein, S. E. Folstein, and P. R. McHugh, “Mini-mental state: A\npractical method for grading the cognitive state of patients for the clin-\nician,” J. Psychiatric Res., vol. 12, no. 3, pp. 189–198, 1975.\n[46] R. C. Lyle, “A performance test for assessment of upper limb function in\nphysical rehabilitation treatment and research,” Int. J. Rehabil. Res.,\nvol. 4, no. 4, pp. 483–492, 1981.\n[47] G. Prasad, P. Herman, D. Coyle, S. McDonough, and J. Crosbie,"
     },
     "154": {
         "chunk_id": 155,
-        "page": 11,
-        "text": " Environments : a Survey,” IEEE Comput. Intell. Mag., vol. 10,\nno. 4, pp. 12–25, 2015.\n[32] C. Vidaurre, A. Schl¨oogl, R. Cabeza, R. Scherer, and G. Pfurtscheller,\n“A fully on-line adaptive BCI,” IEEE Trans. on Biomed. Eng., vol. 53,\nno. 6, pp. 1214–1219, 2006.\n[33] S. Sun, C. Zhang, and D. Zhang, “An experimental evaluation of\nensemble methods for EEG signal classiﬁcation,” Pattern Recognit. Lett.,\nvol. 28, no. 15, pp. 2157–2163, 2007.\n[34] S. R. Liyanage, C. Guan, H. Zhang, K. K. Ang, J. Xu, a"
+        "page": 12,
+        "text": "\nvol. 4, no. 4, pp. 483–492, 1981.\n[47] G. Prasad, P. Herman, D. Coyle, S. McDonough, and J. Crosbie,\n“Applying a brain–computer interface to support motor imagery practice\nin people with stroke for upper limb recovery: A feasibility study,” J.\nNeuroengineering Rehabil., vol. 7, no. 1, 2010, Art. no. 60.\n[48] D. T. Bundy et al., “Contralesional brain–computer interface control of a\npowered exoskeleton for motor recovery in chronic stroke survivors,”\nStroke, vol. 48, pp. 1908–1915, 2017.\n[49] P. H."
     },
     "155": {
         "chunk_id": 156,
-        "page": 11,
-        "text": ".,\nvol. 28, no. 15, pp. 2157–2163, 2007.\n[34] S. R. Liyanage, C. Guan, H. Zhang, K. K. Ang, J. Xu, and T. H. Lee,\n“Dynamically weighted ensemble classiﬁcation for non-stationary EEG\nprocessing.” Journal of neural engineering, vol. 10, no. 3, p. 036007,\nApr. 2013.\n[35] H. Raza, G. Prasad, and Y. Li, “EWMA model based shift-detection\nmethods for detecting covariate shifts in non-stationary environments,”\nPattern Recognition, vol. 48, no. 3, pp. 659–669, Aug. 2015.\n[36] ——, “EWMA based two-stage da"
+        "page": 12,
+        "text": " for motor recovery in chronic stroke survivors,”\nStroke, vol. 48, pp. 1908–1915, 2017.\n[49] P. H. Thakur, A. J. Bastian, and S. Hsiao, “Multidigit movement syner-\ngies of the human hand in an unconstrained haptic exploration task,” J.\nNeuroscience, vol. 28, pp. 1271–1281, Feb. 2008.\n[50] J. Sabater-Navarro, N. Garcia, D. Ramos, E. Camayo, and A. Vivas,\n“Hand neuro-rehabilitation system using nitinol spring actuators,”\nRobot. Auton. Syst., vol. 63, pp. 50–56, 2015.\n[51] H. Fang, Z. Xie, H. Liu, T."
     },
     "156": {
         "chunk_id": 157,
-        "page": 11,
-        "text": "nts,”\nPattern Recognition, vol. 48, no. 3, pp. 659–669, Aug. 2015.\n[36] ——, “EWMA based two-stage dataset shift-detection in non-stationary\nenvironments,” in Proc. IFIP Advances in Information and Communi-\ncation Technology, Oct. 2013, pp. 625–635.\n[37] F. Quandt, C. Reichert, H. Hinrichs, H. J. Heinze, R. T. Knight, and J. W.\nRieger, “Single trial discrimination of individual ﬁnger movements on\none hand: A combined MEG and EEG study,” NeuroImage, vol. 59,\nno. 4, pp. 3316–3324, 2012.\n[38] J. H¨o"
+        "page": 12,
+        "text": " spring actuators,”\nRobot. Auton. Syst., vol. 63, pp. 50–56, 2015.\n[51] H. Fang, Z. Xie, H. Liu, T. Lan, and J. Xia, “An exoskeleton force feedback\nmaster ﬁnger distinguishing contact and non-contact mode,” in Proc.\nIEEE/ASME Int. Conf. Adv. Intell. Mechatronics, Jul. 2009, pp. 1059–1064.\n[52] S. Park, L. Bishop, T. Post, Y. Xiao, J. Stein, and M. Ciocarlie, “On the\nfeasibility of wearable exotendon networks for whole-hand movement\npatterns in stroke patients,” in Proc. IEEE Int. Conf. Robot. Autom.,"
     },
     "157": {
         "chunk_id": 158,
-        "page": 11,
-        "text": "ne hand: A combined MEG and EEG study,” NeuroImage, vol. 59,\nno. 4, pp. 3316–3324, 2012.\n[38] J. H¨ohne, E. Holz, P. Staiger-S¨alzer, K. R. M¨uller, A. K¨ubler, and\nM. Tangermann, “Motor imagery for severely motor-impaired patients:\nEvidence for brain-computer interfacing as superior control solution,”\nPLoS ONE, vol. 9, no. 8, 2014.\n[39] Y. K. Meena, A. Chowdhury, H. Cecotti, S. S. Nishad, A. Dutta, and\nG. Prasad, “EMOHEX : An Eye Tracker based Mobility and Hand\nExoskeleton Device for Assisting "
+        "page": 12,
+        "text": " networks for whole-hand movement\npatterns in stroke patients,” in Proc. IEEE Int. Conf. Robot. Autom.,\nMay 2016, pp. 3729–3735.\n[53] L. Marchal-Crespo and D. J. Reinkensmeyer, “Haptic guidance can\nenhance motor learning of a steering task,” J. Motor Behav., vol. 40,\npp. 545–556, Dec. 2008.\n[54] M. T. M. Shahbazi, S. F. Atashzar and R. V. Patel, “Therapist-in-the-loop\nrobotics-assisted mirror rehabilitation therapy: An assist-as-needed frame-\nwork,” in Proc. IEEE Int. Conf. Robot. Autom., 2015, pp."
     },
     "158": {
         "chunk_id": 159,
-        "page": 11,
-        "text": "a, and\nG. Prasad, “EMOHEX : An Eye Tracker based Mobility and Hand\nExoskeleton Device for Assisting Disabled People,” in Proc. 2016 IEEE\nInternational Conference on Systems, Man, and Cybernetics (SMC),\n2016, pp. 2122–2127.\n[40] R. Beisteiner, C. Windischberger, R. Lanzenberger, V. Edward, R. Cun-\nnington, M. Erdler, A. Gartus, B. Streibl, E. Moser, and L. Deecke,\n“Finger somatotopy in human motor cortex,” NeuroImage, vol. 13, no.\n6 Pt 1, pp. 1016–26, 2001.\n[41] T. Ball, A. Schreiber, B. Feige, M"
+        "page": 12,
+        "text": " rehabilitation therapy: An assist-as-needed frame-\nwork,” in Proc. IEEE Int. Conf. Robot. Autom., 2015, pp. 5910–5915.\n[55] N. Popescu, D. Popescu, M. Ivanescu, D. Popescu, C. Vladu, and I. Vladu,\n“Force observer-based control for a rehabilitation hand exoskeleton sys-\ntem,” in Proc. 9th Asian Control Conf., Jun. 2013, pp. 1–6.\n[56] J. H. Carr, Movement Science: Foundations for Physical Therapy in\nRehabilitation. Gaithersburg, MD, USA: Aspen, 2000.\n[57] M. A. Perez, B. K. S. Lungholt, K. Nyborg,"
     },
     "159": {
         "chunk_id": 160,
-        "page": 11,
-        "text": "cortex,” NeuroImage, vol. 13, no.\n6 Pt 1, pp. 1016–26, 2001.\n[41] T. Ball, A. Schreiber, B. Feige, M. Wagner, C. H. L¨ucking, and\nR. Kristeva-Feige, “The role of higher-order motor areas in voluntary\nmovement as revealed by high-resolution EEG and fMRI.” NeuroImage,\nvol. 10, no. 6, pp. 682–94, 1999.\n[42] H. M. Hodkinson, “Evaluation of a mental test score for assessment\nof mental impairment in the elderly,” Age & Ageing, vol. 1, no. 4, pp.\n233–238, 1972.\n[43] G. Pfurtscheller and F. H. Lopes Da "
+        "page": 12,
+        "text": " in\nRehabilitation. Gaithersburg, MD, USA: Aspen, 2000.\n[57] M. A. Perez, B. K. S. Lungholt, K. Nyborg, and J. B. Nielsen, “Motor skill\ntraining induces changes in the excitability of the leg cortical area in\nhealthy humans,” Exp. Brain Res., vol. 159, no. 2, pp. 197–205, Nov. 2004.\n[58] R. C. V. Loureiro and W. S. Harwin, “Reach and grasp therapy: Design\nand control of a 9-dof robotic neuro-rehabilitation system,” in Proc.\nIEEE 10th Int. Conf. Rehabil. Robot., Jun. 2007, pp. 757–763.\n[59] J. He"
     },
     "160": {
         "chunk_id": 161,
-        "page": 11,
-        "text": " elderly,” Age & Ageing, vol. 1, no. 4, pp.\n233–238, 1972.\n[43] G. Pfurtscheller and F. H. Lopes Da Silva, “Event-related EEG/MEG\nsynchronization and desynchronization: Basic principles,” Clinical Neu-\nrophysiology, vol. 110, no. 11, pp. 1842–1857, 1999.\n[44] H. Ramoser, J. M¨uller-Gerking, and G. Pfurtscheller, “Optimal spatial\nﬁltering of single trial EEG during imagined hand movement,” IEEE\nTransactions on Rehabilitation Engineering, vol. 8, no. 4, pp. 441–446,\nDec. 2000.\n[45] H. Raza, G. Pra"
+        "page": 12,
+        "text": " system,” in Proc.\nIEEE 10th Int. Conf. Rehabil. Robot., Jun. 2007, pp. 757–763.\n[59] J. He et al., “Rupert: A device for robotic upper extremity repetitive therapy,”\nin Proc. 27th Annu. Conf. IEEE Eng. Med. Biol., 2005, pp. 6844–6847.\n[60] M. M. Ouellette et al., “High-intensity resistance training improves mus-\ncle strength, self-reported function, and disability in long-term stroke\nsurvivors,” Stroke, vol. 35, no. 6, pp. 1404–1409, 2004.\n[61] S. L. Morris, K. J. Dodd, and M. E. Morris, “Outcomes"
     },
     "161": {
         "chunk_id": 162,
-        "page": 11,
-        "text": "nsactions on Rehabilitation Engineering, vol. 8, no. 4, pp. 441–446,\nDec. 2000.\n[45] H. Raza, G. Prasad, and Y. Li, “Dataset shift detection in non-stationary\nenvironments using EWMA charts,” in Proc. 2013 IEEE International\nConference on Systems, Man, and Cybernetics (SMC), 2013, pp. 3151–\n3156.\n[46] D. Montgomery and C. Mastrangelo, “Some Statistical Process Control\nMethods for Autocorrelated Data,” Journal of Quality Technology,\nvol. 23, no. 3, pp. 179–204, 1991.\n[47] H. Hotelling, “Multivari"
+        "page": 12,
+        "text": " Stroke, vol. 35, no. 6, pp. 1404–1409, 2004.\n[61] S. L. Morris, K. J. Dodd, and M. E. Morris, “Outcomes of progressive\nresistance strength training following stroke: A systematic review,”\nClin. Rehabil., vol. 18, no. 1, pp. 27–39, 2004.\n[62] C. D. Takahashi, L. Der-Yeghiaian, V. Le, R. R. Motiwala, and\nS. C. Cramer, “Robot-based hand motor therapy after stroke,” Brain,\nvol. 131, no. 2, pp. 425–437, 2008.\n[63] C. H. Hwang, J. W. Seong, and D.-S. Son, “Individual ﬁnger synchro-\nnized robot-assisted"
     },
     "162": {
         "chunk_id": 163,
-        "page": 11,
-        "text": "ta,” Journal of Quality Technology,\nvol. 23, no. 3, pp. 179–204, 1991.\n[47] H. Hotelling, “Multivariate Quality Control-Illsutrated by the Air Testing\nof Sample Bombsights,” in Techniques of Statistical Analysis.\nNew\nYork: McGraw-Hill, 1947, ch. II, pp. 111–184.\n[48] B. Obermaier, C. Neuper, C. Guger, and G. Pfurtscheller, “Information\ntransfer rate in a ﬁve-classes brain-computer interface,” IEEE Trans. on\nNeural Syst. and Rehab. Eng., vol. 9, no. 3, pp. 283–288, Sept 2001.\n[49] K. K. Ang, C. G"
+        "page": 12,
+        "text": " 425–437, 2008.\n[63] C. H. Hwang, J. W. Seong, and D.-S. Son, “Individual ﬁnger synchro-\nnized robot-assisted hand rehabilitation in subacute to chronic stroke: A\nprospective randomized clinical trial of efﬁcacy,” Clin. Rehabil., vol.\n26, no. 8, pp. 696–704, 2012.\n[64] R. Sasha Blue Godfrey, “Clinical effects of using hexorr (hand exoskele-\nton rehabilitation robot) for movement therapy in stroke rehabilitation,”\nAmer. J. Phys. Med. Rehabil., vol. 92, no. 11, pp. 947–958, 2012.\nAnirban Chowdhury"
     },
     "163": {
         "chunk_id": 164,
-        "page": 11,
-        "text": " Trans. on\nNeural Syst. and Rehab. Eng., vol. 9, no. 3, pp. 283–288, Sept 2001.\n[49] K. K. Ang, C. Guan, C. Wang, K. S. Phua, A. Hock, G. Tan, and Z. Y.\nChin, “Calibrating EEG-based motor imagery brain-computer interface\nfrom passive movement,” in Proc. 2011 Annual International Conference\nof the IEEE in Engineering in Medicine and Biology Society, EMBC,\n2011, pp. 4199–4202.\n[50] S. T. Foldes, D. J. Weber, and J. L. Collinger, “MEG-based neurofeed-\nback for hand rehabilitation.” J. Neuroeng. Reh"
+        "page": 12,
+        "text": " rehabilitation,”\nAmer. J. Phys. Med. Rehabil., vol. 92, no. 11, pp. 947–958, 2012.\nAnirban Chowdhury (S’16) received the B.Tech.\ndegree in electronics and communication engineering\nfrom\nKalyani\nGoverment\nEngineering\nCollege,\nKalyani, India, in 2010, and the M.Tech. degree in\nmechatronics and robotics from Bengal Engineering\nand Science University, Shibpur, India, in 2013. He\nis working toward the Ph.D. degree in mechatronics\nwith the Indian Institute of Technology Kanpur,\nKanpur, India. He was also"
     },
     "164": {
         "chunk_id": 165,
-        "page": 11,
-        "text": "J. Weber, and J. L. Collinger, “MEG-based neurofeed-\nback for hand rehabilitation.” J. Neuroeng. Rehabil., vol. 12, no. 1, p. 85,\n2015.\n[51] T. Pistohl, D. Joshi, G. Ganesh, A. Jackson, and K. Nazarpour, “Artiﬁcial\nProprioceptive Feedback for Myoelectric Control.” IEEE Trans. Neural\nSyst. Rehabil. Eng., vol. 23, no. 3, pp. 498–507, 2014.\n[52] D. Coyle, G. Prasad, and T. M. McGinnity, “A time-series prediction\napproach for feature extraction in a brain-computer interface.” IEEE\nTrans. Neural Syst"
+        "page": 12,
+        "text": " Ph.D. degree in mechatronics\nwith the Indian Institute of Technology Kanpur,\nKanpur, India. He was also a Visiting Researcher\nwith Intelligent Systems Research Laboratory, Ulster\nUniversity, U.K. His research interests include brain–\ncomputer interfaces, biomedical signal processing, robotics, artiﬁcial intelli-\ngence, and neurorehabilitation.\nCHOWDHURY et al.: HAND-EXOSKELETON ASSISTED PROGRESSIVE NEUROREHABILITATION USING IMPEDANCE ADAPTATION BASED...\n139\nAuthorized licensed use limited to: Cornell"
     },
     "165": {
         "chunk_id": 166,
-        "page": 11,
-        "text": "s prediction\napproach for feature extraction in a brain-computer interface.” IEEE\nTrans. Neural Syst. Rehabil. Eng., vol. 13, no. 4, pp. 461–467, 2005.\n[53] L. F. Nicolas-alonso, S. Member, R. Corralejo, S. Member, J. Gomez-\npilar, D. ´Alvarez, R. Hornero, and S. Member, “Adaptive Stacked\nGeneralization for Multiclass Motor Imagery-Based Brain Computer\nInterfaces,” IEEE Trans. Neural Syst. Rehabil. Eng., vol. 23, no. 4, pp.\n702–712, 2015.\n[54] R. Xiao and L. Ding, “Evaluation of EEG features in "
+        "page": 12,
+        "text": " NEUROREHABILITATION USING IMPEDANCE ADAPTATION BASED...\n139\nAuthorized licensed use limited to: Cornell University Library. Downloaded on September 03,2020 at 06:22:37 UTC from IEEE Xplore. Restrictions apply."
     },
     "166": {
         "chunk_id": 167,
-        "page": 11,
-        "text": ". Eng., vol. 23, no. 4, pp.\n702–712, 2015.\n[54] R. Xiao and L. Ding, “Evaluation of EEG features in decoding individual\nﬁnger movements from one hand,” Comput. Math. Methods Med., vol.\n2013, Apr. 2013."
+        "page": 13,
+        "text": "Shyam Sunder Nishad received the B.Tech. and\nM.Tech. degrees in mechanical engineering from\nthe Indian Institute of Technology (IIT) Kanpur,\nKanpur, India, in 2008 and 2013, respectively.\nThereafter, he was a Project Engineer (2014–2016)\nwith the IIT Kanpur, in a DST-UKEIRI funded\nresearch project on BCI based hand exoskeletons\nfor rehabilitation. Later, he switched over to design\nand control of insect-like ﬂapping-wing micro-air\nvehicles during his ongoing Ph.D. research work\nat IIT Kanpur. He is"
+    },
+    "167": {
+        "chunk_id": 168,
+        "page": 13,
+        "text": " ﬂapping-wing micro-air\nvehicles during his ongoing Ph.D. research work\nat IIT Kanpur. He is currently a Visvesvaraya\nDoctoral Fellow with IIT Kanpur. His long term interests lie in design and\ncontrol of autonomous machines which would ﬁnd use in almost every\naspect of daily life. He was the recipient of the Institute Proﬁciency medal\nand Tata Consultancy Services award for best BTech project of the year.\nYogesh Kumar Meena (S’12–M’18) received the\nB.Tech. and M.Tech. degrees in information tech-"
+    },
+    "168": {
+        "chunk_id": 169,
+        "page": 13,
+        "text": " of the year.\nYogesh Kumar Meena (S’12–M’18) received the\nB.Tech. and M.Tech. degrees in information tech-\nnology from the Indian Institute of Information\nTechnology and Management (IIITM), Gwalior, India,\nin 2010, and the Ph.D. degree in computer science\nfrom Ulster University, Londonderry, U.K., in 2018.\nHe is currently a Visiting Post-Graduate Research\nScholar with the Faculty of Computing and Intelligent\nSystems, University of Ulster, Coleraine, U.K. Previ-\nously, he was a Research Assistant"
+    },
+    "169": {
+        "chunk_id": 170,
+        "page": 13,
+        "text": " and Intelligent\nSystems, University of Ulster, Coleraine, U.K. Previ-\nously, he was a Research Assistant with the School\nof Computing, Engineering & Intelligent Systems,\nUlster University, United Kingdom (May 2017–May 2018) and as an Assistant\nProfessor with the Computer Science & Information Technology Department,\nSharda Group of Institution, India (July 2010–February 2014). His research\ninterests include human–computer interaction, eye-tracking, brain–computer\ninterface, assistive technology,"
+    },
+    "170": {
+        "chunk_id": 171,
+        "page": 13,
+        "text": " include human–computer interaction, eye-tracking, brain–computer\ninterface, assistive technology, robotics-based neuro-rehabilitation, machine\nlearning, and bio-physiological signal processing.\nAshish Dutta (M’07) received the Ph.D. degree in\nsystems engineering from Akita University, Akita,\nJapan. From 1994 to 2000, he was with the Bhabha\nAtomic Research Center, Mumbai, India, where he\nresearched on telemanipulator design and control\nfor nuclear applications. Since 2002, he has been\nwith the Department"
+    },
+    "171": {
+        "chunk_id": 172,
+        "page": 13,
+        "text": " on telemanipulator design and control\nfor nuclear applications. Since 2002, he has been\nwith the Department of Mechanical Engineering,\nIndian Institute of Technology Kanpur, Kanpur,\nIndia. He was also a Visiting Professor with Nagoya\nUniversity, Nagoya, Japan, in 2006 and is currently a\nVisiting Professor with the Kyushu Institute of Tech-\nnology, Kitakyushu, Japan. His current research interests include bio-robotics,\nrobot–human interaction, intelligent control systems, and rehabilitation\nengineering."
+    },
+    "172": {
+        "chunk_id": 173,
+        "page": 13,
+        "text": " include bio-robotics,\nrobot–human interaction, intelligent control systems, and rehabilitation\nengineering.\nGirijesh Prasad (M’98–SM’07) received the B.Tech.\ndegree in electrical engineering, in 1987, the M.Tech.\ndegree in computer science and technology, in 1992,\nand the Ph.D. degree in electrical engineering from\nQueen’s University, Belfast, U.K., in 1997. He cur-\nrently holds the post of Professor of intelligent sys-\ntems with the School of Computing, Engineering, and\nIntelligent Systems, Ulster"
+    },
+    "173": {
+        "chunk_id": 174,
+        "page": 13,
+        "text": " of intelligent sys-\ntems with the School of Computing, Engineering, and\nIntelligent Systems, Ulster University, Londonderry,\nU.K., Magee campus. As an Executive Member of the\nIntelligent Systems Research Centre, Magee campus,\nhe leads the Neural Systems and Neurotechnology\nteam. He is the Director of Northern Ireland Functional Brain Mapping facility\nfor MEG studies. He has authored or coauthored more than 230 research papers\nin international journals, books, and conference proceedings. His research"
+    },
+    "174": {
+        "chunk_id": 175,
+        "page": 13,
+        "text": " more than 230 research papers\nin international journals, books, and conference proceedings. His research inter-\nests include computational intelligence, brain modelling, brain–computer inter-\nfaces and neuro-rehabilitation, and assistive robotic systems. He is a Chartered\nEngineer and a Fellow of the IET and International Academy of Physical\nSciences. He is a Founding Member of the IEEE SMC TCs on Brain–Machine\nInterface Systems.\n140\nIEEE TRANSACTIONS ON HAPTICS, VOL. 12, NO. 2, APRIL-JUNE 2019"
+    },
+    "175": {
+        "chunk_id": 176,
+        "page": 13,
+        "text": " TCs on Brain–Machine\nInterface Systems.\n140\nIEEE TRANSACTIONS ON HAPTICS, VOL. 12, NO. 2, APRIL-JUNE 2019\nAuthorized licensed use limited to: Cornell University Library. Downloaded on September 03,2020 at 06:22:37 UTC from IEEE Xplore. Restrictions apply."
     }
 }

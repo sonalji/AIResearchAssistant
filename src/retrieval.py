@@ -8,6 +8,7 @@ def embed_query(query, model):
     query_embedding = model.encode(query, convert_to_numpy=True).tolist()
     return query_embedding
 
+
 def retrieve_chunks(query,model,index,metadata,top_k=3):
     # Embed the query
     query_embedding = embed_query(query, model)
@@ -19,5 +20,5 @@ def retrieve_chunks(query,model,index,metadata,top_k=3):
         metadata,
         top_k=top_k
     )
-
+    
     return results

@@ -1,0 +1,49 @@
+====================================================================================================
+Rank : 1 | Distance : 0.4662
+Chunk ID: 82 | Page: 7
+ ﬁrst two runs were for calibrating the BCI system
+and the subsequent three runs were for giving online neuro-
+feedback based on the EEG-EMG pattern classiﬁer trained
+during the calibration stage. For the online neurofeedback
+runs, visual and proprioceptive feedbacks were provided
+through the screen
+
+====================================================================================================
+Rank : 2 | Distance : 0.4332
+Chunk ID: 153 | Page: 12
+ “EEG-EMG based
+hybrid brain computer interface for triggering hand exoskeleton for
+neuro-rehabilitation,” in Proc. Adv. Robot., 2017, pp. 45:1–45:6.
+[44] A. Chowdhury, H. Raza, Y. K. Meena, A. Dutta, and G. Prasad, “Online
+covariate shift detection based adaptive brain-computer interface to trig-
+g
+
+====================================================================================================
+Rank : 3 | Distance : 0.4206
+Chunk ID: 80 | Page: 7
+continuously challenges the participant by increasing the difﬁ-
+culty level of the task as the performance level is enhanced.
+In the MP stage the participants were given a hybrid-BCI
+based multimodal neurofeedback contingent to the simulta-
+neous activations in the EEG and EMG signal measured by a
+s
+
+====================================================================================================
+Rank : 4 | Distance : 0.4089
+Chunk ID: 176 | Page: 13
+ TCs on Brain–Machine
+Interface Systems.
+140
+IEEE TRANSACTIONS ON HAPTICS, VOL. 12, NO. 2, APRIL-JUNE 2019
+Authorized licensed use limited to: Cornell University Library. Downloaded on September 03,2020 at 06:22:37 UTC from IEEE Xplore. Restrictions apply.
+
+====================================================================================================
+Rank : 5 | Distance : 0.3783
+Chunk ID: 72 | Page: 6
+ 30 min followed by a
+brain-computer interface (BCI) supported mental Practice
+(MP) stage of almost an hour including the BCI calibration
+time of around 16 min. Participants were made to sit on a chair
+in an upright position at about 0.5 m distance from the com-
+puter screen with the exoskeleton wor
+
